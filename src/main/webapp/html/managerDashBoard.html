@@ -1,0 +1,25 @@
+<h1>Welcome to the Manager DashBoard!</h1>
+
+<div class="jumbotron">
+	<h1>Reimbursement Request Percentage</h1>
+	<canvas id="pieCanvas">
+		Your browser doesn't support canvas
+	</canvas>
+	<br>
+	<h2>Manager LeaderBoard</h2>
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>Rank</th>
+				<th>Manager</th>
+				<th>Requests Resolved</th>
+		</thead>
+		<tbody>
+			<tr ng-repeat="manager in managers">
+				<td>#{{manager.rank}}</td>
+				<td>{{manager.name}}</td>
+				<td>{{manager.amountResolved}}</td>
+			</tr>
+		</tbody>
+	</table>
+</div>

@@ -1,0 +1,60 @@
+
+<div class='jumbotron'>
+<h1 class='display-4'>All Requests</h1>
+<table class="table table-hover">
+	<thead>
+		<tr>
+			<th>Submitter</th>
+			<th>Amount</th>
+			<th>Status</th>
+			<th>Reason</th>
+			<th>Date Submitted</th>
+			<th>Date Resolved</th>
+			<th>Resolver</th>
+			<th>Image</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="req in requests">
+			<td>{{req.subName}}</td>
+			<td>{{req.amount | currency}}</td>
+			<td>{{req.status}}</td>
+			<td>{{req.reason}}</td>
+			<td>{{req.dateSub}}</td>
+			<td>{{req.dateRes}}
+				<div class="row" ng-if="req.dateRes == ''">
+					<button class="btn btn-success col-sm" ng-click="approve(req.id)">Approve</button>
+					<button class="btn btn-danger col-sm" ng-click="deny(req.id)">Deny</button>
+				</div>
+			</td>
+			<td>{{req.resName}}</td>
+			<td><img ng-src="MainServlet/getImage?id={{req.id}}" ng-if="req.hasImage" class="img-thumbnail"></td>
+		</tr>
+	</tbody>
+</table>
+
+</div>
+<div class="jumbotron">
+<h1 class='display-4'>Filter Requests</h1>
+<form>
+	<div class="form-group form-check">
+		<input type="radio" ng-model="field" value="emp_id" id="emp_id" class="form-check-input">
+		<label for="emp_id" class="form-check-label">Search by Employee</label>
+		<br>
+		<input type="radio" ng-model="field" value="status" id="status" class="form-check-input">
+		<label for="status" class="form-check-label">Search by Status</label>
+	</div>
+	<div class="form-group">
+		<select name="Employees" ng-model="value" class="form-control" ng-disabled="field != 'emp_id'">
+			<option value="{{emp.id}}" ng-repeat="emp in employees">{{emp.firstName}} {{emp.lastName}}</option>
+		</select>
+		<select name="Status" ng-model="value" class="form-control" ng-disabled="field != 'status'">
+			<option value="PENDING">PENDING</option>
+			<option value="APPROVED">APPROVED</option>
+			<option value="REJECTED">REJECTED</option>
+		</select>
+	</div>
+<button class="btn btn-primary" ng-click="search()">Search</button>
+<button class="btn btn-secondary" ng-click="clear()">Reset</button>
+</form>
+</div>
