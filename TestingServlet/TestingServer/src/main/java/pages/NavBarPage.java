@@ -3,19 +3,22 @@ package pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class NavBarPage {
 public static WebDriver wd;
+public static WebDriverWait wait;
 	
 	public NavBarPage(WebDriver d) {
 		wd = d;
+		wait = new WebDriverWait(wd, 10);
 	}
 	
 	public WebElement getHomeLink() {
 		return wd.findElement(By.cssSelector("body > div > ui-view > nav > div > ul:nth-child(1) > li > a > img"));
 	}
 	public WebElement getBatchLink() {
-		return wd.findElement(By.cssSelector("link - body > div > ui-view > nav > div > ul.nav.navbar-nav.navbar-right > li:nth-child(2) > a"));
+		return wd.findElement(By.xpath("/html/body/div/ui-view/nav/div/ul[2]/li[2]/a"));
 	}
 	public WebElement getAccessBatchLink() {
 		return wd.findElement(By.cssSelector("body > div > ui-view > nav > div > ul.nav.navbar-nav.navbar-right > li:nth-child(3) > a"));
