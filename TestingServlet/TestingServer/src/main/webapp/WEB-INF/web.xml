@@ -27,7 +27,7 @@
 
 <filter-mapping>
     <filter-name>CORS</filter-name>
-    <url-pattern>/*</url-pattern>
+    <url-pattern>/TestingServer/*</url-pattern>
 </filter-mapping>
 
   <display-name>Archetype Created Web Application</display-name>
