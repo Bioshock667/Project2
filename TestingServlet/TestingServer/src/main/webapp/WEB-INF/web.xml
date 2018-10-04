@@ -27,7 +27,7 @@
 
 <filter-mapping>
     <filter-name>CORS</filter-name>
-    <url-pattern>/TestingServer/TestingSerlvet/*</url-pattern>
+    <url-pattern>/TestingServer/*</url-pattern>
 </filter-mapping>
 
   <display-name>Archetype Created Web Application</display-name>
@@ -39,6 +39,6 @@
   </servlet>
   <servlet-mapping>
   	<servlet-name>TestingSerlvet</servlet-name>
-  	<url-pattern>/TestingSerlvet</url-pattern>
+  	<url-pattern>/*</url-pattern>
   </servlet-mapping>
 </web-app>
