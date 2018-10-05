@@ -14,6 +14,7 @@ export class AppComponent implements OnInit {
   constructor (private serAcc:ServletHttpService) {}
   testResult:Observable<any> = this.serAcc.testGet();
   tableResult:Observable<ResultRow[]> = this.serAcc.runTests("tableGet");
+  navResult:Observable<ResultRow[]> = this.serAcc.runTests("navBar");
   title = 'Project2';
   showTable=false;
   tRows:ResultRow[];
@@ -32,5 +33,12 @@ servResult="no response yet";
       this.tRows=resp;
       this.showTable=true;
     });
+  }
+
+  testNav() {
+    this.navResult.subscribe(resp=>{
+      this.tRows=resp;
+      this.showTable=true;
+    })
   }
 }
