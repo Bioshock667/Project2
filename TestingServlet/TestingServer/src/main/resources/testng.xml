@@ -18,4 +18,16 @@
 </classes>
 </test>
 
+<test name="Smoke Test">
+<groups>
+<run>
+<include name="smoke" />
+</run>
+</groups>
+<classes>
+<class name="consoleTest.HPTest" />
+<class name="consoleTest.IanTestForHP" />
+</classes>
+</test>
+
 </suite>
