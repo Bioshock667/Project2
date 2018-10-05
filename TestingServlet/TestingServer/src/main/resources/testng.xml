@@ -8,7 +8,7 @@
 
 <test name="navBar1">
 <classes>
-<class name="tests.NavBarTest" ></class>
+<class name="../webapps/TestingServer/WEB-INF/classes/tests.NavBarTest" ></class>
 </classes>
 </test>
 
