@@ -1,10 +1,7 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="NavBar">
 
-<listeners>
-<listener class-name="listeners.GenericTestListener" />
 
-</listeners>
 
 <test name="navBar1">
 <classes>
