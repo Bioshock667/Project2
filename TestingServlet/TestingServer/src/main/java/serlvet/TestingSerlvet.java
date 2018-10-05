@@ -48,7 +48,7 @@ public class TestingSerlvet extends HttpServlet {
 			TestNG tng = new TestNG();
 			List<String> suites = new ArrayList<String>();
 			File f = new File("src/main/resources/testing.xml");
-			suites.add("src/main/resources/testing.xml");
+			suites.add("../webapps/TestingServer/WEB-INF/classes/testng.xml");
 			
 			tng.setTestSuites(suites);
 			tng.run();
