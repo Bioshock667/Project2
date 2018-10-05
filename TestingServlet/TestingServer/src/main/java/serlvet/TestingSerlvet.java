@@ -25,8 +25,14 @@ public class TestingSerlvet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//response.addHeader("Access-Control-Allow-Origin", "http://localhost:4200");
     //response.addHeader("Access-Control-Allow-Origin", "*");
+		String uri = request.getRequestURI();
         response.addHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS, PUT, DELETE, HEAD");
-		response.getWriter().append("{\"mainData\":\"testingOne\"}");
+		if (uri.equals("/TestingServer/go")) {
+        response.getWriter().append("{\"mainData\":\"testingOne\"}");
+		}
+		else if (uri.equals("/TestingServer/tableGet")) {
+			response.getWriter().append("[{\"testName\":\"test1\",\"testResult\":\"passed\"},{\"testName\":\"test2\",\"testResult\":\"if you can see this it passed\"}]");
+		}
 	}
 
 	/**
