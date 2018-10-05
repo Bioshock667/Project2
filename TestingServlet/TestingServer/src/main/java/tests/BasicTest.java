@@ -14,6 +14,7 @@ public class BasicTest {
 		File f  = new File("../webapps/TestingServer/WEB-INF/classes/chromedriver.exe");
 		System.setProperty("webdriver.chrome.driver",f.getAbsolutePath());
 		WebDriver driver = new ChromeDriver();
+		driver.get("https://dev-caliber.revature.tech/");
 		driver.quit();
 	}
 
