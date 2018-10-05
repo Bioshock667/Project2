@@ -9,3 +9,18 @@
 <button (click)="testServlet()">Test Servlet</button>
 <button (click)="testTable()">Test Tables</button>
 <p> This was received from the Java Servlet: {{servResult}}</p>
+
+<table *ngIf="showTable">
+  <thead>
+    <tr>
+      <th>Test Name</th>
+      <th>Result</th>
+    </tr>
+    <tbody >
+      <tr *ngFor="let item of tRows">
+        <td>{{item.testName}}</td>
+        <td>{{item.testResult}}</td>
+      </tr>
+    </tbody>
+  </thead>
+</table>
