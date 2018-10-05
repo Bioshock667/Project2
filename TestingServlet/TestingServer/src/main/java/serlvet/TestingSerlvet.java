@@ -52,6 +52,7 @@ public class TestingSerlvet extends HttpServlet {
 			
 			tng.setTestSuites(suites);
 			tng.run();
+			
 			response.getWriter().append("[");
 			List<ITestListener> il = tng.getTestListeners();
 			GenericTestListener tResult = null;

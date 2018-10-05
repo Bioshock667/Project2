@@ -6,9 +6,15 @@
 
 </listeners>
 
-<test name="navBar1">
+<test name="basic1">
 <classes>
 <class name="tests.BasicTest" ></class>
+</classes>
+</test>
+
+<test name="navBar1">
+<classes>
+<class name="tests.NavBarTest" ></class>
 </classes>
 </test>
 
