@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ServletGetService } from './servlet-get.service'
+import { Observable } from 'rxjs';
+import { ServletHttpService } from './services/servlet-http.service';
 
 @Component({
   selector: 'app-root',
@@ -8,11 +10,13 @@ import {ServletGetService } from './servlet-get.service'
 })
 export class AppComponent implements OnInit {
 
-  constructor (private serAcc:ServletGetService) {}
+  constructor (private serAcc:ServletHttpService) {}
+  testResult:Observable<any> = this.serAcc.testGet();
   title = 'Project2';
 servResult="no response yet";
   testServlet() {
-    this.serAcc.initalTest();
-    this.servResult = this.serAcc.i.name;
+   this.testResult.subscribe(resp => {
+    this.servResult = resp.mainData;
+   });
   }
 }
