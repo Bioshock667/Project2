@@ -23,6 +23,7 @@ public class BasicTest {
 		lp.getLogin().click();
 		
 		driver.quit();
+		System.out.println("test before assert");
 		Assert.assertEquals(1, 1);
 	}
 
