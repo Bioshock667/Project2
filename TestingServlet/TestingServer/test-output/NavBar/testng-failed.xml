@@ -4,9 +4,15 @@
   <listeners>
     <listener class-name="listeners.GenericTestListener"/>
   </listeners>
-  <test name="navBar1">
+  <test thread-count="5" name="navBar1(failed)">
     <classes>
-      <class name="tests.NavBarTest"/>
+      <class name="tests.NavBarTest">
+        <methods>
+          <include name="cleanup"/>
+          <include name="setupDriverAndPage"/>
+          <include name="checkBatchLink"/>
+        </methods>
+      </class> <!-- tests.NavBarTest -->
     </classes>
-  </test> <!-- navBar1 -->
+  </test> <!-- navBar1(failed) -->
 </suite> <!-- Failed suite [NavBar] -->

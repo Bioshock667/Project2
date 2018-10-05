@@ -5,7 +5,7 @@
   <meta charset='utf-8'>
   <title>TestNG reports</title>
 
-    <link type="text/css" href="testng-reports.css" rel="stylesheet" />  
+    <link type="text/css" href="testng-reports.css" rel="stylesheet" />
     <script type="text/javascript" src="jquery-1.7.1.min.js"></script>
     <script type="text/javascript" src="testng-reports.js"></script>
     <script type="text/javascript" src="https://www.google.com/jsapi"></script>
@@ -145,7 +145,7 @@
   &lt;listeners&gt;
     &lt;listener class-name=&quot;listeners.GenericTestListener&quot;/&gt;
   &lt;/listeners&gt;
-  &lt;test name=&quot;navBar1&quot;&gt;
+  &lt;test thread-count=&quot;5&quot; name=&quot;navBar1&quot;&gt;
     &lt;classes&gt;
       &lt;class name=&quot;tests.NavBarTest&quot;/&gt;
     &lt;/classes&gt;
@@ -191,12 +191,12 @@ data.addRows(1);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'checkBatchLink')
 data.setCell(0, 2, 'tests.NavBarTest')
-data.setCell(0, 3, 1950);
+data.setCell(0, 3, 2002);
 window.suiteTableData['NavBar']= { tableData: data, tableDiv: 'times-div-NavBar'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 1 seconds</span>
+              <span class="suite-total-time">Total running time: 2 seconds</span>
               <div id="times-div-NavBar">
               </div> <!-- times-div-NavBar -->
             </div> <!-- times-div -->
@@ -229,11 +229,11 @@ return data;
               </div> <!-- configuration-suite before -->
               <div class="test-method">
                 <span class="method-name">checkBatchLink</span>
-                <span class="method-start">6984 ms</span>
+                <span class="method-start">7596 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-suite after">
                 <span class="method-name">cleanup</span>
-                <span class="method-start">8948 ms</span>
+                <span class="method-start">9608 ms</span>
               </div> <!-- configuration-suite after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

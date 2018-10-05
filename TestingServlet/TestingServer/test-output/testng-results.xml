@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" total="1" passed="1">
+<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="NavBar" duration-ms="1958" started-at="2018-10-05T17:26:46Z" finished-at="2018-10-05T17:26:48Z">
+  <suite name="NavBar" duration-ms="2015" started-at="2018-10-05T19:08:15Z" finished-at="2018-10-05T19:08:17Z">
     <groups>
     </groups>
-    <test name="navBar1" duration-ms="1958" started-at="2018-10-05T17:26:46Z" finished-at="2018-10-05T17:26:48Z">
+    <test name="navBar1" duration-ms="2015" started-at="2018-10-05T19:08:15Z" finished-at="2018-10-05T19:08:17Z">
       <class name="tests.NavBarTest">
-        <test-method status="PASS" signature="setupDriverAndPage()[pri:0, instance:tests.NavBarTest@14acaea5]" name="setupDriverAndPage" is-config="true" duration-ms="6978" started-at="2018-10-05T13:26:39Z" finished-at="2018-10-05T13:26:46Z">
+        <test-method status="PASS" signature="setupDriverAndPage()[pri:0, instance:tests.NavBarTest@1794d431]" name="setupDriverAndPage" is-config="true" duration-ms="7585" started-at="2018-10-05T19:08:07Z" finished-at="2018-10-05T19:08:15Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setupDriverAndPage -->
-        <test-method status="PASS" signature="checkBatchLink()[pri:1, instance:tests.NavBarTest@14acaea5]" name="checkBatchLink" duration-ms="1950" started-at="2018-10-05T13:26:46Z" finished-at="2018-10-05T13:26:48Z">
+        <test-method status="PASS" signature="checkBatchLink()[pri:1, instance:tests.NavBarTest@1794d431]" name="checkBatchLink" duration-ms="2002" started-at="2018-10-05T19:08:15Z" finished-at="2018-10-05T19:08:17Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- checkBatchLink -->
-        <test-method status="PASS" signature="cleanup()[pri:0, instance:tests.NavBarTest@14acaea5]" name="cleanup" is-config="true" duration-ms="664" started-at="2018-10-05T13:26:48Z" finished-at="2018-10-05T13:26:48Z">
+        <test-method status="PASS" signature="cleanup()[pri:0, instance:tests.NavBarTest@1794d431]" name="cleanup" is-config="true" duration-ms="677" started-at="2018-10-05T19:08:17Z" finished-at="2018-10-05T19:08:18Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- cleanup -->

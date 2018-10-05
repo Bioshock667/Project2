@@ -23,6 +23,7 @@ public class NavBarTest {
 	public static WebDriver driver;
 	public static WebDriverWait wait;
 	
+	
 	@BeforeSuite //run before all tests
 	public void setupDriverAndPage() throws InterruptedException {
 		
@@ -53,6 +54,7 @@ public class NavBarTest {
 	
 	@AfterSuite //runs after all tests
 	public void cleanup() {
+		
 		driver.quit();
 	}
 }
