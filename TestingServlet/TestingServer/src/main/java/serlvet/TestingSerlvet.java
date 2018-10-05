@@ -63,11 +63,12 @@ public class TestingSerlvet extends HttpServlet {
 				for (ITestResult t: tResult.getPassed()) {
 					response.getWriter().append("{\"testName\":\""+t.getName()+"\",\"testResult\":\"PASSED\"}");
 				}
-				System.out.println("FAILED:");
+				
 				for (ITestResult t: tResult.getFailed()) {
 					response.getWriter().append("{\"testName\":\""+t.getName()+"\",\"testResult\":\"FAILED\"}");
 				}
 			}
+			
 			response.getWriter().append("]");
 		}
 	}
