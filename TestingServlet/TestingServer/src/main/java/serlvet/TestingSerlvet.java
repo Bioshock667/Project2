@@ -1,5 +1,6 @@
 package serlvet;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -46,7 +47,8 @@ public class TestingSerlvet extends HttpServlet {
 		else if (uri.equals("/TestingServer/navBar")) {
 			TestNG tng = new TestNG();
 			List<String> suites = new ArrayList<String>();
-			suites.add("./src/main/resources/testing.xml");
+			File f = new File("src/main/resources/testing.xml");
+			suites.add(f.getAbsolutePath());
 			
 			tng.setTestSuites(suites);
 			tng.run();
