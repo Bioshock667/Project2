@@ -1,21 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
+<testng-results skipped="0" failed="0" ignored="0" total="8" passed="8">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="4382" started-at="2018-10-08T20:05:06Z" finished-at="2018-10-08T20:05:11Z">
+  <suite name="Default suite" duration-ms="13088" started-at="2018-10-08T20:26:16Z" finished-at="2018-10-08T20:26:29Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="4382" started-at="2018-10-08T20:05:06Z" finished-at="2018-10-08T20:05:11Z">
+    <test name="Default test" duration-ms="13088" started-at="2018-10-08T20:26:16Z" finished-at="2018-10-08T20:26:29Z">
       <class name="tests.ManageBatchTest">
-        <test-method status="PASS" signature="setupDriverAndPage()[pri:0, instance:tests.ManageBatchTest@39c0f4a]" name="setupDriverAndPage" is-config="true" duration-ms="9775" started-at="2018-10-08T20:04:56Z" finished-at="2018-10-08T20:05:06Z">
+        <test-method status="PASS" signature="setupDriverAndPage()[pri:0, instance:tests.ManageBatchTest@1794d431]" name="setupDriverAndPage" is-config="true" duration-ms="10510" started-at="2018-10-08T20:26:05Z" finished-at="2018-10-08T20:26:16Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setupDriverAndPage -->
-        <test-method status="PASS" signature="checkDateError()[pri:8, instance:tests.ManageBatchTest@39c0f4a]" name="checkDateError" duration-ms="4373" started-at="2018-10-08T20:05:06Z" finished-at="2018-10-08T20:05:11Z">
+        <test-method status="PASS" signature="checkYearFilterOptions()[pri:2, instance:tests.ManageBatchTest@1794d431]" name="checkYearFilterOptions" duration-ms="940" started-at="2018-10-08T20:26:16Z" finished-at="2018-10-08T20:26:17Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- checkYearFilterOptions -->
+        <test-method status="PASS" signature="checkBatchButton()[pri:3, instance:tests.ManageBatchTest@1794d431]" name="checkBatchButton" duration-ms="861" started-at="2018-10-08T20:26:17Z" finished-at="2018-10-08T20:26:18Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- checkBatchButton -->
+        <test-method status="PASS" signature="checkCreateBatchClose()[pri:4, instance:tests.ManageBatchTest@1794d431]" name="checkCreateBatchClose" duration-ms="747" started-at="2018-10-08T20:26:18Z" finished-at="2018-10-08T20:26:18Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- checkCreateBatchClose -->
+        <test-method status="PASS" signature="checkCreateBatchCloseButton()[pri:5, instance:tests.ManageBatchTest@1794d431]" name="checkCreateBatchCloseButton" duration-ms="1490" started-at="2018-10-08T20:26:18Z" finished-at="2018-10-08T20:26:20Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- checkCreateBatchCloseButton -->
+        <test-method status="PASS" signature="checkSaveButton()[pri:6, instance:tests.ManageBatchTest@1794d431]" name="checkSaveButton" duration-ms="1018" started-at="2018-10-08T20:26:20Z" finished-at="2018-10-08T20:26:21Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- checkSaveButton -->
+        <test-method status="PASS" signature="checkBatchCreation()[pri:7, instance:tests.ManageBatchTest@1794d431]" name="checkBatchCreation" duration-ms="3362" started-at="2018-10-08T20:26:21Z" finished-at="2018-10-08T20:26:24Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- checkBatchCreation -->
+        <test-method status="PASS" signature="checkDateError()[pri:8, instance:tests.ManageBatchTest@1794d431]" name="checkDateError" duration-ms="3816" started-at="2018-10-08T20:26:24Z" finished-at="2018-10-08T20:26:28Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- checkDateError -->
-        <test-method status="PASS" signature="cleanup()[pri:0, instance:tests.ManageBatchTest@39c0f4a]" name="cleanup" is-config="true" duration-ms="3730" started-at="2018-10-08T20:05:11Z" finished-at="2018-10-08T20:05:14Z">
+        <test-method status="PASS" signature="checkTraineesGlyph()[pri:10, instance:tests.ManageBatchTest@1794d431]" name="checkTraineesGlyph" duration-ms="815" started-at="2018-10-08T20:26:28Z" finished-at="2018-10-08T20:26:29Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- checkTraineesGlyph -->
+        <test-method status="PASS" signature="cleanup()[pri:0, instance:tests.ManageBatchTest@1794d431]" name="cleanup" is-config="true" duration-ms="3709" started-at="2018-10-08T20:26:29Z" finished-at="2018-10-08T20:26:33Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- cleanup -->
