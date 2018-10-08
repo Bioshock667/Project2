@@ -3,6 +3,7 @@ import {ServletGetService } from './servlet-get.service'
 import { Observable } from 'rxjs';
 import { ServletHttpService } from './services/servlet-http.service';
 import { ResultRow } from './model/result-row';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @Component({
   selector: 'app-root',
@@ -17,6 +18,7 @@ export class AppComponent implements OnInit {
   navResult:Observable<ResultRow[]> = this.serAcc.runTests("navBar");
   title = 'Project2';
   showTable=false;
+  loading = false;
   tRows:ResultRow[];
 servResult="no response yet";
   testServlet() {
@@ -36,8 +38,10 @@ servResult="no response yet";
   }
 
   testNav() {
+    this.loading = true;
     this.navResult.subscribe(resp=>{
       this.tRows=resp;
+      this.loading=false;
       this.showTable=true;
     })
   }
