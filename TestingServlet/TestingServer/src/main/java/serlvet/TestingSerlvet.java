@@ -71,6 +71,7 @@ public class TestingSerlvet extends HttpServlet {
 				}
 			}
 			String s = sb.substring(0, sb.length()-2);
+			response.getWriter().append(s);
 			response.getWriter().append("]");
 		}
 	}
