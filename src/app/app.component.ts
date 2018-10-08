@@ -19,6 +19,7 @@ export class AppComponent implements OnInit {
   title = 'Project2';
   showTable=false;
   loading = false;
+  displayedColumns=["tname","tres"]
   tRows:ResultRow[];
 servResult="no response yet";
   testServlet() {
