@@ -12,7 +12,7 @@
     <button (click)="testTable()">Test Tables</button>
     <button (click)="testNav()">Test Nav</button>
     <p> This was received from the Java Servlet: {{servResult}}</p>
-    <mat-progress-spinner  mode="indeterminate"></mat-progress-spinner>
+    <mat-progress-spinner  mode="indeterminate" *ngIf="loading"></mat-progress-spinner>
   </mat-card-content></mat-card>
 
 <table *ngIf="showTable">
