@@ -15,7 +15,7 @@
     <button mat-raised-button (click)="testServlet()">Test Servlet</button>
     <button mat-raised-button color="primary" (click)="testTable()">Test Tables</button>
     <button mat-raised-button color="accent" (click)="testNav()">Test Nav</button>
-    <button mat-raised-button color="warn" >nextTest</button>
+    <button mat-raised-button color="warn" (click)="testHome()">Test Homepage</button>
     <p> This was received from the Java Servlet: {{servResult}}</p>
     <mat-progress-spinner  mode="indeterminate" *ngIf="loading"></mat-progress-spinner>
     <table mat-table *ngIf="showTable" [dataSource]="tRows" width="30%">

@@ -3,7 +3,7 @@ import {ServletGetService } from './servlet-get.service'
 import { Observable } from 'rxjs';
 import { ServletHttpService } from './services/servlet-http.service';
 import { ResultRow } from './model/result-row';
-import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+
 
 
 
@@ -19,6 +19,7 @@ export class AppComponent implements OnInit {
   testResult:Observable<any> = this.serAcc.testGet();
   tableResult:Observable<ResultRow[]> = this.serAcc.runTests("tableGet");
   navResult:Observable<ResultRow[]> = this.serAcc.runTests("navBar");
+  homeResult:Observable<ResultRow[]> = this.serAcc.runTests("homePage");
   title = 'Project2';
   showTable=false;
   loading = false;
@@ -49,6 +50,16 @@ servResult="no response yet";
       this.tRows=resp;
       this.loading=false;
       this.showTable=true;
-    })
+    });
+  }
+
+  testHome() {
+    this.showTable=false;
+    this.loading = true;
+    this.homeResult.subscribe(resp=>{
+      this.tRows=resp;
+      this.loading=false;
+      this.showTable=true;
+    });
   }
 }
