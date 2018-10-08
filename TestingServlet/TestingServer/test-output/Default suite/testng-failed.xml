@@ -5,7 +5,7 @@
     <classes>
       <class name="tests.ManageBatchTest">
         <methods>
-          <include name="checkYearFilterOptions"/>
+          <include name="checkDateError"/>
           <include name="setupDriverAndPage"/>
           <include name="cleanup"/>
         </methods>

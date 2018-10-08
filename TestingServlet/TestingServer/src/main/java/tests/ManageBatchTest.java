@@ -47,109 +47,136 @@ public class ManageBatchTest {
 		wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("li[data-target='#createBatchModal']")));
 
 	}
-	//test
-	@Test(priority = 2)
-	public void checkYearFilterOptions() throws InterruptedException {
-		manageBatch.getYearFilter().click();
-		for(int i = 1; i <= 4; i++) {
-			wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#manage > div:nth-child(1) > div > div > ul > li.dropdown > ul > li:nth-child(" + i + ") > a")));
-			manageBatch.getYearFilterOptions(i).click();
-			manageBatch.getYearFilter().click();
-		}
-	}
 	
-	@Test(priority = 3)
-	public void checkBatchButton() throws InterruptedException {
+//	@Test(priority = 2)
+//	public void checkYearFilterOptions() {
+//		manageBatch.getYearFilter().click();
+//		for(int i = 1; i <= 4; i++) {
+//			wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#manage > div:nth-child(1) > div > div > ul > li.dropdown > ul > li:nth-child(" + i + ") > a")));
+//			manageBatch.getYearFilterOptions(i).click();
+//			manageBatch.getYearFilter().click();
+//		}
+//	}
+//	
+//	@Test(priority = 3)
+//	public void checkBatchButton() {
+//		manageBatch.getCreateBatchButton().click();
+//		
+//		//wait until an element is visible to see if page is displayed
+//		wait = new WebDriverWait(driver, 5);
+//		wait.until(ExpectedConditions.visibilityOf(manageBatch.getCreateBatchClose()));
+//		
+//		Assert.assertTrue(manageBatch.getCreateBatchModal().isDisplayed());
+//	}
+//	
+//	@Test(priority = 4)
+//	public void checkCreateBatchClose() throws InterruptedException {
+//		manageBatch.getCreateBatchClose().click();
+//		
+//		//wait until the create batch modal has closed fully
+//		wait = new WebDriverWait(driver, 5);
+//		wait.until(ExpectedConditions.invisibilityOf(manageBatch.getCreateBatchModal()));
+//		
+//		Assert.assertFalse(manageBatch.getCreateBatchModal().isDisplayed());
+//	}
+//	
+//	@Test(priority = 5)
+//	public void checkCreateBatchCloseButton() {
+//		manageBatch.getCreateBatchButton().click();
+//		manageBatch.getCreateBatchCloseButton().click();
+//		
+//		//wait until the create batch modal has closed fully
+//		wait = new WebDriverWait(driver, 5);
+//		wait.until(ExpectedConditions.invisibilityOf(manageBatch.getCreateBatchModal()));
+//		
+//		Assert.assertFalse(manageBatch.getCreateBatchModal().isDisplayed());
+//	}
+//	
+//	@Test(priority = 6)
+//	public void checkSaveButton() {
+//		manageBatch.getCreateBatchButton().click();
+//		wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#createBatchModal > div > div > div.modal-footer > input")));
+//		manageBatch.getCreateBatchSaveButton().click();
+//		Assert.assertTrue(manageBatch.getCreateBatchModal().isDisplayed());
+//	}
+//	
+//	@Test(priority = 7)
+//	public void checkBatchCreation() throws InterruptedException {
+//		manageBatch.getCreateBatchTrainingName().sendKeys("7833 Aug27 Java");
+//		manageBatch.getCreateBatchSaveButton().click();
+//		Assert.assertTrue(manageBatch.getCreateBatchModal().isDisplayed());
+//		
+//		Select trainingType = new Select(manageBatch.getCreateBatchTrainingType());
+//		trainingType.selectByIndex(1);
+//		manageBatch.getCreateBatchSaveButton().click();
+//		Assert.assertTrue(manageBatch.getCreateBatchModal().isDisplayed());
+//		
+//		Select skillType = new Select(manageBatch.getCreateBatchSkillType());
+//		skillType.selectByIndex(6);
+//		manageBatch.getCreateBatchSaveButton().click();
+//		Assert.assertTrue(manageBatch.getCreateBatchModal().isDisplayed());
+//		
+//		Select location = new Select(manageBatch.getCreateBatchLocation());
+//		location.selectByIndex(3);
+//		manageBatch.getCreateBatchSaveButton().click();
+//		Assert.assertTrue(manageBatch.getCreateBatchModal().isDisplayed());
+//		
+//		Select trainer = new Select(manageBatch.getCreateBatchTrainer());
+//		trainer.selectByIndex(3);
+//		manageBatch.getCreateBatchSaveButton().click();
+//		Assert.assertTrue(manageBatch.getCreateBatchModal().isDisplayed());
+//		
+//		Select coTrainer = new Select(manageBatch.getCreateBatchCoTrainer());
+//		coTrainer.selectByIndex(3);
+//		manageBatch.getCreateBatchSaveButton().click();
+//		Assert.assertTrue(manageBatch.getCreateBatchModal().isDisplayed());
+//		
+//		manageBatch.getCreateBatchStartDate().sendKeys("08" + "27" + "2018");
+//		manageBatch.getCreateBatchSaveButton().click();
+//		Assert.assertTrue(manageBatch.getCreateBatchModal().isDisplayed());
+//		
+//		manageBatch.getCreateBatchEndDate().sendKeys("11" + "06" + "2018");
+//		manageBatch.getCreateBatchSaveButton().click();
+//		Assert.assertTrue(manageBatch.getCreateBatchModal().isDisplayed());
+//		
+//		manageBatch.getCreateBatchGoodGrade().sendKeys("80");
+//		Assert.assertTrue(manageBatch.getCreateBatchModal().isDisplayed());
+//		
+//		manageBatch.getCreateBatchPassingGrade().sendKeys("60");
+//		manageBatch.getCreateBatchSaveButton().click();
+//		
+//		Thread.sleep(1000);
+//		Assert.assertFalse(manageBatch.getCreateBatchModal().isDisplayed());
+//	}
+	
+	@Test(priority = 8)
+	public void checkDateError() throws InterruptedException {
 		manageBatch.getCreateBatchButton().click();
-		
-		//wait until an element is visible to see if page is displayed
-		wait = new WebDriverWait(driver, 5);
-		wait.until(ExpectedConditions.visibilityOf(manageBatch.getCreateBatchClose()));
-		
-		Assert.assertTrue(manageBatch.getCreateBatchModal().isDisplayed());
-	}
-	
-	@Test(priority = 4)
-	public void checkCreateBatchClose() throws InterruptedException {
-		manageBatch.getCreateBatchClose().click();
-		
-		//wait until the create batch modal has closed fully
-		wait = new WebDriverWait(driver, 5);
-		wait.until(ExpectedConditions.invisibilityOf(manageBatch.getCreateBatchModal()));
-		
-		Assert.assertFalse(manageBatch.getCreateBatchModal().isDisplayed());
-	}
-	
-	@Test(priority = 5)
-	public void checkCreateBatchCloseButton() {
-		manageBatch.getCreateBatchButton().click();
-		manageBatch.getCreateBatchCloseButton().click();
-		
-		//wait until the create batch modal has closed fully
-		wait = new WebDriverWait(driver, 5);
-		wait.until(ExpectedConditions.invisibilityOf(manageBatch.getCreateBatchModal()));
-		
-		Assert.assertFalse(manageBatch.getCreateBatchModal().isDisplayed());
-	}
-	
-	@Test(priority = 6)
-	public void checkSaveButton() {
-		manageBatch.getCreateBatchButton().click();
-		wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#createBatchModal > div > div > div.modal-footer > input")));
-		manageBatch.getCreateBatchSaveButton().click();
-		Assert.assertTrue(manageBatch.getCreateBatchModal().isDisplayed());
-	}
-	
-	@Test(priority = 7)
-	public void checkBatchCreation() throws InterruptedException {
 		manageBatch.getCreateBatchTrainingName().sendKeys("7833 Aug27 Java");
-		manageBatch.getCreateBatchSaveButton().click();
-		Assert.assertTrue(manageBatch.getCreateBatchModal().isDisplayed());
-		
 		Select trainingType = new Select(manageBatch.getCreateBatchTrainingType());
 		trainingType.selectByIndex(1);
-		manageBatch.getCreateBatchSaveButton().click();
-		Assert.assertTrue(manageBatch.getCreateBatchModal().isDisplayed());
-		
 		Select skillType = new Select(manageBatch.getCreateBatchSkillType());
 		skillType.selectByIndex(6);
-		manageBatch.getCreateBatchSaveButton().click();
-		Assert.assertTrue(manageBatch.getCreateBatchModal().isDisplayed());
-		
 		Select location = new Select(manageBatch.getCreateBatchLocation());
 		location.selectByIndex(3);
-		manageBatch.getCreateBatchSaveButton().click();
-		Assert.assertTrue(manageBatch.getCreateBatchModal().isDisplayed());
-		
 		Select trainer = new Select(manageBatch.getCreateBatchTrainer());
 		trainer.selectByIndex(3);
-		manageBatch.getCreateBatchSaveButton().click();
-		Assert.assertTrue(manageBatch.getCreateBatchModal().isDisplayed());
-		
 		Select coTrainer = new Select(manageBatch.getCreateBatchCoTrainer());
 		coTrainer.selectByIndex(3);
-		manageBatch.getCreateBatchSaveButton().click();
-		Assert.assertTrue(manageBatch.getCreateBatchModal().isDisplayed());
-		
 		manageBatch.getCreateBatchStartDate().sendKeys("08" + "27" + "2018");
-		manageBatch.getCreateBatchSaveButton().click();
-		Assert.assertTrue(manageBatch.getCreateBatchModal().isDisplayed());
-		
-		manageBatch.getCreateBatchEndDate().sendKeys("11" + "06" + "2018");
-		manageBatch.getCreateBatchSaveButton().click();
-		Assert.assertTrue(manageBatch.getCreateBatchModal().isDisplayed());
-		
+		manageBatch.getCreateBatchEndDate().sendKeys("08" + "26" + "2018");
 		manageBatch.getCreateBatchGoodGrade().sendKeys("80");
-		Assert.assertTrue(manageBatch.getCreateBatchModal().isDisplayed());
-		
 		manageBatch.getCreateBatchPassingGrade().sendKeys("60");
 		manageBatch.getCreateBatchSaveButton().click();
-		
+		Assert.assertTrue(manageBatch.getCreateBatchDateError().isDisplayed());
+		manageBatch.getCreateBatchDateErrorClose().click();
+//		wait.until(ExpectedConditions.invisibilityOf(manageBatch.getCreateBatchDateError()));
 		Thread.sleep(1000);
-		Assert.assertFalse(manageBatch.getCreateBatchModal().isDisplayed());
+		
+		manageBatch.getCreateBatchCloseButton().click();
 	}
 
-//	@Test(priority = 8)
+//	@Test(priority = 10)
 //	public void checkTraineesGlyph() {
 //		manageBatch.getTraineesGlyph().click();
 //	}

@@ -150,6 +150,22 @@ public class ManageBatchPage {
 		return wd.findElement(By.cssSelector(selector));
 	}
 	
+	public WebElement getCreateBatchDateError() {
+		String selector = "batchModalLabel";
+		wait = new WebDriverWait(wd, 5);
+		wait.until(ExpectedConditions.elementToBeClickable(By.id(selector)));
+		
+		return wd.findElement(By.id(selector));
+	}
+	
+	public WebElement getCreateBatchDateErrorClose() {
+		String selector = "#checkBatchModal > div > div > div.modal-footer > button";
+		wait = new WebDriverWait(wd, 5);
+		wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(selector)));
+		
+		return wd.findElement(By.cssSelector(selector));
+	}
+	
 	public WebElement getTraineesGlyph() {
 		String selector = "span[class='glyphicon glyphicon-user']";
 		wait = new WebDriverWait(wd, 5);
