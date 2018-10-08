@@ -5,6 +5,8 @@ import { ServletHttpService } from './services/servlet-http.service';
 import { ResultRow } from './model/result-row';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
+
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -13,6 +15,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 export class AppComponent implements OnInit {
 
   constructor (private serAcc:ServletHttpService) {}
+  ngOnInit() {}
   testResult:Observable<any> = this.serAcc.testGet();
   tableResult:Observable<ResultRow[]> = this.serAcc.runTests("tableGet");
   navResult:Observable<ResultRow[]> = this.serAcc.runTests("navBar");

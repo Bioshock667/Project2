@@ -1,11 +1,15 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
+ <mat-toolbar color="primary" style="justify-content: center">
+   <mat-toolbar-row>
+     <span style="text-align: center;margin: 0 auto"> Welcome to Caliber Test Suite!</span>
+   </mat-toolbar-row>
+ </mat-toolbar>
+   
+  
   
 </div>
-<p>Looks like this page is unfinished.  Stay tuned as we continously update our website</p>
+
 
 <mat-card><mat-card-content>
     <button mat-raised-button (click)="testServlet()">Test Servlet</button>
@@ -25,9 +29,7 @@
             </ng-container>
           <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
           <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-       
+       </table>
   </mat-card-content></mat-card>
 
 
-  
-</table>
