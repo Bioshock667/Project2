@@ -28,9 +28,8 @@ public class IanTestForHP {
 		
 		
 		System.out.println("Prayers");
-		hp.getUserGuide();
-		int kids = hp.getRLQAChildren();
-		System.out.println("KIDS : " +  kids);
+
+		
 		// TEST User Guide
 //		UGtest(hp);
 		
@@ -50,10 +49,9 @@ public class IanTestForHP {
 //		toggles(hp);
 //		Thread.sleep(3000);
 		
-		// ** CLOSE OUT ** //
-		Thread.sleep(2000);		
+		// ** CLOSE OUT ** //	
 		System.out.println("CLOSING");
-		driver.close();
+		driver.quit();
 	}
 
 	public static void UGtest(HomePage hp) throws InterruptedException {

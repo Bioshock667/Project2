@@ -12,6 +12,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class HomePage {
 	
 public static WebDriver wd;
+// HP
+public static WebDriverWait HPwait;
 // UG = User Guide
 public static WebDriverWait UGwait;
 //LQA = Last Quality Audit
@@ -26,6 +28,12 @@ public static WebDriverWait WPwait;
 		wd = d;
 	}
 	
+	public WebElement getHome() {
+		HPwait = new WebDriverWait(wd,10);
+		HPwait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("#home > div:nth-child(2) > div > div:nth-child(1) > div > div > div.panel-heading > select")));
+		return wd.findElement(By.cssSelector("body"));
+	}
+	
 	public WebElement getUserGuide() {
 		UGwait = new WebDriverWait(wd,10);
 		UGwait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("#home > div:nth-child(1) > div > p > a")));
@@ -36,21 +44,68 @@ public static WebDriverWait WPwait;
 		return wd.findElement(By.cssSelector("#home > div:nth-child(2) > div > div:nth-child(1) > div > div > div.panel-body > div.chart-container.top5 > canvas"));
 	}
 	
+	
+	// LQA
 	public WebElement getRIGHTLQASelector() {
 		LQAwait = new WebDriverWait(wd,10);
 		LQAwait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("#home > div:nth-child(2) > div > div:nth-child(1) > div > div > div.panel-heading > select")));
-//		System.out.println("HP LQA RIGHT");
 		return wd.findElement(By.cssSelector("#home > div:nth-child(2) > div > div:nth-child(1) > div > div > div.panel-heading > select"));
 	}
+	
+	public int getRIGHTLQA_StateNOCITY_Children() {
+		int children = 1;
+		while (true) {
+		try {
+			if (null != wd.findElement(By.cssSelector("#home > div:nth-child(2) > div > div:nth-child(1) > div > div > div.panel-heading > select > option:nth-child(" + children + ")"))){
+			} else {
+				break;
+			}
+		} catch (Exception e) {
+			break;
+		}
+		children++;
+		}
+		return children - 1;
+	}	
+	
+	public int getRIGHTLQA_City_Children() {
+		int children = 1;
+		while (true) {
+		try {
+			if (null != wd.findElement(By.cssSelector("#home > div:nth-child(2) > div > div:nth-child(1) > div > div > div.panel-heading > select.pull-right.ng-pristine.ng-valid.ng-scope.ng-empty.ng-touched > option:nth-child(" + children + ")"))){
+			} else {
+				break;
+			}
+		} catch (Exception e) {
+			break;
+		}
+		children++;
+		}
+		return children - 1;
+	}	
 	
 	public WebElement getLEFTLQASelector() {
 		LQAwait = new WebDriverWait(wd,10);
 		LQAwait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("#home > div:nth-child(2) > div > div:nth-child(1) > div > div > div.panel-heading > select.pull-right.ng-valid.ng-dirty.ng-valid-parse.ng-touched.ng-not-empty")));
-//		System.out.println("HP LQA LEFT");
-//		System.out.println("WD : " + wd.);
-//		System.out.println(wd.findElement(By.ByLinkText)))
 		return wd.findElement(By.cssSelector("#home > div:nth-child(2) > div > div:nth-child(1) > div > div > div.panel-heading > select.pull-right.ng-valid.ng-dirty.ng-valid-parse.ng-touched.ng-not-empty"));
 	}
+
+	
+	public int getLEFTLQA_StateWithCity_Children() {
+		int children = 1;
+		while (true) {
+		try {
+			if (null != wd.findElement(By.cssSelector("#home > div:nth-child(2) > div > div:nth-child(1) > div > div > div.panel-heading > select.pull-right.ng-valid.ng-dirty.ng-valid-parse.ng-touched.ng-not-empty > option:nth-child(" + children + ")"))){
+			} else {
+				break;
+			}
+		} catch (Exception e) {
+			break;
+		}
+		children++;
+		}
+		return children - 1;
+	}	
 	
 	// y is 15
 	// poor x is 194 - 234 
@@ -81,21 +136,19 @@ public static WebDriverWait WPwait;
 		LQAsuperstar = aBuilder.moveToElement(wd.findElement(By.cssSelector("#home > div:nth-child(2) > div > div:nth-child(1) > div > div > div.panel-body > div.chart-container.top5 > canvas")), 0, 0).moveByOffset(400,15).click().build();LQAsuperstar.perform();// x ~60-74 : y ~60-74
 	}
 	
-	public WebElement explore() {
-		return wd.findElement(By.cssSelector("#home > div:nth-child(2) > div > div:nth-child(1)"));
+	
+	// WP
+	public WebElement getLEFTWPSelector() {
+		WPwait = new WebDriverWait(wd,10);
+		WPwait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("#home > div:nth-child(2) > div > div:nth-child(2) > div > div > div.panel-heading > select.pull-right.ng-valid.ng-dirty.ng-valid-parse.ng-touched.ng-not-empty")));
+		return wd.findElement(By.cssSelector("#home > div:nth-child(2) > div > div:nth-child(2) > div > div > div.panel-heading > select.pull-right.ng-valid.ng-dirty.ng-valid-parse.ng-touched.ng-not-empty"));
 	}
 	
-//	public WebElement findchildren() {
-//
-//		//		WebElement input = divA.findElement(By.xpath(".//input"));
-//	}https://stackoverflow.com/questions/10520294/locating-child-nodes-of-webelements-in-selenium
-	
-	public int getRLQAChildren() {
+	public int getLEFTWP_StateWithCity_Children() {
 		int children = 1;
 		while (true) {
 		try {
-			System.out.println("BEFORE SEARCHING Children = " + children); Thread.sleep(2000);
-			if (null != wd.findElement(By.cssSelector("#home > div:nth-child(2) > div > div:nth-child(1) > div > div > div.panel-heading > select > option:nth-child(" + children + ")"))){
+			if (null != wd.findElement(By.cssSelector("#home > div:nth-child(2) > div > div:nth-child(2) > div > div > div.panel-heading > select.pull-right.ng-valid.ng-dirty.ng-valid-parse.ng-touched.ng-not-empty > option:nth-child(" + children + ")"))){
 			} else {
 				break;
 			}
@@ -105,37 +158,44 @@ public static WebDriverWait WPwait;
 		children++;
 		}
 		return children - 1;
-	}
-	
-	
-	// this thing is straight garbage until i can find a way to grab a selector
-//	public WebElement getLQAnState(int n) {
-//		if (n > 0) {
-//			LQAwait = new WebDriverWait(wd, 10);
-//			LQAwait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector(
-//					"#home > div:nth-child(2) > div > div:nth-child(1) > div > div > div.panel-heading > select.pull-right.ng-valid.ng-dirty.ng-valid-parse.ng-touched.ng-not-empty > option:nth-child("
-//							+ n + ")")));
-//			return wd.findElement(By.cssSelector(
-//					"#home > div:nth-child(2) > div > div:nth-child(1) > div > div > div.panel-heading > select.pull-right.ng-valid.ng-dirty.ng-valid-parse.ng-touched.ng-not-empty > option:nth-child("
-//							+ n + ")"));
-//		}
-//		else {return null;}
-//	}
-//	
-	
-	
-	public WebElement getLEFTWPSelector() {
-		WPwait = new WebDriverWait(wd,10);
-		WPwait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("#home > div:nth-child(2) > div > div:nth-child(2) > div > div > div.panel-heading > select.pull-right.ng-valid.ng-dirty.ng-valid-parse.ng-touched.ng-not-empty")));
-//		System.out.println("HP LQA RIGHT");
-		return wd.findElement(By.cssSelector("#home > div:nth-child(2) > div > div:nth-child(2) > div > div > div.panel-heading > select.pull-right.ng-valid.ng-dirty.ng-valid-parse.ng-touched.ng-not-empty"));
-	}
-	
+	}	
+
 	public WebElement getRIGHTWPSelector() {
 		WPwait = new WebDriverWait(wd,10);
 		WPwait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("#home > div:nth-child(2) > div > div:nth-child(2) > div > div > div.panel-heading > select")));
-//		System.out.println("HP LQA RIGHT");
 		return wd.findElement(By.cssSelector("#home > div:nth-child(2) > div > div:nth-child(2) > div > div > div.panel-heading > select"));
 	}
-
+	
+	public int getRIGHTWP_StateNOCITY_Children() {
+		int children = 1;
+		while (true) {
+		try {
+			if (null != wd.findElement(By.cssSelector("#home > div:nth-child(2) > div > div:nth-child(2) > div > div > div.panel-heading > select > option:nth-child(" + children + ")"))){
+			} else {
+				break;
+			}
+		} catch (Exception e) {
+			break;
+		}
+		children++;
+		}
+		return children - 1;
+	}	
+	
+	public int getRIGHTWP_City_Children() {
+		int children = 1;
+		while (true) {
+		try {
+			if (null != wd.findElement(By.cssSelector("#home > div:nth-child(2) > div > div:nth-child(2) > div > div > div.panel-heading > select.pull-right.ng-pristine.ng-valid.ng-scope.ng-empty.ng-touched > option:nth-child(" + children + ")"))){
+			} else {
+				break;
+			}
+		} catch (Exception e) {
+			break;
+		}
+		children++;
+		}
+		return children - 1;
+	}	
+	
 }
