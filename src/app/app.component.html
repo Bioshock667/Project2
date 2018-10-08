@@ -6,11 +6,15 @@
   
 </div>
 <p>Looks like this page is unfinished.  Stay tuned as we continously update our website</p>
-<button (click)="testServlet()">Test Servlet</button>
-<button (click)="testTable()">Test Tables</button>
-<button (click)="testNav()">Test Nav</button>
-<p> This was received from the Java Servlet: {{servResult}}</p>
-<mat-progress-spinner *ngIf="loading" mode="indeterminate"></mat-progress-spinner>
+
+<mat-card><mat-card-content>
+    <button (click)="testServlet()">Test Servlet</button>
+    <button (click)="testTable()">Test Tables</button>
+    <button (click)="testNav()">Test Nav</button>
+    <p> This was received from the Java Servlet: {{servResult}}</p>
+    <mat-progress-spinner  mode="indeterminate"></mat-progress-spinner>
+  </mat-card-content></mat-card>
+
 <table *ngIf="showTable">
   <thead>
     <tr>
