@@ -56,20 +56,21 @@ public class TestingSerlvet extends HttpServlet {
 			response.getWriter().append("[");
 			List<ITestListener> il = tng.getTestListeners();
 			GenericTestListener tResult = null;
+			StringBuilder sb = new StringBuilder();
 			for (ITestListener i : il) {
 				if (i instanceof GenericTestListener) tResult = (GenericTestListener)i;
 			}
 			if (tResult != null) {
 				
 				for (ITestResult t: tResult.getPassed()) {
-					response.getWriter().append("{\"testName\":\""+t.getName()+"\",\"testResult\":\"PASSED\"}");
+					sb.append("{\"testName\":\""+t.getName()+"\",\"testResult\":\"PASSED\"},");
 				}
 				
 				for (ITestResult t: tResult.getFailed()) {
-					response.getWriter().append("{\"testName\":\""+t.getName()+"\",\"testResult\":\"FAILED\"}");
+					sb.append("{\"testName\":\""+t.getName()+"\",\"testResult\":\"FAILED\"},");
 				}
 			}
-			
+			String s = sb.substring(0, sb.length()-2);
 			response.getWriter().append("]");
 		}
 	}
