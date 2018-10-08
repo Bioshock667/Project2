@@ -18,7 +18,7 @@
     <button mat-raised-button color="warn" >nextTest</button>
     <p> This was received from the Java Servlet: {{servResult}}</p>
     <mat-progress-spinner  mode="indeterminate" *ngIf="loading"></mat-progress-spinner>
-    <table mat-table *ngIf="showTable" [dataSource]="tRows">
+    <table mat-table *ngIf="showTable" [dataSource]="tRows" width="30%">
         <ng-container matColumnDef="tname">
             <th mat-header-cell *matHeaderCellDef>Test Name</th>
             <td mat-cell *matCellDef="let item">{{item.testName}}</td>

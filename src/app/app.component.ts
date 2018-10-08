@@ -32,6 +32,7 @@ servResult="no response yet";
   }
 
   testTable() {
+    this.showTable=false;
     this.tableResult.subscribe(resp=> {
       console.log(resp.length);
       console.log(resp[0]);
@@ -42,6 +43,7 @@ servResult="no response yet";
   }
 
   testNav() {
+    this.showTable=false;
     this.loading = true;
     this.navResult.subscribe(resp=>{
       this.tRows=resp;
