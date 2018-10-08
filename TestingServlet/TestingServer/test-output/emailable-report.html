@@ -9,49 +9,15 @@
 <table>
 <tr><th>Test</th><th># Passed</th><th># Skipped</th><th># Failed</th><th>Time (ms)</th><th>Included Groups</th><th>Excluded Groups</th></tr>
 <tr><th colspan="7">Default suite</th></tr>
-<tr><td><a href="#t0">Default test</a></td><td class="num">5</td><td class="num">0</td><td class="num attn">1</td><td class="num">17,541</td><td></td><td></td></tr>
+<tr><td><a href="#t0">Default test</a></td><td class="num">6</td><td class="num">0</td><td class="num">0</td><td class="num">8,203</td><td></td><td></td></tr>
 </table>
-<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Default suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Default test &#8212; failed</th></tr><tr class="failedeven"><td rowspan="1">tests.ManageBatchTest</td><td><a href="#m0">checkYearFilterOptions</a></td><td rowspan="1">1539022477543</td><td rowspan="1">10318</td></tr><tr><th colspan="4">Default test &#8212; passed</th></tr><tr class="passedeven"><td rowspan="5">tests.ManageBatchTest</td><td><a href="#m1">checkBatchButton</a></td><td rowspan="1">1539022487867</td><td rowspan="1">776</td></tr><tr class="passedeven"><td><a href="#m2">checkBatchCreation</a></td><td rowspan="1">1539022491469</td><td rowspan="1">3593</td></tr><tr class="passedeven"><td><a href="#m3">checkCreateBatchClose</a></td><td rowspan="1">1539022488644</td><td rowspan="1">683</td></tr><tr class="passedeven"><td><a href="#m4">checkCreateBatchCloseButton</a></td><td rowspan="1">1539022489330</td><td rowspan="1">1351</td></tr><tr class="passedeven"><td><a href="#m5">checkSaveButton</a></td><td rowspan="1">1539022490683</td><td rowspan="1">785</td></tr></tbody>
+<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Default suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Default test &#8212; passed</th></tr><tr class="passedeven"><td rowspan="6">tests.ManageBatchTest</td><td><a href="#m0">checkBatchButton</a></td><td rowspan="1">1539026205014</td><td rowspan="1">815</td></tr><tr class="passedeven"><td><a href="#m1">checkBatchCreation</a></td><td rowspan="1">1539026208912</td><td rowspan="1">3422</td></tr><tr class="passedeven"><td><a href="#m2">checkCreateBatchClose</a></td><td rowspan="1">1539026205829</td><td rowspan="1">733</td></tr><tr class="passedeven"><td><a href="#m3">checkCreateBatchCloseButton</a></td><td rowspan="1">1539026206562</td><td rowspan="1">1480</td></tr><tr class="passedeven"><td><a href="#m4">checkSaveButton</a></td><td rowspan="1">1539026208042</td><td rowspan="1">869</td></tr><tr class="passedeven"><td><a href="#m5">checkYearFilterOptions</a></td><td rowspan="1">1539026204159</td><td rowspan="1">853</td></tr></tbody>
 </table>
-<h2>Default test</h2><h3 id="m0">tests.ManageBatchTest#checkYearFilterOptions</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">org.openqa.selenium.TimeoutException: Expected condition failed: waiting for element to be clickable: By.cssSelector: #manage &gt; div:nth-child(1) &gt; div &gt; div &gt; ul &gt; li.dropdown &gt; ul &gt; li:nth-child(1) &gt; a (tried for 10 second(s) with 500 MILLISECONDS interval)
-Build info: version: &apos;3.8.1&apos;, revision: &apos;6e95a6684b&apos;, time: &apos;2017-12-01T18:33:54.468Z&apos;
-System info: host: &apos;DESKTOP-3CE3P5H&apos;, ip: &apos;10.252.1.25&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_181&apos;
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, acceptSslCerts: false, applicationCacheEnabled: false, browserConnectionEnabled: false, browserName: chrome, chrome: {chromedriverVersion: 2.42.591088 (7b2b2dca23cca0..., userDataDir: C:\Users\kakas\AppData\Loca...}, cssSelectorsEnabled: true, databaseEnabled: false, goog:chromeOptions: {debuggerAddress: localhost:58024}, handlesAlerts: true, hasTouchScreen: false, javascriptEnabled: true, locationContextEnabled: true, mobileEmulationEnabled: false, nativeEvents: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, rotatable: false, setWindowRect: true, takesHeapSnapshot: true, takesScreenshot: true, unexpectedAlertBehaviour: , unhandledPromptBehavior: , version: 69.0.3497.100, webStorageEnabled: true}
-Session ID: 783bec073daf4bc996229ff68aefd902
-	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:82)
-	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:231)
-	at tests.ManageBatchTest.checkYearFilterOptions(ManageBatchTest.java:54)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
-	at org.testng.internal.Invoker.invokeMethod(Invoker.java:580)
-	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:716)
-	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:988)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
-	at org.testng.TestRunner.privateRun(TestRunner.java:648)
-	at org.testng.TestRunner.run(TestRunner.java:505)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
-	at org.testng.TestNG.runSuites(TestNG.java:1049)
-	at org.testng.TestNG.run(TestNG.java:1017)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m1">tests.ManageBatchTest#checkBatchButton</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m2">tests.ManageBatchTest#checkBatchCreation</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m3">tests.ManageBatchTest#checkCreateBatchClose</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m4">tests.ManageBatchTest#checkCreateBatchCloseButton</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m5">tests.ManageBatchTest#checkSaveButton</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h2>Default test</h2><h3 id="m0">tests.ManageBatchTest#checkBatchButton</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m1">tests.ManageBatchTest#checkBatchCreation</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m2">tests.ManageBatchTest#checkCreateBatchClose</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m3">tests.ManageBatchTest#checkCreateBatchCloseButton</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m4">tests.ManageBatchTest#checkSaveButton</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m5">tests.ManageBatchTest#checkYearFilterOptions</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
 </body>
 </html>

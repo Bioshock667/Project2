@@ -17,8 +17,7 @@ public class ManageBatchPage {
 	}
 	
 	public WebElement getYearFilter() {
-		String selector = "#manage > div:nth-child(1) > div > div > ul > li.dropdown";
-		wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(selector)));
+		String selector = "li[role=\"button\"]";
 		
 		return wd.findElement(By.cssSelector(selector));
 	}

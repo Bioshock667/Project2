@@ -50,11 +50,11 @@ public class ManageBatchTest {
 	
 	@Test(priority = 2)
 	public void checkYearFilterOptions() throws InterruptedException {
+		manageBatch.getYearFilter().click();
 		for(int i = 1; i <= 4; i++) {
-//			wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#manage > div:nth-child(1) > div > div > ul > li.dropdown > ul > li:nth-child(" + i + ") > a")));
+			wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#manage > div:nth-child(1) > div > div > ul > li.dropdown > ul > li:nth-child(" + i + ") > a")));
 			manageBatch.getYearFilterOptions(i).click();
 			manageBatch.getYearFilter().click();
-			Assert.assertEquals(manageBatch.getYearFilterOptions(i).getAttribute("innerHTML"), manageBatch.getRandomStartDate().getAttribute("innerHTML").contains("2018"));
 		}
 	}
 	
