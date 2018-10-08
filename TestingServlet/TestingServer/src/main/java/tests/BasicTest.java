@@ -13,7 +13,7 @@ public class BasicTest {
 	
 	@Test
 	public void alwaysPass() {
-		File f  = new File("../webapps/TestingServer/WEB-INF/classes/chromedriver.exe");
+		/*File f  = new File("../webapps/TestingServer/WEB-INF/classes/chromedriver.exe");
 		System.setProperty("webdriver.chrome.driver",f.getAbsolutePath());
 		WebDriver driver = new ChromeDriver();
 		driver.get("https://dev-caliber.revature.tech/");
@@ -22,7 +22,7 @@ public class BasicTest {
 		lp.getPwd().sendKeys("*6Ak4-&kXnNTfTh6");
 		lp.getLogin().click();
 		
-		driver.quit();
+		driver.quit();*/
 		System.out.println("test before assert");
 		Assert.assertEquals(1, 1);
 	}

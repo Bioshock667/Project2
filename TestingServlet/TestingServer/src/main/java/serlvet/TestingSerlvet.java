@@ -56,20 +56,51 @@ public class TestingSerlvet extends HttpServlet {
 			response.getWriter().append("[");
 			List<ITestListener> il = tng.getTestListeners();
 			GenericTestListener tResult = null;
+			StringBuilder sb = new StringBuilder();
 			for (ITestListener i : il) {
 				if (i instanceof GenericTestListener) tResult = (GenericTestListener)i;
 			}
 			if (tResult != null) {
 				
 				for (ITestResult t: tResult.getPassed()) {
-					response.getWriter().append("{\"testName\":\""+t.getName()+"\",\"testResult\":\"PASSED\"}");
+					sb.append("{\"testName\":\""+t.getName()+"\",\"testResult\":\"PASSED\"},");
 				}
 				
 				for (ITestResult t: tResult.getFailed()) {
-					response.getWriter().append("{\"testName\":\""+t.getName()+"\",\"testResult\":\"FAILED\"}");
+					sb.append("{\"testName\":\""+t.getName()+"\",\"testResult\":\"FAILED\"},");
 				}
 			}
+			String s = sb.substring(0, sb.length()-1);
+			response.getWriter().append(s);
+			response.getWriter().append("]");
+		} else if (uri.equals("/TestingServer/homePage")) {
+			TestNG tng = new TestNG();
+			List<String> suites = new ArrayList<String>();
 			
+			suites.add("../webapps/TestingServer/WEB-INF/classes/hometestng.xml");
+			
+			tng.setTestSuites(suites);
+			tng.run();
+			
+			response.getWriter().append("[");
+			List<ITestListener> il = tng.getTestListeners();
+			GenericTestListener tResult = null;
+			StringBuilder sb = new StringBuilder();
+			for (ITestListener i : il) {
+				if (i instanceof GenericTestListener) tResult = (GenericTestListener)i;
+			}
+			if (tResult != null) {
+				
+				for (ITestResult t: tResult.getPassed()) {
+					sb.append("{\"testName\":\""+t.getName()+"\",\"testResult\":\"PASSED\"},");
+				}
+				
+				for (ITestResult t: tResult.getFailed()) {
+					sb.append("{\"testName\":\""+t.getName()+"\",\"testResult\":\"FAILED\"},");
+				}
+			}
+			String s = sb.substring(0, sb.length()-1);
+			response.getWriter().append(s);
 			response.getWriter().append("]");
 		}
 	}
