@@ -1,30 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="1" ignored="0" total="1" passed="0">
+<testng-results skipped="0" failed="1" ignored="0" total="6" passed="5">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="1603" started-at="2018-10-04T15:45:18Z" finished-at="2018-10-04T15:45:19Z">
+  <suite name="Default suite" duration-ms="17541" started-at="2018-10-08T18:14:37Z" finished-at="2018-10-08T18:14:55Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="1603" started-at="2018-10-04T15:45:18Z" finished-at="2018-10-04T15:45:19Z">
-      <class name="tests.NavBarTest">
-        <test-method status="PASS" signature="setupDriverAndPage()[pri:0, instance:tests.NavBarTest@7cd62f43]" name="setupDriverAndPage" is-config="true" duration-ms="6266" started-at="2018-10-04T15:45:11Z" finished-at="2018-10-04T15:45:18Z">
+    <test name="Default test" duration-ms="17541" started-at="2018-10-08T18:14:37Z" finished-at="2018-10-08T18:14:55Z">
+      <class name="tests.ManageBatchTest">
+        <test-method status="PASS" signature="setupDriverAndPage()[pri:0, instance:tests.ManageBatchTest@39c0f4a]" name="setupDriverAndPage" is-config="true" duration-ms="9651" started-at="2018-10-08T18:14:27Z" finished-at="2018-10-08T18:14:37Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setupDriverAndPage -->
-        <test-method status="FAIL" signature="checkBatchLink()[pri:1, instance:tests.NavBarTest@7cd62f43]" name="checkBatchLink" duration-ms="1586" started-at="2018-10-04T15:45:18Z" finished-at="2018-10-04T15:45:19Z">
-          <exception class="java.lang.AssertionError">
+        <test-method status="FAIL" signature="checkYearFilterOptions()[pri:2, instance:tests.ManageBatchTest@39c0f4a]" name="checkYearFilterOptions" duration-ms="10318" started-at="2018-10-08T18:14:37Z" finished-at="2018-10-08T18:14:47Z">
+          <exception class="org.openqa.selenium.TimeoutException">
             <message>
-              <![CDATA[expected [https://dev-caliber.revature.tech/caliber/#/vp/manage] but found [https://dev-caliber.revature.tech/caliber/#/vp/home]]]>
+              <![CDATA[Expected condition failed: waiting for element to be clickable: By.cssSelector: #manage > div:nth-child(1) > div > div > ul > li.dropdown > ul > li:nth-child(1) > a (tried for 10 second(s) with 500 MILLISECONDS interval)
+Build info: version: '3.8.1', revision: '6e95a6684b', time: '2017-12-01T18:33:54.468Z'
+System info: host: 'DESKTOP-3CE3P5H', ip: '10.252.1.25', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_181'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, acceptSslCerts: false, applicationCacheEnabled: false, browserConnectionEnabled: false, browserName: chrome, chrome: {chromedriverVersion: 2.42.591088 (7b2b2dca23cca0..., userDataDir: C:\Users\kakas\AppData\Loca...}, cssSelectorsEnabled: true, databaseEnabled: false, goog:chromeOptions: {debuggerAddress: localhost:58024}, handlesAlerts: true, hasTouchScreen: false, javascriptEnabled: true, locationContextEnabled: true, mobileEmulationEnabled: false, nativeEvents: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, rotatable: false, setWindowRect: true, takesHeapSnapshot: true, takesScreenshot: true, unexpectedAlertBehaviour: , unhandledPromptBehavior: , version: 69.0.3497.100, webStorageEnabled: true}
+Session ID: 783bec073daf4bc996229ff68aefd902]]>
             </message>
             <full-stacktrace>
-              <![CDATA[java.lang.AssertionError: expected [https://dev-caliber.revature.tech/caliber/#/vp/manage] but found [https://dev-caliber.revature.tech/caliber/#/vp/home]
-at org.testng.Assert.fail(Assert.java:96)
-at org.testng.Assert.failNotEquals(Assert.java:776)
-at org.testng.Assert.assertEqualsImpl(Assert.java:137)
-at org.testng.Assert.assertEquals(Assert.java:118)
-at org.testng.Assert.assertEquals(Assert.java:453)
-at org.testng.Assert.assertEquals(Assert.java:463)
-at tests.NavBarTest.checkBatchLink(NavBarTest.java:49)
+              <![CDATA[org.openqa.selenium.TimeoutException: Expected condition failed: waiting for element to be clickable: By.cssSelector: #manage > div:nth-child(1) > div > div > ul > li.dropdown > ul > li:nth-child(1) > a (tried for 10 second(s) with 500 MILLISECONDS interval)
+Build info: version: '3.8.1', revision: '6e95a6684b', time: '2017-12-01T18:33:54.468Z'
+System info: host: 'DESKTOP-3CE3P5H', ip: '10.252.1.25', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_181'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, acceptSslCerts: false, applicationCacheEnabled: false, browserConnectionEnabled: false, browserName: chrome, chrome: {chromedriverVersion: 2.42.591088 (7b2b2dca23cca0..., userDataDir: C:\Users\kakas\AppData\Loca...}, cssSelectorsEnabled: true, databaseEnabled: false, goog:chromeOptions: {debuggerAddress: localhost:58024}, handlesAlerts: true, hasTouchScreen: false, javascriptEnabled: true, locationContextEnabled: true, mobileEmulationEnabled: false, nativeEvents: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, rotatable: false, setWindowRect: true, takesHeapSnapshot: true, takesScreenshot: true, unexpectedAlertBehaviour: , unhandledPromptBehavior: , version: 69.0.3497.100, webStorageEnabled: true}
+Session ID: 783bec073daf4bc996229ff68aefd902
+at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:82)
+at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:231)
+at tests.ManageBatchTest.checkYearFilterOptions(ManageBatchTest.java:54)
 at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -52,15 +58,35 @@ at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 ]]>
             </full-stacktrace>
-          </exception> <!-- java.lang.AssertionError -->
+          </exception> <!-- org.openqa.selenium.TimeoutException -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- checkBatchLink -->
-        <test-method status="PASS" signature="cleanup()[pri:0, instance:tests.NavBarTest@7cd62f43]" name="cleanup" is-config="true" duration-ms="686" started-at="2018-10-04T15:45:19Z" finished-at="2018-10-04T15:45:20Z">
+        </test-method> <!-- checkYearFilterOptions -->
+        <test-method status="PASS" signature="checkBatchButton()[pri:3, instance:tests.ManageBatchTest@39c0f4a]" name="checkBatchButton" duration-ms="776" started-at="2018-10-08T18:14:47Z" finished-at="2018-10-08T18:14:48Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- checkBatchButton -->
+        <test-method status="PASS" signature="checkCreateBatchClose()[pri:4, instance:tests.ManageBatchTest@39c0f4a]" name="checkCreateBatchClose" duration-ms="683" started-at="2018-10-08T18:14:48Z" finished-at="2018-10-08T18:14:49Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- checkCreateBatchClose -->
+        <test-method status="PASS" signature="checkCreateBatchCloseButton()[pri:5, instance:tests.ManageBatchTest@39c0f4a]" name="checkCreateBatchCloseButton" duration-ms="1351" started-at="2018-10-08T18:14:49Z" finished-at="2018-10-08T18:14:50Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- checkCreateBatchCloseButton -->
+        <test-method status="PASS" signature="checkSaveButton()[pri:6, instance:tests.ManageBatchTest@39c0f4a]" name="checkSaveButton" duration-ms="785" started-at="2018-10-08T18:14:50Z" finished-at="2018-10-08T18:14:51Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- checkSaveButton -->
+        <test-method status="PASS" signature="checkBatchCreation()[pri:7, instance:tests.ManageBatchTest@39c0f4a]" name="checkBatchCreation" duration-ms="3593" started-at="2018-10-08T18:14:51Z" finished-at="2018-10-08T18:14:55Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- checkBatchCreation -->
+        <test-method status="PASS" signature="cleanup()[pri:0, instance:tests.ManageBatchTest@39c0f4a]" name="cleanup" is-config="true" duration-ms="3712" started-at="2018-10-08T18:14:55Z" finished-at="2018-10-08T18:14:58Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- cleanup -->
-      </class> <!-- tests.NavBarTest -->
+      </class> <!-- tests.ManageBatchTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

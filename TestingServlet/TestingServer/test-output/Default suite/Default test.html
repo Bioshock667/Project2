@@ -55,11 +55,11 @@ function toggleAllBoxes() {
 <body>
 <h2 align='center'>Default test</h2><table border='1' align="center">
 <tr>
-<td>Tests passed/Failed/Skipped:</td><td>0/1/0</td>
+<td>Tests passed/Failed/Skipped:</td><td>5/1/0</td>
 </tr><tr>
-<td>Started on:</td><td>Thu Oct 04 11:45:18 EDT 2018</td>
+<td>Started on:</td><td>Mon Oct 08 14:14:37 EDT 2018</td>
 </tr>
-<tr><td>Total time:</td><td>1 seconds (1603 ms)</td>
+<tr><td>Total time:</td><td>17 seconds (17541 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -75,15 +75,16 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='tests.NavBarTest.checkBatchLink()'><b>checkBatchLink</b><br>Test class: tests.NavBarTest</td>
-<td><div><pre>java.lang.AssertionError: expected [https://dev-caliber.revature.tech/caliber/#/vp/manage] but found [https://dev-caliber.revature.tech/caliber/#/vp/home]
-	at org.testng.Assert.fail(Assert.java:96)
-	at org.testng.Assert.failNotEquals(Assert.java:776)
-	at org.testng.Assert.assertEqualsImpl(Assert.java:137)
-	at org.testng.Assert.assertEquals(Assert.java:118)
-	at org.testng.Assert.assertEquals(Assert.java:453)
-	at org.testng.Assert.assertEquals(Assert.java:463)
-	at tests.NavBarTest.checkBatchLink(NavBarTest.java:49)
+<td title='tests.ManageBatchTest.checkYearFilterOptions()'><b>checkYearFilterOptions</b><br>Test class: tests.ManageBatchTest</td>
+<td><div><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for element to be clickable: By.cssSelector: #manage &gt; div:nth-child(1) &gt; div &gt; div &gt; ul &gt; li.dropdown &gt; ul &gt; li:nth-child(1) &gt; a (tried for 10 second(s) with 500 MILLISECONDS interval)
+Build info: version: &apos;3.8.1&apos;, revision: &apos;6e95a6684b&apos;, time: &apos;2017-12-01T18:33:54.468Z&apos;
+System info: host: &apos;DESKTOP-3CE3P5H&apos;, ip: &apos;10.252.1.25&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_181&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, acceptSslCerts: false, applicationCacheEnabled: false, browserConnectionEnabled: false, browserName: chrome, chrome: {chromedriverVersion: 2.42.591088 (7b2b2dca23cca0..., userDataDir: C:\Users\kakas\AppData\Loca...}, cssSelectorsEnabled: true, databaseEnabled: false, goog:chromeOptions: {debuggerAddress: localhost:58024}, handlesAlerts: true, hasTouchScreen: false, javascriptEnabled: true, locationContextEnabled: true, mobileEmulationEnabled: false, nativeEvents: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, rotatable: false, setWindowRect: true, takesHeapSnapshot: true, takesScreenshot: true, unexpectedAlertBehaviour: , unhandledPromptBehavior: , version: 69.0.3497.100, webStorageEnabled: true}
+Session ID: 783bec073daf4bc996229ff68aefd902
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:82)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:231)
+	at tests.ManageBatchTest.checkYearFilterOptions(ManageBatchTest.java:54)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -109,15 +110,16 @@ function toggleAllBoxes() {
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></div><a href='#' onClick='toggleBox("stack-trace2133655103", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace2133655103'><pre>java.lang.AssertionError: expected [https://dev-caliber.revature.tech/caliber/#/vp/manage] but found [https://dev-caliber.revature.tech/caliber/#/vp/home]
-	at org.testng.Assert.fail(Assert.java:96)
-	at org.testng.Assert.failNotEquals(Assert.java:776)
-	at org.testng.Assert.assertEqualsImpl(Assert.java:137)
-	at org.testng.Assert.assertEquals(Assert.java:118)
-	at org.testng.Assert.assertEquals(Assert.java:453)
-	at org.testng.Assert.assertEquals(Assert.java:463)
-	at tests.NavBarTest.checkBatchLink(NavBarTest.java:49)
+</pre></div><a href='#' onClick='toggleBox("stack-trace1095352419", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1095352419'><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for element to be clickable: By.cssSelector: #manage &gt; div:nth-child(1) &gt; div &gt; div &gt; ul &gt; li.dropdown &gt; ul &gt; li:nth-child(1) &gt; a (tried for 10 second(s) with 500 MILLISECONDS interval)
+Build info: version: &apos;3.8.1&apos;, revision: &apos;6e95a6684b&apos;, time: &apos;2017-12-01T18:33:54.468Z&apos;
+System info: host: &apos;DESKTOP-3CE3P5H&apos;, ip: &apos;10.252.1.25&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_181&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, acceptSslCerts: false, applicationCacheEnabled: false, browserConnectionEnabled: false, browserName: chrome, chrome: {chromedriverVersion: 2.42.591088 (7b2b2dca23cca0..., userDataDir: C:\Users\kakas\AppData\Loca...}, cssSelectorsEnabled: true, databaseEnabled: false, goog:chromeOptions: {debuggerAddress: localhost:58024}, handlesAlerts: true, hasTouchScreen: false, javascriptEnabled: true, locationContextEnabled: true, mobileEmulationEnabled: false, nativeEvents: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, rotatable: false, setWindowRect: true, takesHeapSnapshot: true, takesScreenshot: true, unexpectedAlertBehaviour: , unhandledPromptBehavior: , version: 69.0.3497.100, webStorageEnabled: true}
+Session ID: 783bec073daf4bc996229ff68aefd902
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:82)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:231)
+	at tests.ManageBatchTest.checkYearFilterOptions(ManageBatchTest.java:54)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -144,8 +146,41 @@ function toggleAllBoxes() {
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 </pre></div></td>
+<td>10</td>
+<td>tests.ManageBatchTest@39c0f4a</td></tr>
+</table><p>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='tests.ManageBatchTest.checkBatchButton()'><b>checkBatchButton</b><br>Test class: tests.ManageBatchTest</td>
+<td></td>
+<td>0</td>
+<td>tests.ManageBatchTest@39c0f4a</td></tr>
+<tr>
+<td title='tests.ManageBatchTest.checkBatchCreation()'><b>checkBatchCreation</b><br>Test class: tests.ManageBatchTest</td>
+<td></td>
+<td>3</td>
+<td>tests.ManageBatchTest@39c0f4a</td></tr>
+<tr>
+<td title='tests.ManageBatchTest.checkCreateBatchClose()'><b>checkCreateBatchClose</b><br>Test class: tests.ManageBatchTest</td>
+<td></td>
+<td>0</td>
+<td>tests.ManageBatchTest@39c0f4a</td></tr>
+<tr>
+<td title='tests.ManageBatchTest.checkCreateBatchCloseButton()'><b>checkCreateBatchCloseButton</b><br>Test class: tests.ManageBatchTest</td>
+<td></td>
 <td>1</td>
-<td>tests.NavBarTest@7cd62f43</td></tr>
+<td>tests.ManageBatchTest@39c0f4a</td></tr>
+<tr>
+<td title='tests.ManageBatchTest.checkSaveButton()'><b>checkSaveButton</b><br>Test class: tests.ManageBatchTest</td>
+<td></td>
+<td>0</td>
+<td>tests.ManageBatchTest@39c0f4a</td></tr>
 </table><p>
 </body>
 </html>
