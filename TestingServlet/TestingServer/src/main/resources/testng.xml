@@ -6,9 +6,27 @@
 
 </listeners>
 
+<test name="basic1">
+<classes>
+<class name="tests.BasicTest" ></class>
+</classes>
+</test>
+
 <test name="navBar1">
 <classes>
-<class name="tests.NavBarTest" />
+<class name="tests.NavBarTest" ></class>
+</classes>
+</test>
+
+<test name="Smoke Test">
+<groups>
+<run>
+<include name="smoke" />
+</run>
+</groups>
+<classes>
+<class name="consoleTest.HPTest" />
+<class name="consoleTest.IanTestForHP" />
 </classes>
 </test>
 

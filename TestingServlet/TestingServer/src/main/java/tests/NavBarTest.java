@@ -23,10 +23,11 @@ public class NavBarTest {
 	public static WebDriver driver;
 	public static WebDriverWait wait;
 	
+	
 	@BeforeSuite //run before all tests
 	public void setupDriverAndPage() throws InterruptedException {
 		
-		File f  = new File("src/main/resources/chromedriver.exe");
+		File f  = new File("../webapps/TestingServer/WEB-INF/classes/chromedriver.exe");
 		System.setProperty("webdriver.chrome.driver",f.getAbsolutePath());
 		driver = new ChromeDriver();
 		driver.get("https://dev-caliber.revature.tech/");
@@ -53,6 +54,7 @@ public class NavBarTest {
 	
 	@AfterSuite //runs after all tests
 	public void cleanup() {
+		
 		driver.quit();
 	}
 }
