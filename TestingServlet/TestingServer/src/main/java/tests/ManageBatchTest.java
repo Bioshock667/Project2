@@ -47,7 +47,7 @@ public class ManageBatchTest {
 		wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("li[data-target='#createBatchModal']")));
 
 	}
-	
+	//test
 	@Test(priority = 2)
 	public void checkYearFilterOptions() throws InterruptedException {
 		manageBatch.getYearFilter().click();
