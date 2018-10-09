@@ -32,29 +32,29 @@ public class IanTestForHP {
 		lp.getLogin().click();		
 		
 		
-		System.out.println("Prayers"); Thread.sleep(4000);
+		System.out.println("Prayers"); Thread.sleep(2000);
 
 		nbp.getAccessBatchLink().click();
-		ab.goToBatch(4);
-		
-		System.out.println("weeks : " + ab.getNumberOfWeeks());
-
-		
-		System.out.println("batches : " + ab.getBatchNumberOfChildren());
-		
-		System.out.println("years : " + ab.getYearNumberOfChildren());
-		
-		ab.getAddWeek().click();
-		ab.getAddWeekNo().click();
-
-		System.out.println("weeks available : " + ab.weeksAvailable());
+		ab.goToYear(2);
 		ab.goToBatch(5);
-
-		
-		ab.getFlag(1).click();
-		ab.getFlagComment(1).sendKeys(Keys.chord(Keys.CONTROL, "a"), Keys.DELETE, "WILD TIME");
-		ab.getFlagSave(1).click();
-		Thread.sleep(2000);
+		ab.selectBatchByChild(5);
+		ab.selectBatchByBatchName("Peter Alagna - 8/22/18");
+		ab.goToBatchName("Peter Alagna - 8/22/18");
+		Thread.sleep(5000);
+//		System.out.println("weeks : " + ab.getNumberOfWeeks());
+//
+//		
+//		System.out.println("batches : " + ab.getBatchNumberOfChildren());
+//		
+//		System.out.println("years : " + ab.getYearNumberOfChildren());
+//
+//		System.out.println("weeks available : " + ab.weeksAvailable());
+//		ab.getWeek(17).click();
+//		ab.getFlag(1).click();
+//		ab.getFlagComment(1).sendKeys(Keys.chord(Keys.CONTROL, "a"), Keys.DELETE, "WILD TIME");
+//		ab.getFlagSave(1).click();
+//		System.out.println("number of assessments : " + ab.getNumberOfAssessments());
+//		Thread.sleep(5000);
 		// ** CLOSE OUT ** //	
 		System.out.println("CLOSING");
 		driver.quit();

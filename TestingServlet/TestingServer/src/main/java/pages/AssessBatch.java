@@ -87,7 +87,7 @@ public WebElement selectYearByChild(int year) {
 	return wd.findElement(By.cssSelector("body > div > ui-view > ui-view > div:nth-child(1)       > div     > div.col-md-12.col-lg-12.top10 > ul:nth-child(1) > li:nth-child(1) > ul > li:nth-child(" + year + ") > a"));
 }
 
-public void goToYear(int year) {
+public void goToYear(String year) {
 	YEARwait = new WebDriverWait(wd,10);
 	ABWAIT = new WebDriverWait(wd,10);
 	YEARwait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("body > div > ui-view > ui-view > div:nth-child(1) > div")));
@@ -105,6 +105,29 @@ public void goToYear(int year) {
 	}
 }
 
+public WebElement selectYear(String year) {
+	YEARwait = new WebDriverWait(wd,10);
+	YEARwait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("body > div > ui-view > ui-view > div:nth-child(1) > div")));
+	return wd.findElement(By.cssSelector("body > div > ui-view > ui-view > div:nth-child(1)       > div     > div.col-md-12.col-lg-12.top10 > ul:nth-child(1) > li:nth-child(1) > ul > li:nth-child(" + year + ") > a"));
+}
+
+public void goToYearByChild(int year) {
+	YEARwait = new WebDriverWait(wd,10);
+	ABWAIT = new WebDriverWait(wd,10);
+	YEARwait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("body > div > ui-view > ui-view > div:nth-child(1) > div")));
+	try {
+			ABWAIT.until(ExpectedConditions.elementToBeClickable(By.cssSelector("body > div > ui-view > ui-view > div.container.ng-scope > div.row > div.col-md-12.col-lg-12.top10 > ul:nth-child(1) > li:nth-child(1)")));
+			wd.findElement(By.cssSelector("body > div > ui-view > ui-view > div.container.ng-scope > div.row > div.col-md-12.col-lg-12.top10 > ul:nth-child(1) > li:nth-child(1)")).click();
+			ABWAIT.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("body > div > ui-view > ui-view > div:nth-child(1) > div > div.col-md-12.col-lg-12.top10 > ul:nth-child(1) > li:nth-child(1) > ul > li:nth-child(" + year + ") > a")));
+			wd.findElement(By.cssSelector("body > div > ui-view > ui-view > div:nth-child(1) > div > div.col-md-12.col-lg-12.top10 > ul:nth-child(1) > li:nth-child(1) > ul > li:nth-child(" + year + ") > a")).click();
+		
+	} catch (Exception e) {
+		ABWAIT.until(ExpectedConditions.elementToBeClickable(By.cssSelector("body > div > ui-view > ui-view > div:nth-child(1) > div > div.col-md-12.col-lg-12.top10 > ul:nth-child(1) > li:nth-child(1)")));
+		wd.findElement(By.cssSelector("body > div > ui-view > ui-view > div:nth-child(1) > div > div.col-md-12.col-lg-12.top10 > ul:nth-child(1) > li:nth-child(1)")).click();
+		ABWAIT.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("body > div > ui-view > ui-view > div:nth-child(1) > div > div.col-md-12.col-lg-12.top10 > ul:nth-child(1) > li:nth-child(1) > ul > li:nth-child(" + year + ") > a")));
+		wd.findElement(By.cssSelector("body > div > ui-view > ui-view > div:nth-child(1) > div > div.col-md-12.col-lg-12.top10 > ul:nth-child(1) > li:nth-child(1) > ul > li:nth-child(" + year + ") > a")).click();
+	}
+}
 
 // BATCH
 public boolean hasBatches () {
@@ -160,10 +183,36 @@ public int getBatchNumberOfChildren() {
 public WebElement selectBatchByChild(int batchNum) {
 	YEARwait = new WebDriverWait(wd,10);
 	YEARwait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("body > div > ui-view > ui-view > div:nth-child(1) > div")));
-	return wd.findElement(By.cssSelector("body > div > ui-view > ui-view > div:nth-child(1) > div > div.col-md-12.col-lg-12.top10 > ul:nth-child(1) > li:nth-child(2) > ul > li:nth-child(" + batchNum + ") > a"));
+	WebElement e = wd.findElement(By.cssSelector("body > div > ui-view > ui-view > div:nth-child(1) > div > div.col-md-12.col-lg-12.top10 > ul:nth-child(1) > li:nth-child(2) > ul > li:nth-child(" + batchNum + ") > a"));
+	String s = e.getAttribute("innerHTML");
+	String s2 = "\n" + 
+			"								Genesis Bonds - 9/11/18\n" + 
+			"						";
+	System.out.println(s);
+	System.out.println(s2);
+	System.out.println(s.equals(s2));
+	return e;
 }
 
-public void goToBatch(int batchNum) throws InterruptedException {
+public WebElement selectBatchByBatchName(String s) {
+	YEARwait = new WebDriverWait(wd,10);
+	YEARwait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("body > div > ui-view > ui-view > div:nth-child(1) > div")));
+	int kids = getBatchNumberOfChildren();
+	for (int i= 1; i < kids + 1; i++) {
+	WebElement e = wd.findElement(By.cssSelector("body > div > ui-view > ui-view > div:nth-child(1) > div > div.col-md-12.col-lg-12.top10 > ul:nth-child(1) > li:nth-child(2) > ul > li:nth-child(" + i + ") > a"));
+	String s2 = e.getAttribute("innerHTML");
+	String current = "\n" + 
+			"								"+ s + "\n" + 
+			"						";
+		if (current.equals(s2)) {
+			System.out.println("found");
+			return wd.findElement(By.cssSelector("body > div > ui-view > ui-view > div:nth-child(1) > div > div.col-md-12.col-lg-12.top10 > ul:nth-child(1) > li:nth-child(2) > ul > li:nth-child(" + i + ") > a"));
+		}
+	}
+	return null;
+}
+
+public void goToBatch(int batchNum) {
 	YEARwait = new WebDriverWait(wd,10);
 	ABWAIT = new WebDriverWait(wd,10);
 	YEARwait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("body > div > ui-view > ui-view > div:nth-child(1) > div")));
@@ -179,6 +228,31 @@ public void goToBatch(int batchNum) throws InterruptedException {
 	}
 }
 
+public void goToBatchName(String s)  {
+	YEARwait = new WebDriverWait(wd,10);
+	ABWAIT = new WebDriverWait(wd,10);
+	YEARwait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("body > div > ui-view > ui-view > div:nth-child(1) > div")));
+	int kids = getBatchNumberOfChildren();
+	for (int i= 1; i < kids + 1; i++) {
+	WebElement e = wd.findElement(By.cssSelector("body > div > ui-view > ui-view > div:nth-child(1) > div > div.col-md-12.col-lg-12.top10 > ul:nth-child(1) > li:nth-child(2) > ul > li:nth-child(" + i + ") > a"));
+	String s2 = e.getAttribute("innerHTML");
+	String current = "\n" + 
+			"								"+ s + "\n" + 
+			"						";
+		if (current.equals(s2)) {
+			System.out.println("found");
+			try {
+				ABWAIT.until(ExpectedConditions.elementToBeClickable(By.cssSelector("body > div > ui-view > ui-view > div:nth-child(1) > div > div.col-md-12.col-lg-12.top10 > ul:nth-child(1) > li:nth-child(2)")));
+				wd.findElement(By.cssSelector("body > div > ui-view > ui-view > div:nth-child(1) > div > div.col-md-12.col-lg-12.top10 > ul:nth-child(1) > li:nth-child(2)")).click();
+				System.out.println("linkText : " + current);
+				ABWAIT.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("body > div > ui-view > ui-view > div:nth-child(1) > div > div.col-md-12.col-lg-12.top10 > ul:nth-child(1) > li:nth-child(2) > ul > li:nth-child(" + i + ") > a")));
+				wd.findElement(By.cssSelector("body > div > ui-view > ui-view > div:nth-child(1) > div > div.col-md-12.col-lg-12.top10 > ul:nth-child(1) > li:nth-child(2) > ul > li:nth-child(" + i + ") > a")).click();
+			} catch (Exception gavel) {
+				System.out.println("Batch not found");	
+				}
+		}
+	}
+}
 
 // Create Assessment
 public boolean canCreateAssessment () {
@@ -396,6 +470,16 @@ public int getNumberOfWeeks() {
 	return children - 2; // this is -2 instead of -1 because the '+' to create a new week is considered  the final element
 }
 
+public WebElement getWeek(int weeknum) {
+	CreateModalCloseWait = new WebDriverWait(wd,10);
+	ImportModalCloseWait = new WebDriverWait(wd,10);
+	ConfirmingWeeksCloseWait = new WebDriverWait (wd,10);
+	CreateModalCloseWait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("#createAssessmentModal > div > div")));
+	ImportModalCloseWait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("#importGradesModal > div > div")));
+	ConfirmingWeeksCloseWait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("#confirmingweeks > div > div")));
+	return wd.findElement(By.xpath("/html/body/div/ui-view/ui-view/div[1]/div/div[3]/ul/li[" + weeknum + "]/a"));
+}
+
 public WebElement getAddWeek() {
 	CreateModalCloseWait = new WebDriverWait(wd,10);
 	ImportModalCloseWait = new WebDriverWait(wd,10);
@@ -492,11 +576,42 @@ public WebElement getFlagClose(int child) {
 	return wd.findElement(By.cssSelector("#trainer-assess-table > div > div > ul > ul > table > tbody > tr:nth-child(" + child + ") > td.col-sm-1.col-md-1.col-lg-1 > form > span"));
 }
 
+public int getNumberOfAssessments() {
+	CreateModalCloseWait = new WebDriverWait(wd,10);
+	ImportModalCloseWait = new WebDriverWait(wd,10);
+	ConfirmingWeeksCloseWait = new WebDriverWait (wd,10);
+	CreateModalCloseWait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("#createAssessmentModal > div > div")));
+	ImportModalCloseWait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("#importGradesModal > div > div")));
+	ConfirmingWeeksCloseWait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("#confirmingweeks > div > div")));
+	ABWAIT = new WebDriverWait(wd,10);
+	ABWAIT.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//*[@id=\"trainer-assess-table\"]/div/div/ul/ul/table/tbody/tr[1]")));
+	int children = 1;
+	while (true) {
+		try {
+			if (null != wd.findElement(By.xpath("//*[@id=\"trainer-assess-table\"]/div/div/ul/ul/table/tbody/tr[1]/td[" + children + "]"))){
+			}
+		} catch (Exception e) {
+			break;
+		}
+		children++;
+		System.out.println("kids : " + children);
+	}
+return children - 4;
+}
 
+public int getAssessmentsByTestOrder(int child) {
+	CreateModalCloseWait = new WebDriverWait(wd,10);
+	ImportModalCloseWait = new WebDriverWait(wd,10);
+	ConfirmingWeeksCloseWait = new WebDriverWait (wd,10);
+	CreateModalCloseWait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("#createAssessmentModal > div > div")));
+	ImportModalCloseWait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("#importGradesModal > div > div")));
+	ConfirmingWeeksCloseWait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("#confirmingweeks > div > div")));
+	ABWAIT = new WebDriverWait(wd,10);
+	ABWAIT.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//*[@id=\"trainer-assess-table\"]/div/div/ul/ul/table/tbody/tr[1]")));
+	return wd.findElement(By.xpath("//*[@id=\"trainer-assess-table\"]/div/div/ul/ul/table/tbody/tr[1]/td[" + child + "]"));
+}
 
-
-
-
+	
 
 
 
