@@ -166,6 +166,8 @@ public class ManageBatchPage {
 		return wd.findElement(By.cssSelector(selector));
 	}
 	
+	
+//Trainees Modal
 	public WebElement getTraineesGlyph() {
 		String selector = "span[class='glyphicon glyphicon-user']";
 		wait = new WebDriverWait(wd, 5);
@@ -173,4 +175,134 @@ public class ManageBatchPage {
 		
 		return wd.findElement(By.cssSelector(selector));
 	}
+	
+	public WebElement getTraineesClose() {
+		String selector = "close";
+		wait = new WebDriverWait(wd, 5);
+		wait.until(ExpectedConditions.elementToBeClickable(By.className(selector)));
+		
+		return wd.findElement(By.cssSelector(selector));
+	}
+	
+//Trainnes Add Modal
+	public WebElement getTraineesAdd() {
+		String selector = "a[data-target=\"#addTraineeModal\"]";
+		wait = new WebDriverWait(wd, 5);
+		wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(selector)));
+		
+		return wd.findElement(By.cssSelector(selector));
+	}
+	
+	public WebElement getTraineesAddName() {
+		String selector = "traineeName";
+		wait = new WebDriverWait(wd, 5);
+		wait.until(ExpectedConditions.elementToBeClickable(By.id(selector)));
+		
+		return wd.findElement(By.id(selector));
+	}
+	
+	public WebElement getTraineesAddEmail() {
+		String selector = "traineeEmail";
+		wait = new WebDriverWait(wd, 5);
+		wait.until(ExpectedConditions.elementToBeClickable(By.id(selector)));
+		
+		return wd.findElement(By.id(selector));
+	}
+	
+	public WebElement getTraineesAddSkype() {
+		String selector = "traineeSkype";
+		wait = new WebDriverWait(wd, 5);
+		wait.until(ExpectedConditions.elementToBeClickable(By.id(selector)));
+		
+		return wd.findElement(By.id(selector));
+	}
+	
+	public WebElement getTraineesAddPhone() {
+		String selector = "traineePhone";
+		wait = new WebDriverWait(wd, 5);
+		wait.until(ExpectedConditions.elementToBeClickable(By.id(selector)));
+		
+		return wd.findElement(By.id(selector));
+	}
+	
+	public WebElement getTraineesAddCollege() {
+		String selector = "traineeCollege";
+		wait = new WebDriverWait(wd, 5);
+		wait.until(ExpectedConditions.elementToBeClickable(By.id(selector)));
+		
+		return wd.findElement(By.id(selector));
+	}
+	
+	public WebElement getTraineesAddDegree() {
+		String selector = "traineeDegree";
+		wait = new WebDriverWait(wd, 5);
+		wait.until(ExpectedConditions.elementToBeClickable(By.id(selector)));
+		
+		return wd.findElement(By.id(selector));
+	}
+	
+	public WebElement getTraineesAddMajor() {
+		String selector = "traineeMajor";
+		wait = new WebDriverWait(wd, 5);
+		wait.until(ExpectedConditions.elementToBeClickable(By.id(selector)));
+		
+		return wd.findElement(By.id(selector));
+	}
+	
+	public WebElement getTraineesAddRecruiter() {
+		String selector = "traineeRecruiterName";
+		wait = new WebDriverWait(wd, 5);
+		wait.until(ExpectedConditions.elementToBeClickable(By.id(selector)));
+		
+		return wd.findElement(By.id(selector));
+	}
+	
+	public WebElement getTraineesAddTechScreener() {
+		String selector = "traineeTechScreenerName";
+		wait = new WebDriverWait(wd, 5);
+		wait.until(ExpectedConditions.elementToBeClickable(By.id(selector)));
+		
+		return wd.findElement(By.id(selector));
+	}
+	
+	public WebElement getTraineesAddProjectCompletetion() {
+		String selector = "traineeProjectCompletion";
+		wait = new WebDriverWait(wd, 5);
+		wait.until(ExpectedConditions.elementToBeClickable(By.id(selector)));
+		
+		return wd.findElement(By.id(selector));
+	}
+	
+	public WebElement getTraineesAddProfileURL() {
+		String selector = "input[placeholder=\"http://www.example.com/revature\"]";
+		wait = new WebDriverWait(wd, 5);
+		wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(selector)));
+		
+		return wd.findElement(By.cssSelector(selector));
+	}
+	
+	public WebElement getTraineesAddTrainingStatus() {
+		String selector = "traineeStatus";
+		wait = new WebDriverWait(wd, 5);
+		wait.until(ExpectedConditions.elementToBeClickable(By.id(selector)));
+		
+		return wd.findElement(By.id(selector));
+	}
+	
+	public WebElement getTraineesAddSave() {
+			String selector = "input[value=\"Save\"]";
+			wait = new WebDriverWait(wd, 5);
+			wait.until(ExpectedConditions.elementToBeClickable(By.id(selector)));
+			
+			return wd.findElement(By.id(selector));
+	}
+	
+	public WebElement getTraineesAddClose() {
+		String selector = "close";
+		wait = new WebDriverWait(wd, 5);
+		wait.until(ExpectedConditions.elementToBeClickable(By.className(selector)));
+		
+		return wd.findElement(By.className(selector));
+	}
+	
 }

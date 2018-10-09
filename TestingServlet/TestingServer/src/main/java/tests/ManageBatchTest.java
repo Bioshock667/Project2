@@ -67,10 +67,15 @@ public class ManageBatchTest {
 		wait.until(ExpectedConditions.visibilityOf(manageBatch.getCreateBatchClose()));
 		
 		Assert.assertTrue(manageBatch.getCreateBatchModal().isDisplayed());
+		manageBatch.getCreateBatchClose().click();
 	}
 	
 	@Test(priority = 4)
 	public void checkCreateBatchClose() throws InterruptedException {
+		wait = new WebDriverWait(driver, 5);
+		wait.until(ExpectedConditions.invisibilityOf(manageBatch.getCreateBatchModal()));
+		
+		manageBatch.getCreateBatchButton().click();
 		manageBatch.getCreateBatchClose().click();
 		
 		//wait until the create batch modal has closed fully
@@ -98,10 +103,15 @@ public class ManageBatchTest {
 		wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#createBatchModal > div > div > div.modal-footer > input")));
 		manageBatch.getCreateBatchSaveButton().click();
 		Assert.assertTrue(manageBatch.getCreateBatchModal().isDisplayed());
+		manageBatch.getCreateBatchClose().click();
 	}
 	
 	@Test(priority = 7)
 	public void checkBatchCreation() throws InterruptedException {
+		wait = new WebDriverWait(driver, 5);
+		wait.until(ExpectedConditions.invisibilityOf(manageBatch.getCreateBatchModal()));
+		
+		manageBatch.getCreateBatchButton().click();
 		manageBatch.getCreateBatchTrainingName().sendKeys("7833 Aug27 Java");
 		manageBatch.getCreateBatchSaveButton().click();
 		Assert.assertTrue(manageBatch.getCreateBatchModal().isDisplayed());
@@ -145,7 +155,9 @@ public class ManageBatchTest {
 		manageBatch.getCreateBatchPassingGrade().sendKeys("60");
 		manageBatch.getCreateBatchSaveButton().click();
 		
-		Thread.sleep(1000);
+		wait = new WebDriverWait(driver, 5);
+		wait.until(ExpectedConditions.invisibilityOf(manageBatch.getCreateBatchModal()));
+		
 		Assert.assertFalse(manageBatch.getCreateBatchModal().isDisplayed());
 	}
 	
@@ -183,6 +195,8 @@ public class ManageBatchTest {
 		
 		manageBatch.getTraineesGlyph().click();
 	}
+	
+	
 	
 	@AfterSuite // runs after all tests
 	public void cleanup() throws InterruptedException {
