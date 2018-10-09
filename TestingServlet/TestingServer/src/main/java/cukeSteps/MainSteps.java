@@ -12,9 +12,7 @@ import pages.LoginPage;
 public class MainSteps {
 	private ChromeDriver driver;
 	{
-		//File f  = new File("src/main/resources/chromedriver.exe");
-		File f = new File("C:\\Users\\jaffa\\Downloads\\apache-tomcat-8.5.34-windows-x64\\apache-tomcat-8.5.34\\wtpwebapps\\TestingServer\\WEB-INF\\classes\\chromedriver.exe");
-
+		File f  = new File("src/main/resources/chromedriver.exe");
 		System.setProperty("webdriver.chrome.driver",f.getAbsolutePath());
 		driver = new ChromeDriver();
 	}

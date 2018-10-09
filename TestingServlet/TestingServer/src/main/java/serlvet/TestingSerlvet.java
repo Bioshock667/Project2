@@ -69,8 +69,7 @@ public class TestingSerlvet extends HttpServlet {
 					sb.append("{\"testName\":\""+t.getName()+"\",\"testResult\":\"FAILED\"},");
 				}
 			}
-			//String s = sb.substring(0, sb.length()-1);
-			String s = sb.toString();
+			String s = sb.substring(0, sb.length()-1);
 			response.getWriter().append(s);
 			response.getWriter().append("]");
 		} else if (uri.equals("/TestingServer/loginCuke")) {
@@ -97,8 +96,7 @@ public class TestingSerlvet extends HttpServlet {
 					sb.append("{\"testName\":\""+t.getName()+"\",\"testResult\":\"FAILED\"},");
 				}
 			}
-			//String s = sb.substring(0, sb.length()-1);
-			String s = sb.toString();
+			String s = sb.substring(0, sb.length()-1);
 			response.getWriter().append(s);
 			response.getWriter().append("]");
 		} else if (uri.equals("/TestingServer/homePage")) {
