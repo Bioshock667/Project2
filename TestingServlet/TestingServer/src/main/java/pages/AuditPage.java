@@ -129,6 +129,12 @@ public class AuditPage {
 			}
 		}
 	}
+	
+	public WebElement getStatusButtonByOrd(int ord,int bl) {
+		WebDriverWait w = new WebDriverWait(wd,10);
+		w.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("#qcTrainees > div > ul > table > tbody > tr:nth-child(5) > td:nth-child(3) > button:nth-child(1)")));
+		return wd.findElement(By.cssSelector("#qcTrainees > div > ul > table > tbody > tr:nth-child("+ord+") > td:nth-child(3) > button:nth-child("+bl+")"));
+	}
 
 }
 
