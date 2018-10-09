@@ -52,8 +52,22 @@ ________________________________|__________________
        - All Cities dropdown – Loads Queens option
 
 ### MANAGE BATCH:
-* Click New Batch
+* Click New Batch 
+    * Assert both close buttons close modal
+    * for each input filled click "Save" and assert modal is displayed
     * Type **JAVA** in "Type" input
-*Todo*
+    * select "university for Training type
+    * select SDET for skill type
+    * Select WVU address for location
+    * select Adam for trainer
+    * select an option for co-trainer
+    * type any date for start date
+    * type any date before and after start date for end date
+    * send Positive, negative, no value for good and bade grade
+* *Assured does not work* After asserting model is not displayed assert batch with our specific info is displayed
+* for each option in Year dropdown assert that the first element has a start and end date that matches that option.
+    * if not such element exists skip
 
 ### ASSESS BATCH:
+* Click New Assessment
+    * 
