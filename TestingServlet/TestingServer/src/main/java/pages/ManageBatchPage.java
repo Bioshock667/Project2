@@ -176,10 +176,16 @@ public class ManageBatchPage {
 		return wd.findElement(By.cssSelector(selector));
 	}
 	
-	public WebElement getTraineesClose() {
-		String selector = "close";
+	public WebElement getTraineesModal() {
+		String selector = "traineeModalLabel";
 		wait = new WebDriverWait(wd, 5);
-		wait.until(ExpectedConditions.elementToBeClickable(By.className(selector)));
+		wait.until(ExpectedConditions.elementToBeClickable(By.id(selector)));
+		
+		return wd.findElement(By.id(selector));
+	}
+	
+	public WebElement getTraineesClose() {
+		String selector = "button[data-dismiss=\"modal\"]";
 		
 		return wd.findElement(By.cssSelector(selector));
 	}
@@ -191,6 +197,12 @@ public class ManageBatchPage {
 		wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(selector)));
 		
 		return wd.findElement(By.cssSelector(selector));
+	}
+	
+	public WebElement getTraineesAddModal() {
+		String selector = "addTraineeModal";
+		
+		return wd.findElement(By.id(selector));
 	}
 	
 	public WebElement getTraineesAddName() {
@@ -265,7 +277,7 @@ public class ManageBatchPage {
 		return wd.findElement(By.id(selector));
 	}
 	
-	public WebElement getTraineesAddProjectCompletetion() {
+	public WebElement getTraineesAddProjectCompletion() {
 		String selector = "traineeProjectCompletion";
 		wait = new WebDriverWait(wd, 5);
 		wait.until(ExpectedConditions.elementToBeClickable(By.id(selector)));
@@ -290,11 +302,11 @@ public class ManageBatchPage {
 	}
 	
 	public WebElement getTraineesAddSave() {
-			String selector = "input[value=\"Save\"]";
+			String selector = "input[ng-show=\"!Updating.status\"]";
 			wait = new WebDriverWait(wd, 5);
-			wait.until(ExpectedConditions.elementToBeClickable(By.id(selector)));
+			wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(selector)));
 			
-			return wd.findElement(By.id(selector));
+			return wd.findElement(By.cssSelector(selector));
 	}
 	
 	public WebElement getTraineesAddClose() {
@@ -305,4 +317,27 @@ public class ManageBatchPage {
 		return wd.findElement(By.className(selector));
 	}
 	
+	public WebElement getTraineesViewName() {
+		String selector = "td[role=\"button\"]";
+		wait = new WebDriverWait(wd, 5);
+		wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(selector)));
+		
+		return wd.findElement(By.cssSelector(selector));
+	}
+	
+	public WebElement getTraineesEdit() {
+		String selector = "a[ng-click=\"populateTrainee(trainee);getTrainee($index)\"]";
+		wait = new WebDriverWait(wd, 5);
+		wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(selector)));
+		
+		return wd.findElement(By.cssSelector(selector));
+	}
+	
+	public WebElement getTraineesEditSave() {
+		String selector = "input[ng-show=\"Updating.status\"]";
+		wait = new WebDriverWait(wd, 5);
+		wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(selector)));
+		
+		return wd.findElement(By.cssSelector(selector));
+}
 }

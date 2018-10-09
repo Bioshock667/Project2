@@ -5,8 +5,8 @@
     <classes>
       <class name="tests.ManageBatchTest">
         <methods>
-          <include name="checkDateError"/>
-          <include name="checkTraineesGlyph"/>
+          <include name="checkTraineesAddTrainee"/>
+          <include name="checkTraineesEdit"/>
           <include name="setupDriverAndPage"/>
           <include name="cleanup"/>
         </methods>
