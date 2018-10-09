@@ -29,6 +29,7 @@ public class NavBarTest {
 		
 		File f  = new File("../webapps/TestingServer/WEB-INF/classes/chromedriver.exe");
 		System.setProperty("webdriver.chrome.driver",f.getAbsolutePath());
+		
 		driver = new ChromeDriver();
 		driver.get("https://dev-caliber.revature.tech/");
 		LoginPage lp = new LoginPage(driver);

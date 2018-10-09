@@ -49,7 +49,6 @@ public class TestingSerlvet extends HttpServlet {
 			List<String> suites = new ArrayList<String>();
 			
 			suites.add("../webapps/TestingServer/WEB-INF/classes/testng.xml");
-			
 			tng.setTestSuites(suites);
 			tng.run();
 			
@@ -70,7 +69,36 @@ public class TestingSerlvet extends HttpServlet {
 					sb.append("{\"testName\":\""+t.getName()+"\",\"testResult\":\"FAILED\"},");
 				}
 			}
-			String s = sb.substring(0, sb.length()-1);
+			//String s = sb.substring(0, sb.length()-1);
+			String s = sb.toString();
+			response.getWriter().append(s);
+			response.getWriter().append("]");
+		} else if (uri.equals("/TestingServer/loginCuke")) {
+			TestNG tng = new TestNG();
+			List<String> suites = new ArrayList<String>();
+			suites.add("../webapps/TestingServer/WEB-INF/classes/cuketest.xml");
+			tng.setTestSuites(suites);
+			tng.run();
+			
+			response.getWriter().append("[");
+			List<ITestListener> il = tng.getTestListeners();
+			GenericTestListener tResult = null;
+			StringBuilder sb = new StringBuilder();
+			for (ITestListener i : il) {
+				if (i instanceof GenericTestListener) tResult = (GenericTestListener)i;
+			}
+			if (tResult != null) {
+				
+				for (ITestResult t: tResult.getPassed()) {
+					sb.append("{\"testName\":\""+t.getName()+"\",\"testResult\":\"PASSED\"},");
+				}
+				
+				for (ITestResult t: tResult.getFailed()) {
+					sb.append("{\"testName\":\""+t.getName()+"\",\"testResult\":\"FAILED\"},");
+				}
+			}
+			//String s = sb.substring(0, sb.length()-1);
+			String s = sb.toString();
 			response.getWriter().append(s);
 			response.getWriter().append("]");
 		} else if (uri.equals("/TestingServer/homePage")) {
