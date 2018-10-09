@@ -5,6 +5,7 @@
     <classes>
       <class name="tests.ManageBatchTest">
         <methods>
+          <include name="checkTraineesDelete"/>
           <include name="checkTraineesAddTrainee"/>
           <include name="checkTraineesEdit"/>
           <include name="setupDriverAndPage"/>

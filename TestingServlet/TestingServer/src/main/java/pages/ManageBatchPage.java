@@ -1,5 +1,7 @@
 package pages;
 
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -317,12 +319,16 @@ public class ManageBatchPage {
 		return wd.findElement(By.className(selector));
 	}
 	
-	public WebElement getTraineesViewName() {
-		String selector = "td[role=\"button\"]";
-		wait = new WebDriverWait(wd, 5);
-		wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(selector)));
-		
-		return wd.findElement(By.cssSelector(selector));
+	public boolean getTraineesViewName(String name) {
+	    boolean isFound = false;
+	    List<WebElement> rows = wd.findElements(By.cssSelector("#viewTraineeModal > div > div > div.modal-body.only-top-padding > div.col-md-12.col-lg-12 > div > table > tbody > tr:nth-child(1)"));
+	    for(WebElement row : rows){
+	        if(row.findElement(By.cssSelector("#viewTraineeModal > div > div > div.modal-body.only-top-padding > div.col-md-12.col-lg-12 > div > table > tbody > tr:nth-child(1) > td:nth-child(1)")).getText().equals(name)) {
+	            isFound = true;
+	            break;
+	        }
+	    }
+	    return isFound;
 	}
 	
 	public WebElement getTraineesEdit() {
@@ -339,5 +345,37 @@ public class ManageBatchPage {
 		wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(selector)));
 		
 		return wd.findElement(By.cssSelector(selector));
-}
+	}
+	
+	public WebElement getTraineesDelete() {
+		String selector = "a[data-target=\"#deleteTraineeModal\"]";
+		wait = new WebDriverWait(wd, 5);
+		wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(selector)));
+		
+		return wd.findElement(By.cssSelector(selector));
+	}
+	
+	public WebElement getTraineesConfirmModal() {
+		String selector = "#deleteTraineeModal > div > div";
+		wait = new WebDriverWait(wd, 5);
+		wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(selector)));
+		
+		return wd.findElement(By.cssSelector(selector));
+	}
+	
+	public WebElement getTraineesConfirmDelete() {
+		String selector = "//*[@id=\"deleteTraineeModal\"]/div/div/div[3]/input";
+		wait = new WebDriverWait(wd, 5);
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath(selector)));
+		
+		return wd.findElement(By.xpath(selector));
+	}
+	
+	public WebElement getTraineesConfirmCancel() {
+		String selector = "//*[@id=\"deleteTraineeModal\"]/div/div/div[3]/button";
+		wait = new WebDriverWait(wd, 5);
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath(selector)));
+		
+		return wd.findElement(By.xpath(selector));
+	}
 }

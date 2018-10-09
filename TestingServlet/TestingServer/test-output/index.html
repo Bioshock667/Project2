@@ -24,7 +24,7 @@
     <div class="top-banner-root">
       <span class="top-banner-title-font">Test results</span>
       <br/>
-      <span class="top-banner-font-1">1 suite, 1 failed test</span>
+      <span class="top-banner-font-1">1 suite</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -38,7 +38,7 @@
         <div class="rounded-window">
           <div class="suite-header light-rounded-window-top">
             <a href="#" class="navigator-link" panel-name="suite-Default_suite">
-              <span class="suite-name border-failed">Default suite</span>
+              <span class="suite-name border-passed">Default suite</span>
             </a> <!-- navigator-link -->
           </div> <!-- suite-header light-rounded-window-top -->
           <div class="navigator-suite-content">
@@ -49,7 +49,7 @@
               <ul>
                 <li>
                   <a href="#" class="navigator-link " panel-name="test-xml-Default_suite">
-                    <span>C:\Users\kakas\AppData\Local\Temp\testng-eclipse-1515221802\testng-customsuite.xml</span>
+                    <span>C:\Users\kakas\AppData\Local\Temp\testng-eclipse-1905390683\testng-customsuite.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -91,21 +91,7 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">2 methods, 1 failed,   1 passed</span>
-                  </li>
-                  <li>
-                    <span class="method-list-title failed">Failed methods</span>
-                    <span class="show-or-hide-methods failed">
-                      <a href="#" panel-name="suite-Default_suite" class="hide-methods failed suite-Default_suite"> (hide)</a> <!-- hide-methods failed suite-Default_suite -->
-                      <a href="#" panel-name="suite-Default_suite" class="show-methods failed suite-Default_suite"> (show)</a> <!-- show-methods failed suite-Default_suite -->
-                    </span>
-                    <div class="method-list-content failed suite-Default_suite">
-                      <span>
-                        <img width="3%" src="failed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="tests.ManageBatchTest" hash-for-method="checkTraineesEdit">checkTraineesEdit</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                    </div> <!-- method-list-content failed suite-Default_suite -->
+                    <span class="method-stats">8 methods,   8 passed</span>
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -116,7 +102,42 @@
                     <div class="method-list-content passed suite-Default_suite">
                       <span>
                         <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="tests.ManageBatchTest" hash-for-method="checkBatchCreation">checkBatchCreation</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="tests.ManageBatchTest" hash-for-method="checkCreateBatchClose">checkCreateBatchClose</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="tests.ManageBatchTest" hash-for-method="checkCreateBatchCloseButton">checkCreateBatchCloseButton</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="tests.ManageBatchTest" hash-for-method="checkDateError">checkDateError</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
                         <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="tests.ManageBatchTest" hash-for-method="checkTraineesAddTrainee">checkTraineesAddTrainee</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="tests.ManageBatchTest" hash-for-method="checkTraineesDelete">checkTraineesDelete</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="tests.ManageBatchTest" hash-for-method="checkTraineesEdit">checkTraineesEdit</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="tests.ManageBatchTest" hash-for-method="checkYearFilterOptions">checkYearFilterOptions</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-Default_suite -->
@@ -131,56 +152,6 @@
     <div class="wrapper">
       <div class="main-panel-root">
         <div panel-name="suite-Default_suite" class="panel Default_suite">
-          <div class="suite-Default_suite-class-failed">
-            <div class="main-panel-header rounded-window-top">
-              <img src="failed.png"/>
-              <span class="class-name">tests.ManageBatchTest</span>
-            </div> <!-- main-panel-header rounded-window-top -->
-            <div class="main-panel-content rounded-window-bottom">
-              <div class="method">
-                <div class="method-content">
-                  <a name="checkTraineesEdit">
-                  </a> <!-- checkTraineesEdit -->
-                  <span class="method-name">checkTraineesEdit</span>
-                  <div class="stack-trace">java.lang.AssertionError: expected [Dylan, Bo] but found [Dylan, Bob]
-	at org.testng.Assert.fail(Assert.java:96)
-	at org.testng.Assert.failNotEquals(Assert.java:776)
-	at org.testng.Assert.assertEqualsImpl(Assert.java:137)
-	at org.testng.Assert.assertEquals(Assert.java:118)
-	at org.testng.Assert.assertEquals(Assert.java:453)
-	at org.testng.Assert.assertEquals(Assert.java:463)
-	at tests.ManageBatchTest.checkTraineesEdit(ManageBatchTest.java:249)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
-	at org.testng.internal.Invoker.invokeMethod(Invoker.java:580)
-	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:716)
-	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:988)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
-	at org.testng.TestRunner.privateRun(TestRunner.java:648)
-	at org.testng.TestRunner.run(TestRunner.java:505)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
-	at org.testng.TestNG.runSuites(TestNG.java:1049)
-	at org.testng.TestNG.run(TestNG.java:1017)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-
-</div> <!-- stack-trace -->
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-            </div> <!-- main-panel-content rounded-window-bottom -->
-          </div> <!-- suite-Default_suite-class-failed -->
           <div class="suite-Default_suite-class-passed">
             <div class="main-panel-header rounded-window-top">
               <img src="passed.png"/>
@@ -189,9 +160,58 @@
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
+                  <a name="checkBatchCreation">
+                  </a> <!-- checkBatchCreation -->
+                  <span class="method-name">checkBatchCreation</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="checkCreateBatchClose">
+                  </a> <!-- checkCreateBatchClose -->
+                  <span class="method-name">checkCreateBatchClose</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="checkCreateBatchCloseButton">
+                  </a> <!-- checkCreateBatchCloseButton -->
+                  <span class="method-name">checkCreateBatchCloseButton</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="checkDateError">
+                  </a> <!-- checkDateError -->
+                  <span class="method-name">checkDateError</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
                   <a name="checkTraineesAddTrainee">
                   </a> <!-- checkTraineesAddTrainee -->
                   <span class="method-name">checkTraineesAddTrainee</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="checkTraineesDelete">
+                  </a> <!-- checkTraineesDelete -->
+                  <span class="method-name">checkTraineesDelete</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="checkTraineesEdit">
+                  </a> <!-- checkTraineesEdit -->
+                  <span class="method-name">checkTraineesEdit</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="checkYearFilterOptions">
+                  </a> <!-- checkYearFilterOptions -->
+                  <span class="method-name">checkYearFilterOptions</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -199,7 +219,7 @@
         </div> <!-- panel Default_suite -->
         <div panel-name="test-xml-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">C:\Users\kakas\AppData\Local\Temp\testng-eclipse-1515221802\testng-customsuite.xml</span>
+            <span class="header-content">C:\Users\kakas\AppData\Local\Temp\testng-eclipse-1905390683\testng-customsuite.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -248,20 +268,44 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(2);
+data.addRows(8);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'checkTraineesAddTrainee')
 data.setCell(0, 2, 'tests.ManageBatchTest')
-data.setCell(0, 3, 6273);
+data.setCell(0, 3, 11819);
 data.setCell(1, 0, 1)
-data.setCell(1, 1, 'checkTraineesEdit')
+data.setCell(1, 1, 'checkDateError')
 data.setCell(1, 2, 'tests.ManageBatchTest')
-data.setCell(1, 3, 1241);
+data.setCell(1, 3, 6012);
+data.setCell(2, 0, 2)
+data.setCell(2, 1, 'checkBatchCreation')
+data.setCell(2, 2, 'tests.ManageBatchTest')
+data.setCell(2, 3, 5948);
+data.setCell(3, 0, 3)
+data.setCell(3, 1, 'checkTraineesDelete')
+data.setCell(3, 2, 'tests.ManageBatchTest')
+data.setCell(3, 3, 3202);
+data.setCell(4, 0, 4)
+data.setCell(4, 1, 'checkTraineesEdit')
+data.setCell(4, 2, 'tests.ManageBatchTest')
+data.setCell(4, 3, 2165);
+data.setCell(5, 0, 5)
+data.setCell(5, 1, 'checkCreateBatchClose')
+data.setCell(5, 2, 'tests.ManageBatchTest')
+data.setCell(5, 3, 1698);
+data.setCell(6, 0, 6)
+data.setCell(6, 1, 'checkCreateBatchCloseButton')
+data.setCell(6, 2, 'tests.ManageBatchTest')
+data.setCell(6, 3, 1530);
+data.setCell(7, 0, 7)
+data.setCell(7, 1, 'checkYearFilterOptions')
+data.setCell(7, 2, 'tests.ManageBatchTest')
+data.setCell(7, 3, 952);
 window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 7 seconds</span>
+              <span class="suite-total-time">Total running time: 33 seconds</span>
               <div id="times-div-Default_suite">
               </div> <!-- times-div-Default_suite -->
             </div> <!-- times-div -->
@@ -293,18 +337,40 @@ return data;
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-suite before -->
               <div class="test-method">
-                <span class="method-name">checkTraineesAddTrainee</span>
-                <span class="method-start">7922 ms</span>
+                <span class="method-name">checkYearFilterOptions</span>
+                <span class="method-start">10395 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
-                <img src="failed.png">
-                </img>
+                <span class="method-name">checkCreateBatchClose</span>
+                <span class="method-start">11351 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">checkCreateBatchCloseButton</span>
+                <span class="method-start">13049 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">checkBatchCreation</span>
+                <span class="method-start">14579 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">checkDateError</span>
+                <span class="method-start">20527 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">checkTraineesAddTrainee</span>
+                <span class="method-start">26554 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
                 <span class="method-name">checkTraineesEdit</span>
-                <span class="method-start">14211 ms</span>
+                <span class="method-start">38373 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">checkTraineesDelete</span>
+                <span class="method-start">40538 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-suite after">
                 <span class="method-name">cleanup</span>
-                <span class="method-start">15494 ms</span>
+                <span class="method-start">43827 ms</span>
               </div> <!-- configuration-suite after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
