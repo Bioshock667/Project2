@@ -8,6 +8,8 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import pages.AssessBatch;
 import pages.HomePage;
@@ -32,15 +34,27 @@ public class IanTestForHP {
 		lp.getLogin().click();		
 		
 		
-		System.out.println("Prayers"); Thread.sleep(2000);
-
-		nbp.getAccessBatchLink().click();
-		ab.goToYear(2);
-		ab.goToBatch(5);
-		ab.selectBatchByChild(5);
-		ab.selectBatchByBatchName("Peter Alagna - 8/22/18");
-		ab.goToBatchName("Peter Alagna - 8/22/18");
-		Thread.sleep(5000);
+		System.out.println("Prayers"); Thread.sleep(2000); nbp.getAccessBatchLink().click();
+		
+		String heyo = "Project 2 makes me cry on the inside";
+		WebDriverWait shh = new WebDriverWait(driver,3);
+		
+		ab.goToYear("2018");
+		ab.goToBatchName("Genesis Bonds - 9/16/18");
+		
+		
+		shh.until(ExpectedConditions.attributeToBeNotEmpty(ab.getNotesByRow(1), "innerHTML"));
+		ab.getWeek(10).click();
+		shh.until(ExpectedConditions.attributeToBeNotEmpty(ab.getNotesByRow(1), "innerHTML"));
+		ab.getNotesByRow(1).sendKeys(Keys.chord(Keys.CONTROL, "a"), Keys.DELETE, heyo);
+		ab.getWeek(20).click();
+		shh.until(ExpectedConditions.attributeToBeNotEmpty(ab.getNotesByRow(1), "innerHTML"));
+		ab.getNotesByRow(1).sendKeys(Keys.chord(Keys.CONTROL, "a"), Keys.DELETE, heyo);
+		ab.getWeek(30).click();
+		shh.until(ExpectedConditions.attributeToBeNotEmpty(ab.getNotesByRow(1), "innerHTML"));
+		ab.getNotesByRow(1).sendKeys(Keys.chord(Keys.CONTROL, "a"), Keys.DELETE, heyo);
+		ab.getBatchSaveButton().click();
+		Thread.sleep(3000);
 //		System.out.println("weeks : " + ab.getNumberOfWeeks());
 //
 //		
