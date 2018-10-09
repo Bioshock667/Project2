@@ -28,15 +28,15 @@ Feature: The Quality Audit Page
     And I can add weeks
     When I click the new week button
     Then there should be one more week than beforehand
-	Scenario: Selecting Feedback
-		Given There exists an orange question mark for individual feedback
-		When I click the symbol twice
-		Then The symbol should be a green happy face
-	Scenario: Typing feedback
-		Given I am on the Quality Audit Page
-		When I type "Ian is a good student" in Ian\'s feedback box And I hit refresh
-		Then the feedback box should say "Ian is a good student"
+#	Scenario: Selecting Feedback
+#		Given There exists an orange question mark for individual feedback
+#		When I click the symbol twice
+#		Then The symbol should be a green happy face
+#	Scenario: Typing feedback
+#		Given I am on the Quality Audit Page
+#		When I type "Ian is a good student" in Ians feedback box And I hit refresh
+#		Then the feedback box should say "Ian is a good student"
 	Scenario: General Feedback
-	Given I am on the Quality Audit Page And I have Week 1 selected
-	When I click Positive Symbol And I type "Great Teamwork" in overall feedback And I click the Save button
-	Then after I move to the other week and then go back, the Positive Symbol is highlighted And the overall feeback says "Great Teamwork"
+		Given I am on the Quality Audit Page And I have Week 1 selected
+		When I click Positive Symbol And I type "Great Teamwork" in overall feedback And I click the Save button
+		Then after I move to home before going back to Quality Audit page And then go back to Week 1, the Positive Symbol is highlighted And the overall feeback says "Great Teamwork"

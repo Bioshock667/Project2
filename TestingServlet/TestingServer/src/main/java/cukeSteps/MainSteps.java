@@ -3,10 +3,12 @@ package cukeSteps;
 import java.io.File;
 
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
 
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import pages.AuditPage;
 import pages.LoginPage;
 
 public class MainSteps {
@@ -31,6 +33,7 @@ public class MainSteps {
 
 	@Then("^I should be logged in$")
 	public void i_should_be_logged_in() throws Throwable {
-		 driver.close();
+		 //driver.close();
 	}
+
 }
