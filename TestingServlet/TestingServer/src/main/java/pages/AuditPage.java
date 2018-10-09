@@ -60,7 +60,7 @@ public class AuditPage {
 	}
 	public ArrayList<WebElement> getWeeks() {
 		wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector(WeekTabSelector + "(1)")));
-		ArrayList<WebElement> list = new ArrayList<>();
+		ArrayList<WebElement> list = new ArrayList<WebElement>();
 		int index = 1;
 		try {
 			while (true) {
@@ -79,4 +79,56 @@ public class AuditPage {
 	public WebElement getTraineeFBButton() {
 		return wd.findElement(By.cssSelector(TraineeFBBtnSelector));
 	}
+	public int getBatchNumberOfChildren() {
+		WebDriverWait BATCHwait = new WebDriverWait(wd,10);
+		BATCHwait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("body > div > ui-view > ui-view > div.container.ng-scope > div:nth-child(1) > div > div.col-md-12.col-lg-12.top10 > ul:nth-child(1) > li.dropdown.ng-scope > a")));
+		wd.findElement(By.cssSelector("body > div > ui-view > ui-view > div.container.ng-scope > div:nth-child(1) > div > div.col-md-12.col-lg-12.top10 > ul:nth-child(1) > li.dropdown.ng-scope > a")).click();
+		int children = 1;
+		while (true) {
+		try {
+			if (null != wd.findElement(By.cssSelector("body > div > ui-view > ui-view > div.container.ng-scope > div:nth-child(1) > div > div.col-md-12.col-lg-12.top10 > ul:nth-child(1) > li.dropdown.ng-scope.open > ul > li:nth-child("+children+") > a"))){
+			} else {
+				break;
+			}
+		} catch (Exception e) {
+			break;
+		}
+		children++;
+		}
+		//wd.findElement(By.cssSelector("body > div > ui-view > ui-view > div.container.ng-scope > div:nth-child(1) > div > div.col-md-12.col-lg-12.top10 > ul:nth-child(1) > li.dropdown.ng-scope > a")).click();
+		return children - 1;
+		
+	}
+
+	public void goToBatchName(String s)  {
+		WebDriverWait YEARwait = new WebDriverWait(wd,10);
+		WebDriverWait ABWAIT = new WebDriverWait(wd,10);
+		YEARwait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("body > div > ui-view > ui-view > div.container.ng-scope > div:nth-child(1) > div > div.col-md-12.col-lg-12.top10 > ul:nth-child(1) > li.dropdown.ng-scope > a")));
+		int kids = getBatchNumberOfChildren();
+		System.out.println(kids);
+		//wd.findElement(By.cssSelector("body > div > ui-view > ui-view > div.container.ng-scope > div:nth-child(1) > div > div.col-md-12.col-lg-12.top10 > ul:nth-child(1) > li.dropdown.ng-scope > a")).click();
+		for (int i= 1; i < kids + 1; i++) {
+		WebElement e = wd.findElement(By.cssSelector("body > div > ui-view > ui-view > div.container.ng-scope > div:nth-child(1) > div > div.col-md-12.col-lg-12.top10 > ul:nth-child(1) > li.dropdown.ng-scope.open > ul > li:nth-child("+i+") > a"));
+		String s2 = e.getAttribute("innerHTML");
+		//System.out.println(s2);
+		String current = " "+ s + " ";
+			if (current.equals(s2)) {
+				System.out.println("found");
+				try {
+					//ABWAIT.until(ExpectedConditions.elementToBeClickable(By.cssSelector("body > div > ui-view > ui-view > div:nth-child(1) > div > div.col-md-12.col-lg-12.top10 > ul:nth-child(1) > li:nth-child(2)")));
+					//wd.findElement(By.cssSelector("body > div > ui-view > ui-view > div.container.ng-scope > div:nth-child(1) > div > div.col-md-12.col-lg-12.top10 > ul:nth-child(1) > li.dropdown.ng-scope > a")).click();
+					
+					//System.out.println("linkText : " + current);
+					//ABWAIT.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("body > div > ui-view > ui-view > div:nth-child(1) > div > div.col-md-12.col-lg-12.top10 > ul:nth-child(1) > li:nth-child(2) > ul > li:nth-child(" + i + ") > a")));
+					//wd.findElement(By.cssSelector("body > div > ui-view > ui-view > div:nth-child(1) > div > div.col-md-12.col-lg-12.top10 > ul:nth-child(1) > li:nth-child(2) > ul > li:nth-child(" + i + ") > a")).click();
+					e.click();
+					return;
+				} catch (Exception gavel) {
+					System.out.println("Batch not found");	
+					}
+			}
+		}
+	}
+
 }
+
