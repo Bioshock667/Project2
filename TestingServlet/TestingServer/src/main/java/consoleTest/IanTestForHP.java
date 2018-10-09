@@ -9,8 +9,10 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
 
+import pages.AssessBatch;
 import pages.HomePage;
 import pages.LoginPage;
+import pages.NavBarPage;
 
 public class IanTestForHP {
 
@@ -21,34 +23,38 @@ public class IanTestForHP {
 		driver.get("https://dev-caliber.revature.tech/");
 		LoginPage lp = new LoginPage(driver);
 		HomePage hp = new HomePage(driver);
-
+		NavBarPage nbp = new NavBarPage(driver);
+		AssessBatch ab = new AssessBatch(driver);
+		
+		
 		lp.getUName().sendKeys("calibot@revature.com");
 		lp.getPwd().sendKeys("*6Ak4-&kXnNTfTh6");
 		lp.getLogin().click();		
 		
 		
-		System.out.println("Prayers");
+		System.out.println("Prayers"); Thread.sleep(4000);
+
+		nbp.getAccessBatchLink().click();
+		ab.goToBatch(4);
+		
+		System.out.println("weeks : " + ab.getNumberOfWeeks());
 
 		
-		// TEST User Guide
-//		UGtest(hp);
+		System.out.println("batches : " + ab.getBatchNumberOfChildren());
 		
-		// TEST Weekly Progress ... Chart and Table
-//		LQAtest(hp);
+		System.out.println("years : " + ab.getYearNumberOfChildren());
 		
-		// TEST Weekly Progress ... Chart and Table
-//		WPtest(hp);
+		ab.getAddWeek().click();
+		ab.getAddWeekNo().click();
+
+		System.out.println("weeks available : " + ab.weeksAvailable());
+		ab.goToBatch(5);
+
 		
-		// TEST Panel Progress ... Chart and Table(small)
-//		 PPtest(hp);
-		
-		// THESE ARE RELATIVE, Don't Work
-//		hp.getRIGHTLQASelector();
-//		toggles(hp);
-//		Thread.sleep(3000);
-//		toggles(hp);
-//		Thread.sleep(3000);
-		
+		ab.getFlag(1).click();
+		ab.getFlagComment(1).sendKeys(Keys.chord(Keys.CONTROL, "a"), Keys.DELETE, "WILD TIME");
+		ab.getFlagSave(1).click();
+		Thread.sleep(2000);
 		// ** CLOSE OUT ** //	
 		System.out.println("CLOSING");
 		driver.quit();
