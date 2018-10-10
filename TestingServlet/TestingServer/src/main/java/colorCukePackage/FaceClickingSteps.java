@@ -1,6 +1,10 @@
 package colorCukePackage;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.Properties;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -18,23 +22,35 @@ import pages.NavBarPage;
 
 public class FaceClickingSteps {
 	private ChromeDriver driver;
+	Properties props;
 	{
 		File f  = new File("../webapps/TestingServer/WEB-INF/classes/chromedriver.exe");
 		System.setProperty("webdriver.chrome.driver",f.getAbsolutePath());
 		driver = new ChromeDriver();
+		props = new Properties();
+		try {
+			FileInputStream in = new FileInputStream("../webapps/TestingServer/WEB-INF/classes/info.properties");
+			props.load(in);
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	@Given("^I am on the caliberbot (\\d+)-(\\d+)-(\\d+) assess page$")
 	public void i_am_on_the_caliberbot_assess_page(int arg1, int arg2, int arg3) throws Throwable {
-		driver.get("https://dev-caliber.revature.tech/");
+		driver.get(props.getProperty("url"));
 		LoginPage lp = new LoginPage(driver);
-		lp.getUName().sendKeys("calibot@revature.com");
-		lp.getPwd().sendKeys("*6Ak4-&kXnNTfTh6");
+		lp.getUName().sendKeys(props.getProperty("uname"));
+		lp.getPwd().sendKeys(props.getProperty("pwd"));
 		lp.getLogin().click();
 		NavBarPage nv = new NavBarPage(driver);
 		nv.getQualityLink().click();
 		AuditPage ap = new AuditPage(driver);
-		ap.goToBatchName("External Trainer - 1/4/18");
+		ap.goToBatchName(props.getProperty("colorBatch"));
 	}
 
 	@When("^I click on the red question mark$")
