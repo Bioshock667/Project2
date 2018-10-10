@@ -1,7 +1,10 @@
 package serlvet;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -45,90 +48,73 @@ public class TestingSerlvet extends HttpServlet {
 			response.getWriter().append("[{\"testName\":\"test1\",\"testResult\":\"passed\"},{\"testName\":\"test2\",\"testResult\":\"if you can see this it passed\"}]");
 		}
 		else if (uri.equals("/TestingServer/navBar")) {
-			TestNG tng = new TestNG();
-			List<String> suites = new ArrayList<String>();
-			
-			suites.add("../webapps/TestingServer/WEB-INF/classes/testng.xml");
-			tng.setTestSuites(suites);
-			tng.run();
-			
-			response.getWriter().append("[");
-			List<ITestListener> il = tng.getTestListeners();
-			GenericTestListener tResult = null;
-			StringBuilder sb = new StringBuilder();
-			for (ITestListener i : il) {
-				if (i instanceof GenericTestListener) tResult = (GenericTestListener)i;
-			}
-			if (tResult != null) {
-				
-				for (ITestResult t: tResult.getPassed()) {
-					sb.append("{\"testName\":\""+t.getName()+"\",\"testResult\":\"PASSED\"},");
-				}
-				
-				for (ITestResult t: tResult.getFailed()) {
-					sb.append("{\"testName\":\""+t.getName()+"\",\"testResult\":\"FAILED\"},");
-				}
-			}
-			String s = sb.substring(0, sb.length()-1);
-			response.getWriter().append(s);
-			response.getWriter().append("]");
+			runTestNG("testng.xml", response);
 		} else if (uri.equals("/TestingServer/loginCuke")) {
-			TestNG tng = new TestNG();
-			List<String> suites = new ArrayList<String>();
-			suites.add("../webapps/TestingServer/WEB-INF/classes/cuketest.xml");
-			tng.setTestSuites(suites);
-			tng.run();
-			
-			response.getWriter().append("[");
-			List<ITestListener> il = tng.getTestListeners();
-			GenericTestListener tResult = null;
-			StringBuilder sb = new StringBuilder();
-			for (ITestListener i : il) {
-				if (i instanceof GenericTestListener) tResult = (GenericTestListener)i;
-			}
-			if (tResult != null) {
-				
-				for (ITestResult t: tResult.getPassed()) {
-					sb.append("{\"testName\":\""+t.getName()+"\",\"testResult\":\"PASSED\"},");
-				}
-				
-				for (ITestResult t: tResult.getFailed()) {
-					sb.append("{\"testName\":\""+t.getName()+"\",\"testResult\":\"FAILED\"},");
-				}
-			}
-			String s = sb.substring(0, sb.length()-1);
-			response.getWriter().append(s);
-			response.getWriter().append("]");
+			runTestNG("cuketest.xml", response);
 		} else if (uri.equals("/TestingServer/homePage")) {
-			TestNG tng = new TestNG();
-			List<String> suites = new ArrayList<String>();
-			
-			suites.add("../webapps/TestingServer/WEB-INF/classes/hometestng.xml");
-			
-			tng.setTestSuites(suites);
-			tng.run();
-			
-			response.getWriter().append("[");
-			List<ITestListener> il = tng.getTestListeners();
-			GenericTestListener tResult = null;
-			StringBuilder sb = new StringBuilder();
-			for (ITestListener i : il) {
-				if (i instanceof GenericTestListener) tResult = (GenericTestListener)i;
-			}
-			if (tResult != null) {
-				
-				for (ITestResult t: tResult.getPassed()) {
-					sb.append("{\"testName\":\""+t.getName()+"\",\"testResult\":\"PASSED\"},");
-				}
-				
-				for (ITestResult t: tResult.getFailed()) {
-					sb.append("{\"testName\":\""+t.getName()+"\",\"testResult\":\"FAILED\"},");
-				}
-			}
-			String s = sb.substring(0, sb.length()-1);
-			response.getWriter().append(s);
-			response.getWriter().append("]");
+			runTestNG("hometestng.xml", response);
+		} else if (uri.equals("/TestingServer/colorFace")) {
+			runTestNG("colorcuke.xml", response);
+		} else if (uri.equals("/TestingServer/auditTest")) {
+			runTestNG("auditcuketest.xml", response);
+		} else if (uri.equals("/TestingServer/protractor")) {
+			runProtractor(response);
+			//response.getWriter().println("Todo: implement Protractor");
+		} else if (uri.equals("/TestingServer/BAYearsTest")) {
+			runTestNG("AsBaYears.xml", response);
 		}
+	}
+
+	private void runProtractor(HttpServletResponse response) {
+		Runtime r = Runtime.getRuntime();
+		try {
+
+			Process protractor = r.exec(new String[] {"cmd", " /c", "protractor", "../webapps/TestingServer/WEB-INF/classes/protractor/conf.js"});
+			InputStream input = protractor.getInputStream();
+			String s = null;
+			try {
+				BufferedReader br = new BufferedReader(
+						new InputStreamReader(input));
+				while ((s = br.readLine()) != null) {
+					response.getWriter().println(s);
+				}
+			} catch (IOException ioe) {
+				ioe.printStackTrace();
+			}
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+
+	public void runTestNG(String testxml, HttpServletResponse response) throws IOException {
+		TestNG tng = new TestNG();
+		List<String> suites = new ArrayList<String>();
+		suites.add("../webapps/TestingServer/WEB-INF/classes/" + testxml);
+		tng.setTestSuites(suites);
+		tng.run();
+		
+		response.getWriter().append("[");
+		List<ITestListener> il = tng.getTestListeners();
+		GenericTestListener tResult = null;
+		StringBuilder sb = new StringBuilder();
+		for (ITestListener i : il) {
+			if (i instanceof GenericTestListener) tResult = (GenericTestListener)i;
+		}
+		if (tResult != null) {
+			
+			for (ITestResult t: tResult.getPassed()) {
+				sb.append("{\"testName\":\""+t.getName()+"\",\"testResult\":\"PASSED\"},");
+			}
+			
+			for (ITestResult t: tResult.getFailed()) {
+				sb.append("{\"testName\":\""+t.getName()+"\",\"testResult\":\"FAILED\"},");
+			}
+		}
+		String s = sb.substring(0, sb.length()-1);
+		response.getWriter().append(s);
+		response.getWriter().append("]");
 	}
 
 	/**

@@ -30,7 +30,7 @@ public class ConsoleColorTest {
 	NavBarPage nv = new NavBarPage(driver);
 	nv.getQualityLink().click();
 	AuditPage ap = new AuditPage(driver);
-	ap.goToBatchName("Richard Orr - 1/4/18");
+	ap.goToBatchName("External Trainer - 1/5/18");
 	WebDriverWait w = new WebDriverWait(driver,10);
 	try {
 		w.until(ExpectedConditions.elementToBeClickable(ap.getStatusButtonByOrd(1, 1)));

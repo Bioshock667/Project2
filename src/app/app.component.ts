@@ -20,6 +20,11 @@ export class AppComponent implements OnInit {
   tableResult:Observable<ResultRow[]> = this.serAcc.runTests("tableGet");
   navResult:Observable<ResultRow[]> = this.serAcc.runTests("navBar");
   homeResult:Observable<ResultRow[]> = this.serAcc.runTests("homePage");
+  lCukeResult:Observable<ResultRow[]> = this.serAcc.runTests("loginCuke");
+  colorResult:Observable<ResultRow[]> = this.serAcc.runTests("colorFace");
+  auditResult:Observable<ResultRow[]> = this.serAcc.runTests("auditTest");
+  auditYearsResult:Observable<ResultRow[]> = this.serAcc.runTests("BAYearsTest");
+  trainTestResult:Observable<ResultRow[]> = this.serAcc.runTests("protractor")
   title = 'Project2';
   showTable=false;
   loading = false;
@@ -57,6 +62,56 @@ servResult="no response yet";
     this.showTable=false;
     this.loading = true;
     this.homeResult.subscribe(resp=>{
+      this.tRows=resp;
+      this.loading=false;
+      this.showTable=true;
+    });
+  }
+
+  testLCuke() {
+    this.showTable=false;
+    this.loading = true;
+    this.lCukeResult.subscribe(resp=>{
+      this.tRows=resp;
+      this.loading=false;
+      this.showTable=true;
+    });
+  }
+
+  testColor() {
+    this.showTable=false;
+    this.loading = true;
+    this.colorResult.subscribe(resp=>{
+      this.tRows=resp;
+      this.loading=false;
+      this.showTable=true;
+    });
+  }
+
+  testAudit() {
+    this.showTable=false;
+    this.loading = true;
+    this.auditResult.subscribe(resp=>{
+      this.tRows=resp;
+      this.loading=false;
+      this.showTable=true;
+    });
+  }
+
+  testAuditYears() {
+    this.showTable=false;
+    this.loading = true;
+    this.auditYearsResult.subscribe(resp=>{
+      this.tRows=resp;
+      this.loading=false;
+      this.showTable=true;
+    });
+  }
+
+  testTrain() {
+    this.showTable=false;
+    this.loading = true;
+    this.trainTestResult.subscribe(resp=>{
       this.tRows=resp;
       this.loading=false;
       this.showTable=true;
