@@ -59,13 +59,15 @@ public class TestingSerlvet extends HttpServlet {
 			//response.getWriter().println("Todo: implement Protractor");
 		} else if (uri.equals("/TestingServer/BAYearsTest")) {
 			runTestNG("AsBaYears.xml", response);
+		} else if (uri.equals("/TestingServer/managebatchtest")) {
+			runTestNG("managebatchtesting.xml", response);
 		}
 	}
 
 	private void runProtractor(HttpServletResponse response) {
 		Runtime r = Runtime.getRuntime();
 		try {
-			Process protractor = r.exec(new String[] {"cmd", " /c", "protractor", "C:\\Users\\Administrator\\Documents\\protractor\\conf.js"});
+			Process protractor = r.exec(new String[] {"cmd", " /c", "C:\\Users\\Administrator\\AppData\\Roaming\\npm\\protractor", "C:\\Users\\Administrator\\Documents\\protractor\\conf.js"});
 			InputStream input = protractor.getInputStream();
 			InputStream err = protractor.getErrorStream();
 			String s = null;

@@ -1,0 +1,19 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="ManageBatchPage" verbose="2">
+
+<listeners>
+<listener class-name="listeners.GenericTestListener" />
+
+</listeners>
+
+
+
+<test name="Manage Batch Page">
+<classes>
+<class name="tests.ManageBatchPage" ></class>
+</classes>
+</test>
+
+
+
+</suite>
