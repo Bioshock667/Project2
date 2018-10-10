@@ -1,7 +1,10 @@
 package serlvet;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -54,7 +57,32 @@ public class TestingSerlvet extends HttpServlet {
 			runTestNG("colorcuke.xml", response);
 		} else if (uri.equals("/TestingServer/auditTest")) {
 			runTestNG("auditcuketest.xml", response);
+		} else if (uri.equals("/TestingServer/protractor")) {
+			//runProtractor(response);
+			response.getWriter().println("Todo: implement Protractor");
 		}
+	}
+
+	private void runProtractor(HttpServletResponse response) {
+		Runtime r = Runtime.getRuntime();
+		try {
+			Process protractor = r.exec("cmd /C protractor ");
+			InputStream input = protractor.getInputStream();
+			String s = null;
+			try {
+				BufferedReader br = new BufferedReader(
+						new InputStreamReader(input));
+				while ((s = br.readLine()) != null) {
+					response.getWriter().println(s);
+				}
+			} catch (IOException ioe) {
+				ioe.printStackTrace();
+			}
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 	}
 
 	public void runTestNG(String testxml, HttpServletResponse response) throws IOException {
