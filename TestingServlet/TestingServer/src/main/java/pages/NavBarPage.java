@@ -47,4 +47,8 @@ public static WebDriverWait wait;
 	public WebElement getSettingsCategoryLink() {
 		return wd.findElement(By.cssSelector("body > div > ui-view > nav > div > ul.nav.navbar-nav.navbar-right > li.dropdown.open > ul > li:nth-child(3) > a"));
 	}
+	
+	public WebElement getCreateBatchButton() {
+		return wd.findElement(By.xpath("//html/body/div/ui-view/nav/div/ul[2]/li[3]/a"));
+	}
 }
