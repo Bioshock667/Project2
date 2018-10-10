@@ -23,11 +23,11 @@ Feature: The Quality Audit Page
     Given I visit the login page
     When I enter correct credentials And I click Submit
     Then I should be logged in
-  Scenario: Adding a Week
-    Given I am at the Quality Audit Page And have selected "Adam Ranieri - 9/1/18"
-    And I can add weeks
-    When I click the new week button
-    Then there should be one more week than beforehand
+  #Scenario: Adding a Week
+    #Given I am at the Quality Audit Page
+    #And I can add weeks
+    #When I click the new week button And I click yes on the New Week dialog
+    #Then there should be one more week than beforehand
 #	Scenario: Selecting Feedback
 #		Given There exists an orange question mark for individual feedback
 #		When I click the symbol twice

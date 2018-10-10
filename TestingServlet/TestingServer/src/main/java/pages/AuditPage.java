@@ -1,9 +1,8 @@
 package pages;
 
 import java.util.ArrayList;
-import java.util.NoSuchElementException;
-
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -21,14 +20,17 @@ public class AuditPage {
 	private String WeekTabSelector = "body > div > ui-view > ui-view > div.container.ng-scope > div:nth-child(1) > div > div.col-sm-12.col-md-12.col-lg-12.top5.ng-scope > ul > li:nth-child";
 	//private String TraineeFBBtnSelector = "#qcTrainees > div > ul > table > tbody > tr > td:nth-child(3) > button:nth-child(6) > i";
 	private String TraineeFBBtnSelector = "#qcTrainees > div > ul > table > tbody > tr > td:nth-child(3)";
+	private String NewWeekSelector = "body > div > ui-view > ui-view > div.container.ng-scope > div:nth-child(1) > div > div.col-sm-12.col-md-12.col-lg-12.top5.ng-scope > ul > li:nth-child(6) > a > span";
 	public AuditPage(WebDriver w) {
 		this.wd = w;
 		this.wait = new WebDriverWait(wd,10);
 		//wd.get("https://dev-caliber.revature.tech/caliber/#/vp/audit");
 	}
 	public WebElement getSaveButton() {
-		wait.until(ExpectedConditions.presenceOfElementLocated(By.className("saveButton")));
-		return wd.findElement(By.className("saveButton"));
+//		wait.until(ExpectedConditions.presenceOfElementLocated(By.className("save-button fade-in")));
+//		return wd.findElement(By.className("save-button fade-in"));
+		wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("a[class = 'save-button fade-in']")));
+		return wd.findElement(By.cssSelector("a[class = 'save-button fade-in']"));
 	}
 	public WebElement getNegativeResponseButton() {
 		wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector(NegRespBtnSelector)));
@@ -51,14 +53,18 @@ public class AuditPage {
 		return wd.findElement(By.cssSelector(YearDropdownSelector));
 	}
 	public WebElement getAddWeekButton() {
-		wait.until(ExpectedConditions.presenceOfElementLocated(By.className("glyphicon glyphicon-plus")));
-		return wd.findElement(By.className("glyphicon glyphicon-plus"));
+		//wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector(NewWeekSelector)));
+		//wait.until(ExpectedConditions.presenceOfElementLocated(By.className("glyphicon glyphicon-plus")));
+		//return wd.findElement(By.cssSelector(NewWeekSelector));
+		//return wd.findElements(By.className("glyphicon")).get(0);
+		return getWeeks().get(getWeeks().size() - 1);
 	}
 	public WebElement getBatchSelector() {
 		wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector(BatchDropdownSelector)));
 		return wd.findElement(By.cssSelector(BatchDropdownSelector));
 	}
 	public ArrayList<WebElement> getWeeks() {
+		System.out.println("waiting");
 		wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector(WeekTabSelector + "(1)")));
 		ArrayList<WebElement> list = new ArrayList<WebElement>();
 		int index = 1;
@@ -67,6 +73,7 @@ public class AuditPage {
 				WebElement nthWeek = wd.findElement(By.cssSelector(WeekTabSelector + "(" + index + ")"));
 				list.add(nthWeek);
 				index += 1;
+				System.out.println("Thare ra" + index + "weeks");
 			}
 		} catch (NoSuchElementException e) {}
 		return list;
@@ -134,6 +141,13 @@ public class AuditPage {
 		WebDriverWait w = new WebDriverWait(wd,10);
 		w.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("#qcTrainees > div > ul > table > tbody > tr:nth-child(5) > td:nth-child(3) > button:nth-child(1)")));
 		return wd.findElement(By.cssSelector("#qcTrainees > div > ul > table > tbody > tr:nth-child("+ord+") > td:nth-child(3) > button:nth-child("+bl+")"));
+	}
+	
+	public WebElement getAddWeekYesButton() {
+		WebDriverWait w = new WebDriverWait(wd, 10);
+		w.until(ExpectedConditions.presenceOfElementLocated(By.id("yesBtn")));
+		w.until(ExpectedConditions.elementToBeClickable(By.id("yesBtn")));
+		return wd.findElement(By.id("yesBtn"));
 	}
 
 }
