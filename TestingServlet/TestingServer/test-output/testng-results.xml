@@ -2,52 +2,52 @@
 <testng-results skipped="0" failed="0" ignored="0" total="9" passed="9">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="26182" started-at="2018-10-10T04:28:23Z" finished-at="2018-10-10T04:28:49Z">
+  <suite name="Default suite" duration-ms="39531" started-at="2018-10-10T12:03:25Z" finished-at="2018-10-10T12:04:05Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="26182" started-at="2018-10-10T04:28:23Z" finished-at="2018-10-10T04:28:49Z">
+    <test name="Default test" duration-ms="39531" started-at="2018-10-10T12:03:25Z" finished-at="2018-10-10T12:04:05Z">
       <class name="tests.ManageBatchTest">
-        <test-method status="PASS" signature="setupDriverAndPage()[pri:0, instance:tests.ManageBatchTest@1794d431]" name="setupDriverAndPage" is-config="true" duration-ms="9005" started-at="2018-10-10T04:28:14Z" finished-at="2018-10-10T04:28:23Z">
+        <test-method status="PASS" signature="setupDriverAndPage()[pri:0, instance:tests.ManageBatchTest@1794d431]" name="setupDriverAndPage" is-config="true" duration-ms="9818" started-at="2018-10-10T12:03:16Z" finished-at="2018-10-10T12:03:25Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setupDriverAndPage -->
-        <test-method status="PASS" signature="checkYearFilterOptions()[pri:2, instance:tests.ManageBatchTest@1794d431]" name="checkYearFilterOptions" duration-ms="931" started-at="2018-10-10T04:28:23Z" finished-at="2018-10-10T04:28:24Z">
+        <test-method status="PASS" signature="checkYearFilterOptions()[pri:2, instance:tests.ManageBatchTest@1794d431]" name="checkYearFilterOptions" duration-ms="1551" started-at="2018-10-10T12:03:25Z" finished-at="2018-10-10T12:03:27Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- checkYearFilterOptions -->
-        <test-method status="PASS" signature="checkCreateBatchClose()[pri:4, instance:tests.ManageBatchTest@1794d431]" name="checkCreateBatchClose" duration-ms="1354" started-at="2018-10-10T04:28:24Z" finished-at="2018-10-10T04:28:25Z">
+        <test-method status="PASS" signature="checkCreateBatchClose()[pri:4, instance:tests.ManageBatchTest@1794d431]" name="checkCreateBatchClose" duration-ms="1797" started-at="2018-10-10T12:03:27Z" finished-at="2018-10-10T12:03:29Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- checkCreateBatchClose -->
-        <test-method status="PASS" signature="checkCreateBatchCloseButton()[pri:5, instance:tests.ManageBatchTest@1794d431]" name="checkCreateBatchCloseButton" duration-ms="1322" started-at="2018-10-10T04:28:25Z" finished-at="2018-10-10T04:28:26Z">
+        <test-method status="PASS" signature="checkCreateBatchCloseButton()[pri:5, instance:tests.ManageBatchTest@1794d431]" name="checkCreateBatchCloseButton" duration-ms="1619" started-at="2018-10-10T12:03:29Z" finished-at="2018-10-10T12:03:30Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- checkCreateBatchCloseButton -->
-        <test-method status="PASS" signature="checkBatchCreation()[pri:7, instance:tests.ManageBatchTest@1794d431]" name="checkBatchCreation" duration-ms="3781" started-at="2018-10-10T04:28:26Z" finished-at="2018-10-10T04:28:30Z">
+        <test-method status="PASS" signature="checkBatchCreation()[pri:7, instance:tests.ManageBatchTest@1794d431]" name="checkBatchCreation" duration-ms="4930" started-at="2018-10-10T12:03:30Z" finished-at="2018-10-10T12:03:35Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- checkBatchCreation -->
-        <test-method status="PASS" signature="checkDateError()[pri:8, instance:tests.ManageBatchTest@1794d431]" name="checkDateError" duration-ms="3940" started-at="2018-10-10T04:28:30Z" finished-at="2018-10-10T04:28:34Z">
+        <test-method status="PASS" signature="checkDateError()[pri:8, instance:tests.ManageBatchTest@1794d431]" name="checkDateError" duration-ms="5742" started-at="2018-10-10T12:03:35Z" finished-at="2018-10-10T12:03:41Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- checkDateError -->
-        <test-method status="PASS" signature="checkTraineesAddTrainee()[pri:10, instance:tests.ManageBatchTest@1794d431]" name="checkTraineesAddTrainee" duration-ms="6602" started-at="2018-10-10T04:28:34Z" finished-at="2018-10-10T04:28:41Z">
+        <test-method status="PASS" signature="checkTraineesAddTrainee()[pri:10, instance:tests.ManageBatchTest@1794d431]" name="checkTraineesAddTrainee" duration-ms="11849" started-at="2018-10-10T12:03:41Z" finished-at="2018-10-10T12:03:53Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- checkTraineesAddTrainee -->
-        <test-method status="PASS" signature="checkTraineesEdit()[pri:11, instance:tests.ManageBatchTest@1794d431]" name="checkTraineesEdit" duration-ms="1935" started-at="2018-10-10T04:28:41Z" depends-on-methods="tests.ManageBatchTest.checkTraineesAddTrainee" finished-at="2018-10-10T04:28:43Z">
+        <test-method status="PASS" signature="checkTraineesEdit()[pri:11, instance:tests.ManageBatchTest@1794d431]" name="checkTraineesEdit" duration-ms="2635" started-at="2018-10-10T12:03:53Z" depends-on-methods="tests.ManageBatchTest.checkTraineesAddTrainee" finished-at="2018-10-10T12:03:56Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- checkTraineesEdit -->
-        <test-method status="PASS" signature="checkTraineesDelete()[pri:12, instance:tests.ManageBatchTest@1794d431]" name="checkTraineesDelete" duration-ms="4549" started-at="2018-10-10T04:28:43Z" depends-on-methods="tests.ManageBatchTest.checkTraineesEdit" finished-at="2018-10-10T04:28:47Z">
+        <test-method status="PASS" signature="checkTraineesDelete()[pri:12, instance:tests.ManageBatchTest@1794d431]" name="checkTraineesDelete" duration-ms="6458" started-at="2018-10-10T12:03:56Z" depends-on-methods="tests.ManageBatchTest.checkTraineesEdit" finished-at="2018-10-10T12:04:02Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- checkTraineesDelete -->
-        <test-method status="PASS" signature="checkBatchDelete()[pri:13, instance:tests.ManageBatchTest@1794d431]" name="checkBatchDelete" duration-ms="1735" started-at="2018-10-10T04:28:47Z" finished-at="2018-10-10T04:28:49Z">
+        <test-method status="PASS" signature="checkBatchDelete()[pri:13, instance:tests.ManageBatchTest@1794d431]" name="checkBatchDelete" duration-ms="2883" started-at="2018-10-10T12:04:02Z" finished-at="2018-10-10T12:04:05Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- checkBatchDelete -->
-        <test-method status="PASS" signature="cleanup()[pri:0, instance:tests.ManageBatchTest@1794d431]" name="cleanup" is-config="true" duration-ms="706" started-at="2018-10-10T04:28:49Z" finished-at="2018-10-10T04:28:50Z">
+        <test-method status="PASS" signature="cleanup()[pri:0, instance:tests.ManageBatchTest@1794d431]" name="cleanup" is-config="true" duration-ms="791" started-at="2018-10-10T12:04:05Z" finished-at="2018-10-10T12:04:06Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- cleanup -->
