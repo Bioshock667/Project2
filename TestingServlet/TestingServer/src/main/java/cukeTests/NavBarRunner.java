@@ -8,5 +8,5 @@ import cucumber.api.testng.AbstractTestNGCucumberTests;
         glue = {"navbarsteps"}  //Where can it find the cucumber code
         )
 public class NavBarRunner extends AbstractTestNGCucumberTests {
-
+	
 }
