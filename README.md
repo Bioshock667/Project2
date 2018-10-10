@@ -2,26 +2,72 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.2.2.
 
-## Development server
+# Development Roadmap
+## Page Object Models
+Page Models                     | author   
+________________________________|__________________
+- [x] Navigation Bar            | Seth
+- [x] Home Page                 | Ian
+- [ ] Manage Batch Page         | Christian
+- [ ] Access Batch Page         | 
+- [x] Quality Audit Page        | Seth
+- [ ] Panel Page                |
+- [ ] Reports Page              |
+- [ ] Settings - Trainers Page  |
+- [ ] Settings - Locations Page |
+- [ ] Settings - Category Page  |
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Test order
 
-## Code scaffolding
+### NAV BAR:
+* Click Revature Logo – Goes to home page
+* Click Home – Goes to home page
+* Click Manage Batch – Goes to manage batch page
+* Click Access Batch – Goes to access batch page
+* Click Quality Audit – Goes to quality audit page
+* Click Panel – Goes to panel page
+* Click Reports – Goes to reports
+* Click Settings drop down
+    * Click Trainers – Go to trainer page
+    * Click Locations – Go to locations page
+    * Click Category – Go to category page
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### HOME PAGE:
+* Click user guide link – Go to external GitHub page
+* Click Last Quality Audit States dropdown
+    * All States – Loads All States chart
+    * FL – Loads Florida chart and All Cities dropdown
+        All Cities dropdown – Loads Tampa option
+    * VA – Loads Virginia chart and All Cities dropdown
+        All Cities dropdown – Loads Reston option
+    * NY – Loads New York chart and All Cities dropdown
+        All Cities dropdown – Loads Queens option
+* Click Weekly Progress States dropdown
+    * All States – Loads All States chart
+    * FL – Loads Florida chart and All Cities dropdown
+       - All Cities dropdown – Loads Tampa option
+    * VA – Loads Virginia chart and All Cities dropdown
+       - All Cities dropdown – Loads Reston option
+    * NY – Loads New York chart and All Cities dropdown
+       - All Cities dropdown – Loads Queens option
 
-## Build
+### MANAGE BATCH:
+* Click New Batch 
+    * Assert both close buttons close modal
+    * for each input filled click "Save" and assert modal is displayed
+    * Type **JAVA** in "Type" input
+    * select "university for Training type
+    * select SDET for skill type
+    * Select WVU address for location
+    * select Adam for trainer
+    * select an option for co-trainer
+    * type any date for start date
+    * type any date before and after start date for end date
+    * send Positive, negative, no value for good and bade grade
+* *Assured does not work* After asserting model is not displayed assert batch with our specific info is displayed
+* for each option in Year dropdown assert that the first element has a start and end date that matches that option.
+    * if not such element exists skip
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+### ASSESS BATCH:
+* Click New Assessment
+    * 

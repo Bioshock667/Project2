@@ -4,7 +4,8 @@
 /dist
 /tmp
 /out-tsc
-TestingServlet/TestingServer/target/
+/TestingServlet/TestingServer/target
+/TestingServlet/TestingServer/test-output
 
 # dependencies
 /node_modules

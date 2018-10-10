@@ -1,28 +1,49 @@
 package listeners;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 
 public class GenericTestListener implements ITestListener {
 
+	private List<ITestResult> passed,failed,skipped;
+	
+	public GenericTestListener () {
+		passed = new ArrayList<ITestResult>();
+		failed = new ArrayList<ITestResult>();
+		skipped = new ArrayList<ITestResult>();
+	}
+	
+	public List<ITestResult> getPassed() {
+		return passed;
+	}
+	public List<ITestResult> getFailed() {
+		return failed;
+	}
+	public List<ITestResult> getSkipped() {
+		return skipped;
+	}
+	
 	public void onTestStart(ITestResult result) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	public void onTestSuccess(ITestResult result) {
-		// TODO Auto-generated method stub
+		passed.add(result);
 		
 	}
 
 	public void onTestFailure(ITestResult result) {
-		// TODO Auto-generated method stub
+		failed.add(result);
 		
 	}
 
 	public void onTestSkipped(ITestResult result) {
-		// TODO Auto-generated method stub
+		skipped.add(result);
 		
 	}
 
