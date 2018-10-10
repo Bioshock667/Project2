@@ -58,15 +58,16 @@ public class TestingSerlvet extends HttpServlet {
 		} else if (uri.equals("/TestingServer/auditTest")) {
 			runTestNG("auditcuketest.xml", response);
 		} else if (uri.equals("/TestingServer/protractor")) {
-			//runProtractor(response);
-			response.getWriter().println("Todo: implement Protractor");
+			runProtractor(response);
+			//response.getWriter().println("Todo: implement Protractor");
 		}
 	}
 
 	private void runProtractor(HttpServletResponse response) {
 		Runtime r = Runtime.getRuntime();
 		try {
-			Process protractor = r.exec("cmd /C protractor ");
+
+			Process protractor = r.exec(new String[] {"cmd", " /c", "protractor", "../webapps/TestingServer/WEB-INF/classes/protractor/conf.js"});
 			InputStream input = protractor.getInputStream();
 			String s = null;
 			try {
