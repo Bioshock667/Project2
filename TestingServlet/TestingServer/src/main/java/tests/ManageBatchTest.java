@@ -63,7 +63,7 @@ public class ManageBatchTest {
 	}
 	
 	@Test(priority = 4)
-	public void checkCreateBatchClose() throws InterruptedException {
+	public void checkCreateBatchClose() {
 		wait = new WebDriverWait(driver, 5);
 		wait.until(ExpectedConditions.invisibilityOf(manageBatch.getCreateBatchModal()));
 		
@@ -145,7 +145,7 @@ public class ManageBatchTest {
 	}
 	
 	@Test(priority = 8)
-	public void checkDateError() throws InterruptedException {
+	public void checkDateError() {
 		manageBatch.getCreateBatchButton().click();
 		manageBatch.getCreateBatchTrainingName().sendKeys("7833 Aug27 Java");
 		Select trainingType = new Select(manageBatch.getCreateBatchTrainingType());
@@ -165,19 +165,19 @@ public class ManageBatchTest {
 		manageBatch.getCreateBatchSaveButton().click();
 		Assert.assertTrue(manageBatch.getCreateBatchDateError().isDisplayed());
 		manageBatch.getCreateBatchDateErrorClose().click();
-//		wait.until(ExpectedConditions.invisibilityOf(manageBatch.getCreateBatchDateError()));
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.invisibilityOf(manageBatch.getCreateBatchDateError()));
 		
 		manageBatch.getCreateBatchCloseButton().click();
 		
 		wait = new WebDriverWait(driver, 5);
 		wait.until(ExpectedConditions.invisibilityOf(manageBatch.getCreateBatchModal()));
 	}
+
 	
 	@Test(priority = 10)
 	public void checkTraineesAddTrainee() {
 		manageBatch.getYearFilter().click();
-		manageBatch.getYearFilterOptions(3).click();
+		manageBatch.getYearFilterOptions(4).click();
 		
 		manageBatch.getTraineesGlyph().click();
 		
@@ -244,7 +244,6 @@ public class ManageBatchTest {
 		wait.until(ExpectedConditions.invisibilityOf(manageBatch.getTraineesAddModal()));
 		
 		Assert.assertTrue(manageBatch.getTraineesViewName("Bob Dylan"));
-		
 	}
 	
 	@Test(priority = 11, dependsOnMethods={"checkTraineesAddTrainee"})
@@ -257,10 +256,13 @@ public class ManageBatchTest {
 		manageBatch.getTraineesEditSave().click();
 		
 		Assert.assertTrue(manageBatch.getTraineesViewName("Dylan, Bob"));
+		
+		wait = new WebDriverWait(driver, 5);
+		wait.until(ExpectedConditions.invisibilityOf(manageBatch.getTraineesAddModal()));
 	}
 	
 	@Test(priority = 12, dependsOnMethods={"checkTraineesEdit"})
-	public void checkTraineesDelete() {
+	public void checkTraineesDelete() throws InterruptedException {
 		manageBatch.getTraineesDelete().click();
 		manageBatch.getTraineesConfirmCancel().click();
 		
@@ -274,11 +276,24 @@ public class ManageBatchTest {
 		wait.until(ExpectedConditions.invisibilityOf(manageBatch.getTraineesConfirmModal()));
 		
 		Assert.assertFalse(manageBatch.getTraineesViewName("Dylan, Bob"));
+		manageBatch.getTraineesClose().click();
+		
+		Thread.sleep(1000);
+	}
+	
+	@Test(priority = 13)
+	public void checkBatchDelete() {
+		manageBatch.getYearFilter().click();
+		manageBatch.getYearFilterOptions(2).click();
+		
+		manageBatch.getManageDelete().click();
+		manageBatch.getManageConfirmDelete().click();
+		Assert.assertTrue(manageBatch.getManageCantDeleteModal().isDisplayed());
+		manageBatch.getManageCantDeleteOk().click();
 	}
 	
 	@AfterSuite // runs after all tests
-	public void cleanup() throws InterruptedException {
-		Thread.sleep(1000);
+	public void cleanup() {
 		driver.quit();
 	}
 }
