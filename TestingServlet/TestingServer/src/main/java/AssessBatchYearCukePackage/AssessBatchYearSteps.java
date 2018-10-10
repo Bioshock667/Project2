@@ -31,7 +31,7 @@ public class AssessBatchYearSteps {
 	public void user_is_at_Assess_Batch_Page() throws Throwable {
 		// System.out.println("Get A Cucumber");
 		
-		File file = new File("src/main/resources/chromedriver.exe");
+		File file = new File("../webapps/TestingServer/WEB-INF/classes/chromedriver.exe");
 		System.setProperty("webdriver.chrome.driver", file.getAbsolutePath());
 		driver = new ChromeDriver();
 		driver.get("https://dev-caliber.revature.tech/");

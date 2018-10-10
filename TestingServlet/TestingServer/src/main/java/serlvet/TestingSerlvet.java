@@ -46,9 +46,6 @@ public class TestingSerlvet extends HttpServlet {
 		}
 		else if (uri.equals("/TestingServer/tableGet")) {
 			response.getWriter().append("[{\"testName\":\"test1\",\"testResult\":\"passed\"},{\"testName\":\"test2\",\"testResult\":\"if you can see this it passed\"}]");
-		}
-		else if (uri.equals("/TestingServer/navBar")) {
-			runTestNG("testng.xml", response);
 		} else if (uri.equals("/TestingServer/loginCuke")) {
 			runTestNG("cuketest.xml", response);
 		} else if (uri.equals("/TestingServer/homePage")) {
