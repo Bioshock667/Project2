@@ -16,6 +16,7 @@ import pages.NavBarPage;
         features = "../webapps/TestingServer/WEB-INF/classes/features/login.feature",
         glue = {"cukeSteps"})
 public class LoginCukeTest {
+	
 	private TestNGCucumberRunner testNGCucumberRunner;
     @BeforeClass(alwaysRun = true)
     public void setUpClass() throws Exception {

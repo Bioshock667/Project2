@@ -177,7 +177,7 @@ public class ManageBatchTest {
 	@Test(priority = 10)
 	public void checkTraineesAddTrainee() {
 		manageBatch.getYearFilter().click();
-		manageBatch.getYearFilterOptions(4).click();
+		manageBatch.getYearFilterOptions(2).click();
 		
 		manageBatch.getTraineesGlyph().click();
 		
