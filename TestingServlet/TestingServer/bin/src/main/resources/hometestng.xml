@@ -1,0 +1,19 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="HomePage">
+
+<listeners>
+<listener class-name="listeners.GenericTestListener" />
+
+</listeners>
+
+
+
+<test name="homePage1">
+<classes>
+<class name="tests.HPTest" ></class>
+</classes>
+</test>
+
+
+
+</suite>
