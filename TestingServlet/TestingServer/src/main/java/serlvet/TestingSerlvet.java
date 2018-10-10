@@ -59,6 +59,8 @@ public class TestingSerlvet extends HttpServlet {
 			//response.getWriter().println("Todo: implement Protractor");
 		} else if (uri.equals("/TestingServer/BAYearsTest")) {
 			runTestNG("AsBaYears.xml", response);
+		} else if (uri.equals("/TestingServer/managebatchtest")) {
+			runTestNG("managebatchtesting.xml", response);
 		}
 	}
 

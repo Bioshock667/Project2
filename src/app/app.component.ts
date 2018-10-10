@@ -23,6 +23,7 @@ export class AppComponent implements OnInit {
   lCukeResult:Observable<ResultRow[]> = this.serAcc.runTests("loginCuke");
   colorResult:Observable<ResultRow[]> = this.serAcc.runTests("colorFace");
   auditResult:Observable<ResultRow[]> = this.serAcc.runTests("auditTest");
+  manageBatchResult:Observable<ResultRow[]> = this.serAcc.runTests("managebatchtest");
   auditYearsResult:Observable<ResultRow[]> = this.serAcc.runTests("BAYearsTest");
   trainTestResult:Observable<ResultRow[]> = this.serAcc.runTests("protractor")
   title = 'Project2';
@@ -112,6 +113,16 @@ servResult="no response yet";
     this.showTable=false;
     this.loading = true;
     this.trainTestResult.subscribe(resp=>{
+      this.tRows=resp;
+      this.loading=false;
+      this.showTable=true;
+    },resp=>{this.servErr()});
+  }
+
+  testManageBatch() {
+    this.showTable=false;
+    this.loading = true;
+    this.manageBatchResult.subscribe(resp=>{
       this.tRows=resp;
       this.loading=false;
       this.showTable=true;
