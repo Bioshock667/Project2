@@ -13,7 +13,7 @@ import pages.NavBarPage;
 
 @CucumberOptions(
         features = "../webapps/TestingServer/WEB-INF/classes/features/colorfaces.feature",
-        glue = {"cukeSteps"})
+        glue = {"cukeSteps.FaceClickingSteps"})
 public class ColorCukeTest {
 	private TestNGCucumberRunner testNGCucumberRunner;
     @BeforeClass(alwaysRun = true)
