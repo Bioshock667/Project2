@@ -7,13 +7,14 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
+import cucumber.api.java.After;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import pages.AuditPage;
 import pages.LoginPage;
 
-public class MainSteps {
+public class AuditSteps {
 	private ChromeDriver driver;
 	private AuditPage auditpage;
 	private int numberCurrentWeeks;
@@ -136,7 +137,9 @@ public void after_I_move_to_home_before_going_back_to_Quality_Audit_page_And_the
     //Assert.assertEquals(posBtnClass, "fa fa-smile-o fa-2x pick");
     Assert.assertEquals(value, arg2);
 }
-protected void finalize() {
-	driver.close();
+
+@After
+public void ending() {
+	driver.quit();
 }
 }
