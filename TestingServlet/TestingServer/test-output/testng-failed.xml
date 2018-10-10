@@ -3,7 +3,18 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test verbose="2" name="Default test">
     <classes>
-      <class name="consoleTest.HPTest"/>
+      <class name="consoleTest.AssessBatchTest"/>
     </classes>
   </test> <!-- Default test -->
+  <test name="Default test(failed)">
+    <classes>
+      <class name="consoleTest.AssessBatchTest">
+        <methods>
+          <include name="BatchTests"/>
+          <include name="setDriversLoginAssessBatch"/>
+          <include name="cleanup"/>
+        </methods>
+      </class> <!-- consoleTest.AssessBatchTest -->
+    </classes>
+  </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

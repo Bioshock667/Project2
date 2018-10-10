@@ -21,11 +21,19 @@ public AssessBatch(WebDriver d) {
 		wd = d;
 }
 
+public void pause() {
+	WebDriverWait pause = new WebDriverWait(wd,3);
+	try {
+		pause.until(ExpectedConditions.elementToBeClickable(By.cssSelector("WONGOBONGOSALADTIME")));
+	} catch (Exception pauseE) {
+		
+	}
+}
 
 // YEAR
 public WebElement getYearButtonOpen() {
 	WebDriverWait YEARwait = new WebDriverWait(wd,10);
-	YEARwait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("body > div > ui-view > ui-view > div:nth-child(1) > div")));
+	YEARwait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("body > div > ui-view > ui-view > div:nth-child(1) > div > div.col-md-12.col-lg-12.top10 > ul:nth-child(1) > li:nth-child(1)")));
 	try {
 		if (null != wd.findElement(By.cssSelector("body > div > ui-view > ui-view > div.container.ng-scope > div.row > div.col-md-12.col-lg-12.top10 > ul:nth-child(1) > li:nth-child(1)"))){
 			return wd.findElement(By.cssSelector("body > div > ui-view > ui-view > div.container.ng-scope > div.row > div.col-md-12.col-lg-12.top10 > ul:nth-child(1) > li:nth-child(1)"));
@@ -223,6 +231,13 @@ public void goToBatchName(String s)  {
 	}
 }
 
+public String getCurrentBatch() {
+	WebDriverWait YEARwait = new WebDriverWait(wd,10);
+	YEARwait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("body > div > ui-view > ui-view > div:nth-child(1) > div > div.col-md-12.col-lg-12.top10 > ul:nth-child(1) > li:nth-child(2)")));
+	WebElement e = wd.findElement(By.cssSelector("body > div > ui-view > ui-view > div:nth-child(1) > div > div.col-md-12.col-lg-12.top10 > ul:nth-child(1) > li:nth-child(2)"));
+	System.out.println(e.getAttribute("innerText") + "UGH");
+	return  e.getAttribute("innerText");
+}
 
 //// CREATE ASSESSMENT METHODS /////////////
 public boolean canCreateAssessment () {

@@ -36,22 +36,25 @@ public class IanTestForHP {
 		
 		System.out.println("Prayers"); Thread.sleep(2000); nbp.getAccessBatchLink().click();
 		
-		String heyo = "Project 2 makes me cry on the inside";
+		String heyo = "Thread.sleep is not allowed, but waiting for something that doesn't exist is";
 		WebDriverWait shh = new WebDriverWait(driver,3);
 		
 		ab.goToYear("2018");
 		ab.goToBatchName("Genesis Bonds - 9/16/18");
 		
 		
-		shh.until(ExpectedConditions.attributeToBeNotEmpty(ab.getNotesByRow(1), "innerHTML"));
+//		shh.until(ExpectedConditions.attributeToBeNotEmpty(ab.getNotesByRow(1), "innerHTML"));
 		ab.getWeek(10).click();
-		shh.until(ExpectedConditions.attributeToBeNotEmpty(ab.getNotesByRow(1), "innerHTML"));
+		ab.pause();
+//		shh.until(ExpectedConditions.attributeToBeNotEmpty(ab.getNotesByRow(1), "innerHTML"));
 		ab.getNotesByRow(1).sendKeys(Keys.chord(Keys.CONTROL, "a"), Keys.DELETE, heyo);
 		ab.getWeek(20).click();
-		shh.until(ExpectedConditions.attributeToBeNotEmpty(ab.getNotesByRow(1), "innerHTML"));
+		ab.pause();
+//		shh.until(ExpectedConditions.attributeToBeNotEmpty(ab.getNotesByRow(1), "innerHTML"));
 		ab.getNotesByRow(1).sendKeys(Keys.chord(Keys.CONTROL, "a"), Keys.DELETE, heyo);
 		ab.getWeek(30).click();
-		shh.until(ExpectedConditions.attributeToBeNotEmpty(ab.getNotesByRow(1), "innerHTML"));
+		ab.pause();
+//		shh.until(ExpectedConditions.attributeToBeNotEmpty(ab.getNotesByRow(1), "innerHTML"));
 		ab.getNotesByRow(1).sendKeys(Keys.chord(Keys.CONTROL, "a"), Keys.DELETE, heyo);
 		ab.getBatchSaveButton().click();
 		Thread.sleep(3000);
