@@ -50,7 +50,8 @@ public class FaceClickingSteps {
 		NavBarPage nv = new NavBarPage(driver);
 		nv.getQualityLink().click();
 		AuditPage ap = new AuditPage(driver);
-		ap.goToBatchName(props.getProperty("colorBatch"));
+		System.out.println(props.getProperty("colorBatch"));
+		ap.goToBatchName("External Trainer - 1/4/18");
 	}
 
 	@When("^I click on the red question mark$")
