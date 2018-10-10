@@ -73,9 +73,9 @@ public class TestingSerlvet extends HttpServlet {
 			String s = null;
 			try {
 				BufferedReader br = new BufferedReader(
-						new InputStreamReader(input));
+						new InputStreamReader(input, "utf-8"));
 				BufferedReader e = new BufferedReader(
-						new InputStreamReader(err));
+						new InputStreamReader(err, "utf-8"));
 				
 				while ((s = br.readLine()) != null) {
 					response.getWriter().println(s);
