@@ -1,4 +1,4 @@
-package consoleTest;
+package cukeSteps;
 
 import java.io.File;
 
@@ -19,7 +19,7 @@ import pages.AssessBatch;
 import pages.LoginPage;
 import pages.NavBarPage;
 
-public class AssessBatchYearCucumber {
+public class AssessBatchYearSteps {
 	
 	public static LoginPage lp;
 	public static NavBarPage nbp;
