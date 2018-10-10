@@ -64,7 +64,7 @@ public class FaceClickingSteps {
 		WebDriverWait w = new WebDriverWait(driver,10);
 		w.until(ExpectedConditions.elementToBeClickable(ap.getStatusButtonByOrd(1, 2)));
 		Assert.assertTrue(ap.getStatusButtonByOrd(1, 2).isDisplayed());
-		driver.quit();
+		if (driver !=null)driver.quit();
 	}
 
 	@When("^I click on the blue star$")
@@ -82,7 +82,7 @@ public class FaceClickingSteps {
 		WebDriverWait w = new WebDriverWait(driver,10);
 		w.until(ExpectedConditions.elementToBeClickable(ap.getStatusButtonByOrd(1, 3)));
 		Assert.assertTrue(ap.getStatusButtonByOrd(1, 3).isDisplayed());
-		driver.quit();
+		if (driver != null)driver.quit();
 	}
 
 	@When("^I click on the green face$")
@@ -100,7 +100,7 @@ public class FaceClickingSteps {
 		WebDriverWait w = new WebDriverWait(driver,10);
 		w.until(ExpectedConditions.elementToBeClickable(ap.getStatusButtonByOrd(1, 4)));
 		Assert.assertTrue(ap.getStatusButtonByOrd(1, 4).isDisplayed());
-		driver.quit();
+		if (driver != null)driver.quit();
 	}
 
 	@When("^I click on the yellow face$")
@@ -118,7 +118,7 @@ public class FaceClickingSteps {
 		WebDriverWait w = new WebDriverWait(driver,10);
 		w.until(ExpectedConditions.elementToBeClickable(ap.getStatusButtonByOrd(1, 5)));
 		Assert.assertTrue(ap.getStatusButtonByOrd(1, 5).isDisplayed());
-		driver.quit();
+		if (driver != null)driver.quit();
 	}
 
 	@When("^I click on the red face$")
@@ -136,12 +136,12 @@ public class FaceClickingSteps {
 		WebDriverWait w = new WebDriverWait(driver,10);
 		w.until(ExpectedConditions.elementToBeClickable(ap.getStatusButtonByOrd(1, 6)));
 		Assert.assertTrue(ap.getStatusButtonByOrd(1, 6).isDisplayed());
-		driver.quit();
+		if (driver != null)driver.quit();
 	}
 	
 	@After
 	public void ending() {
-		driver.quit();
+		if (driver != null)driver.quit();
 	}
 
 }
