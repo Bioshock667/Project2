@@ -55,7 +55,7 @@ servResult="no response yet";
       this.tRows=resp;
       this.loading=false;
       this.showTable=true;
-    });
+    },resp=>{this.servErr()});
   }
 
   testHome() {
@@ -65,7 +65,7 @@ servResult="no response yet";
       this.tRows=resp;
       this.loading=false;
       this.showTable=true;
-    });
+    },resp=>{this.servErr()});
   }
 
   testLCuke() {
@@ -75,7 +75,7 @@ servResult="no response yet";
       this.tRows=resp;
       this.loading=false;
       this.showTable=true;
-    });
+    },resp=>{this.servErr()});
   }
 
   testColor() {
@@ -85,7 +85,7 @@ servResult="no response yet";
       this.tRows=resp;
       this.loading=false;
       this.showTable=true;
-    });
+    },resp=>{this.servErr()});
   }
 
   testAudit() {
@@ -95,7 +95,7 @@ servResult="no response yet";
       this.tRows=resp;
       this.loading=false;
       this.showTable=true;
-    });
+    },resp=>{this.servErr()});
   }
 
   testAuditYears() {
@@ -105,7 +105,7 @@ servResult="no response yet";
       this.tRows=resp;
       this.loading=false;
       this.showTable=true;
-    });
+    },resp=>{this.servErr()});
   }
 
   testTrain() {
@@ -115,6 +115,12 @@ servResult="no response yet";
       this.tRows=resp;
       this.loading=false;
       this.showTable=true;
-    });
+    },resp=>{this.servErr()});
+  }
+
+  servErr() {
+    this.loading=false;
+    this.tRows = [new ResultRow("Error","An error occourrred retrieving data from the server")];
+    this.showTable=true;
   }
 }

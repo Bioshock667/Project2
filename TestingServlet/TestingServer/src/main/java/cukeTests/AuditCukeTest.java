@@ -14,7 +14,7 @@ import pages.NavBarPage;
 
 @CucumberOptions(
         features = "../webapps/TestingServer/WEB-INF/classes/features/quality_audit.feature",
-        glue = {"cukeSteps"})
+        glue = {"auditSteps"})
 public class AuditCukeTest {
 	private TestNGCucumberRunner testNGCucumberRunner;
     @BeforeClass(alwaysRun = true)

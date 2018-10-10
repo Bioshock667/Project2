@@ -65,15 +65,21 @@ public class TestingSerlvet extends HttpServlet {
 	private void runProtractor(HttpServletResponse response) {
 		Runtime r = Runtime.getRuntime();
 		try {
-
-			Process protractor = r.exec(new String[] {"cmd", " /c", "protractor", "../webapps/TestingServer/WEB-INF/classes/protractor/conf.js"});
+			Process protractor = r.exec(new String[] {"cmd", " /c", "C:\\Users\\Administrator\\AppData\\Roaming\\npm\\protractor", "C:\\Users\\Administrator\\Documents\\protractor\\conf.js"});
 			InputStream input = protractor.getInputStream();
+			InputStream err = protractor.getErrorStream();
 			String s = null;
 			try {
 				BufferedReader br = new BufferedReader(
 						new InputStreamReader(input));
+				BufferedReader e = new BufferedReader(
+						new InputStreamReader(err));
+				
 				while ((s = br.readLine()) != null) {
 					response.getWriter().println(s);
+				}
+				while((s = e.readLine()) != null) {
+					response.getWriter().println("Error: " + s);
 				}
 			} catch (IOException ioe) {
 				ioe.printStackTrace();

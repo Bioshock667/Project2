@@ -13,8 +13,7 @@
 
 <mat-card><mat-card-content>
    
-    <button mat-raised-button color="primary" (click)="testTable()">Test Tables</button>
-    <button mat-raised-button color="accent" (click)="testNav()">Test Nav</button>
+   
     <button mat-raised-button  (click)="testHome()">Test Homepage</button>
     <button mat-raised-button color="warn" (click)="testColor()">Test Color Faces</button>
     <button mat-raised-button color="primary" (click)="testAudit()">Test Audit Page</button>
@@ -22,8 +21,9 @@
     <button mat-raised-button (click)="testAuditYears()">Assesment Batch Years Test</button>
     <button mat-raised-button color="warn" (click)="testTrain()">Test Setting Trainers</button>
     <br />
+    <br />
     <mat-progress-spinner  mode="indeterminate" *ngIf="loading"></mat-progress-spinner>
-    <table mat-table *ngIf="showTable" [dataSource]="tRows" width="30%">
+    <table mat-table *ngIf="showTable" [dataSource]="tRows" width="50%">
         <ng-container matColumnDef="tname">
             <th mat-header-cell *matHeaderCellDef>Test Name</th>
             <td mat-cell *matCellDef="let item">{{item.testName}}</td>

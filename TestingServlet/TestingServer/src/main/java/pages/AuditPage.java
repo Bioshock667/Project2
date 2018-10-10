@@ -64,7 +64,6 @@ public class AuditPage {
 		return wd.findElement(By.cssSelector(BatchDropdownSelector));
 	}
 	public ArrayList<WebElement> getWeeks() {
-		System.out.println("waiting");
 		wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector(WeekTabSelector + "(1)")));
 		ArrayList<WebElement> list = new ArrayList<WebElement>();
 		int index = 1;
@@ -73,7 +72,6 @@ public class AuditPage {
 				WebElement nthWeek = wd.findElement(By.cssSelector(WeekTabSelector + "(" + index + ")"));
 				list.add(nthWeek);
 				index += 1;
-				System.out.println("Thare ra" + index + "weeks");
 			}
 		} catch (NoSuchElementException e) {}
 		return list;
@@ -112,7 +110,6 @@ public class AuditPage {
 		WebDriverWait ABWAIT = new WebDriverWait(wd,10);
 		YEARwait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("body > div > ui-view > ui-view > div.container.ng-scope > div:nth-child(1) > div > div.col-md-12.col-lg-12.top10 > ul:nth-child(1) > li.dropdown.ng-scope > a")));
 		int kids = getBatchNumberOfChildren();
-		System.out.println(kids);
 		//wd.findElement(By.cssSelector("body > div > ui-view > ui-view > div.container.ng-scope > div:nth-child(1) > div > div.col-md-12.col-lg-12.top10 > ul:nth-child(1) > li.dropdown.ng-scope > a")).click();
 		for (int i= 1; i < kids + 1; i++) {
 		WebElement e = wd.findElement(By.cssSelector("body > div > ui-view > ui-view > div.container.ng-scope > div:nth-child(1) > div > div.col-md-12.col-lg-12.top10 > ul:nth-child(1) > li.dropdown.ng-scope.open > ul > li:nth-child("+i+") > a"));
@@ -120,7 +117,7 @@ public class AuditPage {
 		//System.out.println(s2);
 		String current = " "+ s + " ";
 			if (current.equals(s2)) {
-				System.out.println("found");
+				//System.out.println("found");
 				try {
 					//ABWAIT.until(ExpectedConditions.elementToBeClickable(By.cssSelector("body > div > ui-view > ui-view > div:nth-child(1) > div > div.col-md-12.col-lg-12.top10 > ul:nth-child(1) > li:nth-child(2)")));
 					//wd.findElement(By.cssSelector("body > div > ui-view > ui-view > div.container.ng-scope > div:nth-child(1) > div > div.col-md-12.col-lg-12.top10 > ul:nth-child(1) > li.dropdown.ng-scope > a")).click();
