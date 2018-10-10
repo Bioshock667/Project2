@@ -16,10 +16,12 @@
     <button mat-raised-button color="primary" (click)="testTable()">Test Tables</button>
     <button mat-raised-button color="accent" (click)="testNav()">Test Nav</button>
     <button mat-raised-button  (click)="testHome()">Test Homepage</button>
-    <button mat-raised-button color="warn" (click)="testColor()">Test Color Faces Clicking</button>
+    <button mat-raised-button color="warn" (click)="testColor()">Test Color Faces</button>
     <button mat-raised-button color="primary" (click)="testAudit()">Test Audit Page</button>
     <button mat-raised-button color="accent" (click)="testLCuke()">Test Login Cucumber</button>
-    
+    <button mat-raised-button (click)="testAuditYears()">Assesment Batch Years Test</button>
+    <button mat-raised-button color="warn" (click)="testTrain()">Test Setting Trainers</button>
+    <br />
     <mat-progress-spinner  mode="indeterminate" *ngIf="loading"></mat-progress-spinner>
     <table mat-table *ngIf="showTable" [dataSource]="tRows" width="30%">
         <ng-container matColumnDef="tname">

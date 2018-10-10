@@ -23,6 +23,8 @@ export class AppComponent implements OnInit {
   lCukeResult:Observable<ResultRow[]> = this.serAcc.runTests("loginCuke");
   colorResult:Observable<ResultRow[]> = this.serAcc.runTests("colorFace");
   auditResult:Observable<ResultRow[]> = this.serAcc.runTests("auditTest");
+  auditYearsResult:Observable<ResultRow[]> = this.serAcc.runTests("BAYearsTest");
+  trainTestResult:Observable<ResultRow[]> = this.serAcc.runTests("protractor")
   title = 'Project2';
   showTable=false;
   loading = false;
@@ -90,6 +92,26 @@ servResult="no response yet";
     this.showTable=false;
     this.loading = true;
     this.auditResult.subscribe(resp=>{
+      this.tRows=resp;
+      this.loading=false;
+      this.showTable=true;
+    });
+  }
+
+  testAuditYears() {
+    this.showTable=false;
+    this.loading = true;
+    this.auditYearsResult.subscribe(resp=>{
+      this.tRows=resp;
+      this.loading=false;
+      this.showTable=true;
+    });
+  }
+
+  testTrain() {
+    this.showTable=false;
+    this.loading = true;
+    this.trainTestResult.subscribe(resp=>{
       this.tRows=resp;
       this.loading=false;
       this.showTable=true;
