@@ -1,6 +1,10 @@
 package consoleTest;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.Properties;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -20,17 +24,28 @@ public class ConsoleColorTest {
 	File f  = new File("src/main/resources/chromedriver.exe");
 	System.setProperty("webdriver.chrome.driver",f.getAbsolutePath());
 	ChromeDriver driver = new ChromeDriver();
-	driver.get("https://dev-caliber.revature.tech/");
+	Properties props = new Properties();
+	try {
+		FileInputStream in = new FileInputStream("src/main/resources/info.properties");
+		props.load(in);
+	} catch (FileNotFoundException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	} catch (IOException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+	driver.get(props.getProperty("url"));
 	LoginPage lp = new LoginPage(driver);
-	lp.getUName().sendKeys("calibot@revature.com");
-	lp.getPwd().sendKeys("*6Ak4-&kXnNTfTh6");
+	lp.getUName().sendKeys(props.getProperty("uname"));
+	lp.getPwd().sendKeys(props.getProperty("pwd"));
 	lp.getLogin().click();
 	Actions aBuilder = new Actions(driver);
 	HomePage hp= new HomePage(driver);
 	NavBarPage nv = new NavBarPage(driver);
 	nv.getQualityLink().click();
 	AuditPage ap = new AuditPage(driver);
-	ap.goToBatchName("External Trainer - 1/5/18");
+	ap.goToBatchName(props.getProperty("colorBatch"));
 	WebDriverWait w = new WebDriverWait(driver,10);
 	try {
 		w.until(ExpectedConditions.elementToBeClickable(ap.getStatusButtonByOrd(1, 1)));
