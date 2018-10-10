@@ -1,18 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite guice-stage="DEVELOPMENT" name="Failed suite [NavBar]">
-  <listeners>
-    <listener class-name="listeners.GenericTestListener"/>
-  </listeners>
-  <test thread-count="5" name="navBar1(failed)">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
+  <test verbose="2" name="Default test">
     <classes>
-      <class name="tests.NavBarTest">
-        <methods>
-          <include name="cleanup"/>
-          <include name="setupDriverAndPage"/>
-          <include name="checkBatchLink"/>
-        </methods>
-      </class> <!-- tests.NavBarTest -->
+      <class name="consoleTest.HPTest"/>
     </classes>
-  </test> <!-- navBar1(failed) -->
-</suite> <!-- Failed suite [NavBar] -->
+  </test> <!-- Default test -->
+</suite> <!-- Failed suite [Default suite] -->

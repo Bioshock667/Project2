@@ -30,4 +30,11 @@
 </classes>
 </test>
 
+<test name="Assess Batch Cuke Test For Years">
+<classes>
+<class name="consoleTest.AssessBatchYearCucumber"/>
+</classes>
+</test>
+
+
 </suite>

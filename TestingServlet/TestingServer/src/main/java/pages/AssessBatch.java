@@ -16,18 +16,14 @@ public static WebDriver wd;
 
 // MODALS - Should be checked for invisible before any main commands
 
+// Constructor(driver)
 public AssessBatch(WebDriver d) {
 		wd = d;
 }
 
+
 // YEAR
 public WebElement getYearButtonOpen() {
-//	WebDriverWait CreateModalCloseWait = new WebDriverWait(wd,10);
-//	WebDriverWait ImportModalCloseWait = new WebDriverWait(wd,10);
-//	WebDriverWait ConfirmingWeeksCloseWait = new WebDriverWait (wd,10);
-	//CreateModalCloseCloseWait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("#createAssessmentModal > div > div")));
-	//ImportModalCloseCloseWait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("#importGradesModal > div > div")));
-	//ConfirmingWeeksCloseWait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("#confirmingweeks > div > div")));
 	WebDriverWait YEARwait = new WebDriverWait(wd,10);
 	YEARwait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("body > div > ui-view > ui-view > div:nth-child(1) > div")));
 	try {
@@ -78,7 +74,7 @@ public void goToYear(String year) {
 			try {
 					ABWAIT.until(ExpectedConditions.elementToBeClickable(By.cssSelector("body > div > ui-view > ui-view > div.container.ng-scope > div.row > div.col-md-12.col-lg-12.top10 > ul:nth-child(1) > li:nth-child(1)")));
 					wd.findElement(By.cssSelector("body > div > ui-view > ui-view > div.container.ng-scope > div.row > div.col-md-12.col-lg-12.top10 > ul:nth-child(1) > li:nth-child(1)")).click();
-					ABWAIT.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("body > div > ui-view > ui-view > div:nth-child(1) > div > div.col-md-12.col-lg-12.top10 > ul:nth-child(1) > li:nth-child(1) > ul > li:nth-child(" + i + ") > a")));
+					ABWAIT.until(ExpectedConditions.elementToBeClickable(By.cssSelector("body > div > ui-view > ui-view > div:nth-child(1) > div > div.col-md-12.col-lg-12.top10 > ul:nth-child(1) > li:nth-child(1) > ul > li:nth-child(" + i + ") > a")));
 					wd.findElement(By.cssSelector("body > div > ui-view > ui-view > div:nth-child(1) > div > div.col-md-12.col-lg-12.top10 > ul:nth-child(1) > li:nth-child(1) > ul > li:nth-child(" + i + ") > a")).click();
 			} catch (NoSuchElementException noyear) {
 				System.out.println("That year does not exists");
@@ -109,6 +105,14 @@ public void goToYearByChild(int year) {
 	}
 }
 
+public String getCurrentYear() {
+	WebDriverWait YEARwait = new WebDriverWait(wd,10);
+	YEARwait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("body > div > ui-view > ui-view > div:nth-child(1) > div > div.col-md-12.col-lg-12.top10 > ul:nth-child(1) > li:nth-child(1) > a")));
+	WebElement e = wd.findElement(By.cssSelector("body > div > ui-view > ui-view > div:nth-child(1) > div > div.col-md-12.col-lg-12.top10 > ul:nth-child(1) > li:nth-child(1) > a"));
+	return  e.getAttribute("innerText");
+}
+
+
 // BATCH
 public boolean hasBatches () {
 	WebDriverWait BATCHwait = new WebDriverWait(wd,10);
@@ -124,12 +128,6 @@ public boolean hasBatches () {
 }
 
 public WebElement getBatchButtonOpen() {
-//	WebDriverWait CreateModalCloseWait = new WebDriverWait(wd,10);
-//	WebDriverWait ImportModalCloseWait = new WebDriverWait(wd,10);
-//	WebDriverWait ConfirmingWeeksCloseWait = new WebDriverWait (wd,10);
-	//CreateModalCloseCloseWait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("#createAssessmentModal > div > div")));
-	//ImportModalCloseCloseWait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("#importGradesModal > div > div")));
-	//ConfirmingWeeksCloseWait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("#confirmingweeks > div > div")));
 	WebDriverWait BATCHwait = new WebDriverWait(wd,10);
 	BATCHwait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("body > div > ui-view > ui-view > div:nth-child(1) > div")));
 	try {
@@ -164,10 +162,6 @@ public WebElement selectBatchByChild(int batchNum) {
 	WebDriverWait YEARwait = new WebDriverWait(wd,10);
 	YEARwait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("body > div > ui-view > ui-view > div:nth-child(1) > div")));
 	WebElement e = wd.findElement(By.cssSelector("body > div > ui-view > ui-view > div:nth-child(1) > div > div.col-md-12.col-lg-12.top10 > ul:nth-child(1) > li:nth-child(2) > ul > li:nth-child(" + batchNum + ") > a"));
-	String s = e.getAttribute("innerHTML");
-	String s2 = "\n" + 
-			"								Genesis Bonds - 9/11/18\n" + 
-			"						";
 	return e;
 }
 
@@ -229,7 +223,8 @@ public void goToBatchName(String s)  {
 	}
 }
 
-// Create Assessment
+
+//// CREATE ASSESSMENT METHODS /////////////
 public boolean canCreateAssessment () {
 	WebDriverWait BATCHwait = new WebDriverWait(wd,10);
 	BATCHwait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("body > div > ui-view > ui-view > div:nth-child(1) > div")));
@@ -243,15 +238,8 @@ public boolean canCreateAssessment () {
 	return false; // should never happen
 }
 
-//// CREATE ASSESSMENT METHODS /////////////
 public WebElement getCreateAssessment() {
 	WebDriverWait CAwait = new WebDriverWait(wd,10);
-//	WebDriverWait CreateModalCloseWait = new WebDriverWait(wd,10);
-//	WebDriverWait ImportModalCloseWait = new WebDriverWait(wd,10);
-//	WebDriverWait ConfirmingWeeksCloseWait = new WebDriverWait (wd,10);
-	//CreateModalCloseCloseWait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("#createAssessmentModal > div > div")));
-	//ImportModalCloseCloseWait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("#importGradesModal > div > div")));
-	//ConfirmingWeeksCloseWait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("#confirmingweeks > div > div")));
 	CAwait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("body > div > ui-view > ui-view > div:nth-child(1) > div > div.col-md-12.col-lg-12.top10 > ul:nth-child(1) > li:nth-child(4)")));
 	return wd.findElement(By.cssSelector("body > div > ui-view > ui-view > div:nth-child(1) > div > div.col-md-12.col-lg-12.top10 > ul:nth-child(1) > li:nth-child(4)"));
 }
@@ -335,12 +323,6 @@ public boolean canImportGrades () {
 
 public WebElement getImportGrades() {
 	WebDriverWait IGwait = new WebDriverWait(wd,10);
-//	WebDriverWait CreateModalCloseWait = new WebDriverWait(wd,10);
-//	WebDriverWait ImportModalCloseWait = new WebDriverWait(wd,10);
-//	WebDriverWait ConfirmingWeeksCloseWait = new WebDriverWait (wd,10);
-	//CreateModalCloseCloseWait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("#createAssessmentModal > div > div")));
-	//ImportModalCloseCloseWait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("#importGradesModal > div > div")));
-	//ConfirmingingWeeksCloseWait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("#confirmingweeks > div > div")));
 	IGwait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("body > div > ui-view > ui-view > div:nth-child(1) > div > div.col-md-12.col-lg-12.top10 > ul:nth-child(1) > li:nth-child(3)")));
 	return wd.findElement(By.cssSelector("body > div > ui-view > ui-view > div:nth-child(1) > div > div.col-md-12.col-lg-12.top10 > ul:nth-child(1) > li:nth-child(3)"));
 }
@@ -366,12 +348,6 @@ public WebElement getImportGradesCLOSE() {
 
 // WEEK TABS ///////////////	
 public boolean weeksAvailable() {
-	//WebDriverWait CreateModalCloseWait = new WebDriverWait(wd,10);
-	//WebDriverWait ImportModalCloseWait = new WebDriverWait(wd,10);
-	//WebDriverWait ConfirmingWeeksCloseWait = new WebDriverWait (wd,10);
-	//CreateModalCloseCloseWait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("#createAssessmentModal > div > div")));
-	//ImportModalCloseCloseWait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("#importGradesModal > div > div")));
-	//ConfirmingingWeeksCloseWait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("#confirmingweeks > div > div")));
 	try {
 		if (null != wd.findElement(By.cssSelector("body > div > ui-view > ui-view > div.container.ng-scope > div.row > div.col-sm-12.col-md-12.col-lg-12.top5.ng-hide"))){
 			return false;
@@ -383,14 +359,6 @@ public boolean weeksAvailable() {
 }
 
 public int getNumberOfWeeks() {
-	//WebDriverWait WeekWait = new WebDriverWait(wd,10);
-	//WebDriverWait CreateModalCloseWait = new WebDriverWait(wd,10);
-	//WebDriverWait ImportModalCloseWait = new WebDriverWait(wd,10);
-	//WebDriverWait ConfirmingWeeksCloseWait = new WebDriverWait (wd,10);
-	//CreateModalCloseCloseWait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("#createAssessmentModal > div > div")));
-	//ImportModalCloseCloseWait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("#importGradesModal > div > div")));
-	//ConfirmingingWeeksCloseWait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("#confirmingweeks > div > div")));
-
 	int children = 1;
 	while (true) {
 		try {
@@ -407,22 +375,10 @@ public int getNumberOfWeeks() {
 }
 
 public WebElement getWeek(int weeknum) {
-//	WebDriverWait //CreateModalCloseCloseWait = new WebDriverWait(wd,10);
-//	WebDriverWait ImportModalCloseWait = new WebDriverWait(wd,10);
-//	WebDriverWait ConfirmingWeeksCloseWait = new WebDriverWait (wd,10);
-	//CreateModalCloseCloseWait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("#createAssessmentModal > div > div")));
-	//ImportModalCloseCloseWait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("#importGradesModal > div > div")));
-	//ConfirmingWeeksCloseWait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("#confirmingweeks > div > div")));
 	return wd.findElement(By.xpath("/html/body/div/ui-view/ui-view/div[1]/div/div[3]/ul/li[" + weeknum + "]"));
 }
 
 public WebElement getAddWeek() {
-//	WebDriverWait CreateModalCloseWait = new WebDriverWait(wd,10);
-//	WebDriverWait ImportModalCloseWait = new WebDriverWait(wd,10);
-//	WebDriverWait ConfirmingWeeksCloseWait = new WebDriverWait (wd,10);
-	//CreateModalCloseCloseWait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("#createAssessmentModal > div > div")));
-	//ImportModalCloseCloseWait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("#importGradesModal > div > div")));
-	//ConfirmingWeeksCloseWait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("#confirmingweeks > div > div")));
 	int wheretoadd = getNumberOfWeeks() + 1;
 	return wd.findElement(By.xpath("/html/body/div/ui-view/ui-view/div[1]/div/div[3]/ul/li[" + wheretoadd + "]/a"));	
 }
@@ -439,15 +395,9 @@ public WebElement getAddWeekNo() {
 	return wd.findElement(By.cssSelector("#confirmingweeks > div > div > div.modal-footer > button.btn.btn-default"));
 }
 
+
 // NUMBER OF TRAINEES ///////
-//#trainer-assess-table > div > div > ul > ul > table > tbody > tr:nth-child(12)
 public int getNumberOfTrainees() {
-//	WebDriverWait CreateModalCloseWait = new WebDriverWait(wd,10);
-//	WebDriverWait ImportModalCloseWait = new WebDriverWait(wd,10);
-//	WebDriverWait ConfirmingWeeksCloseWait = new WebDriverWait (wd,10);
-//CreateModalCloseCloseWait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("#createAssessmentModal > div > div")));
-//ImportModalCloseCloseWait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("#importGradesModal > div > div")));
-//ConfirmingWeeksCloseWait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("#confirmingweeks > div > div")));
 int children = 1;
 	while (true) {
 		try {
@@ -463,62 +413,35 @@ int children = 1;
 return children - 1;
 }
 
+
 /// FLAGS ////
 public WebElement getFlag(int child) {
-//	WebDriverWait CreateModalCloseWait = new WebDriverWait(wd,10);
-//	WebDriverWait ImportModalCloseWait = new WebDriverWait(wd,10);
-//	WebDriverWait ConfirmingWeeksCloseWait = new WebDriverWait (wd,10);
-//	CreateModalCloseWait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("#createAssessmentModal > div > div")));
-//	ImportModalCloseWait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("#importGradesModal > div > div")));
-//	ConfirmingWeeksCloseWait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("#confirmingweeks > div > div")));
 	WebDriverWait ABWAIT = new WebDriverWait(wd,10);
 	ABWAIT.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#trainer-assess-table > div > div > ul > ul > table > tbody > tr:nth-child(" + child + ") > td.col-sm-2.col-md-2.col-lg-2.ng-binding")));
 	return wd.findElement(By.cssSelector("#trainer-assess-table > div > div > ul > ul > table > tbody > tr:nth-child(" + child + ") > td.col-sm-2.col-md-2.col-lg-2.ng-binding"));
 }
 
 public WebElement getFlagComment(int child) {
-//	WebDriverWait CreateModalCloseWait = new WebDriverWait(wd,10);
-//	WebDriverWait ImportModalCloseWait = new WebDriverWait(wd,10);
-//	WebDriverWait ConfirmingWeeksCloseWait = new WebDriverWait (wd,10);
-//	CreateModalCloseWait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("#createAssessmentModal > div > div")));
-//	ImportModalCloseWait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("#importGradesModal > div > div")));
-//	ConfirmingWeeksCloseWait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("#confirmingweeks > div > div")));
 	WebDriverWait ABWAIT = new WebDriverWait(wd,10);
 	ABWAIT.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//*[@id=\"trainer-assess-table\"]/div/div/ul/ul/table/tbody/tr[" + child + "]/td[2]/form/input[1]")));
 	return wd.findElement(By.xpath("//*[@id=\"trainer-assess-table\"]/div/div/ul/ul/table/tbody/tr[" + child + "]/td[2]/form/input[1]"));
 }
 
 public WebElement getFlagSave(int child) {
-//	WebDriverWait CreateModalCloseWait = new WebDriverWait(wd,10);
-//	WebDriverWait ImportModalCloseWait = new WebDriverWait(wd,10);
-//	WebDriverWait ConfirmingWeeksCloseWait = new WebDriverWait (wd,10);
-//	CreateModalCloseWait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("#createAssessmentModal > div > div")));
-//	ImportModalCloseWait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("#importGradesModal > div > div")));
-//	ConfirmingWeeksCloseWait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("#confirmingweeks > div > div")));
 	WebDriverWait ABWAIT = new WebDriverWait(wd,10);
 	ABWAIT.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#trainer-assess-table > div > div > ul > ul > table > tbody > tr:nth-child(" + child + ") > td.col-sm-1.col-md-1.col-lg-1 > form > input[type=\"submit\"]:nth-child(2)")));
 	return wd.findElement(By.cssSelector("#trainer-assess-table > div > div > ul > ul > table > tbody > tr:nth-child(" + child + ") > td.col-sm-1.col-md-1.col-lg-1 > form > input[type=\"submit\"]:nth-child(2)"));
 }
 
 public WebElement getFlagClose(int child) {
-//	WebDriverWait CreateModalCloseWait = new WebDriverWait(wd,10);
-//	WebDriverWait ImportModalCloseWait = new WebDriverWait(wd,10);
-//	WebDriverWait ConfirmingWeeksCloseWait = new WebDriverWait (wd,10);
-//	CreateModalCloseWait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("#createAssessmentModal > div > div")));
-//	ImportModalCloseWait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("#importGradesModal > div > div")));
-//	ConfirmingWeeksCloseWait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("#confirmingweeks > div > div")));
 	WebDriverWait ABWAIT = new WebDriverWait(wd,10);
 	ABWAIT.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#trainer-assess-table > div > div > ul > ul > table > tbody > tr:nth-child(" + child + ") > td.col-sm-1.col-md-1.col-lg-1 > form > span")));
 	return wd.findElement(By.cssSelector("#trainer-assess-table > div > div > ul > ul > table > tbody > tr:nth-child(" + child + ") > td.col-sm-1.col-md-1.col-lg-1 > form > span"));
 }
 
+
+// ASSESSMENTS IN TABLE //
 public int getNumberOfAssessments() {
-//	WebDriverWait CreateModalCloseWait = new WebDriverWait(wd,10);
-//	WebDriverWait ImportModalCloseWait = new WebDriverWait(wd,10);
-//	WebDriverWait ConfirmingWeeksCloseWait = new WebDriverWait (wd,10);
-//	CreateModalCloseWait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("#createAssessmentModal > div > div")));
-//	ImportModalCloseWait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("#importGradesModal > div > div")));
-//	ConfirmingWeeksCloseWait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("#confirmingweeks > div > div")));
 	WebDriverWait ABWAIT = new WebDriverWait(wd,10);
 	ABWAIT.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//*[@id=\"trainer-assess-table\"]/div/div/ul/ul/table/tbody/tr[1]")));
 	int children = 1;
@@ -535,22 +458,15 @@ return children - 4;
 }
 
 public WebElement getAssessmentsByTestOrder(int child) {
-//	WebDriverWait CreateModalCloseWait = new WebDriverWait(wd,10);
-//	WebDriverWait ImportModalCloseWait = new WebDriverWait(wd,10);
-//	WebDriverWait ConfirmingWeeksCloseWait = new WebDriverWait (wd,10);
-//	CreateModalCloseWait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("#createAssessmentModal > div > div")));
-//	ImportModalCloseWait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("#importGradesModal > div > div")));
-//	ConfirmingWeeksCloseWait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("#confirmingweeks > div > div")));
 	WebDriverWait ABWAIT = new WebDriverWait(wd,10);
 	ABWAIT.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//*[@id=\"trainer-assess-table\"]/div/div/ul/ul/table/tbody/tr[1]")));
 	return wd.findElement(By.xpath("//*[@id=\"trainer-assess-table\"]/div/div/ul/ul/table/tbody/tr[1]/td[" + child + "]"));
 }
 
+
+// NOTES IN TABLE //
 public WebElement getNotesByRow(int row) {
-//	WebDriverWait A = new WebDriverWait(wd,10);
-//	A.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("#createAssessmentModal > div > div")));
-//	A.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("#importGradesModal > div > div")));
-//	A.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("#confirmingweeks > div > div")));
+
 	WebDriverWait ABWAIT = new WebDriverWait(wd,10);
 	ABWAIT.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//*[@id=\"trainer-assess-table\"]/div/div/ul/ul/table/tbody/tr[1]")));
 	int children = 1;
@@ -571,13 +487,15 @@ public WebElement getNotesByRow(int row) {
 }
 
 
-
+// SUMMARY NOTE //
 public WebElement getBatchNotes() {
 	WebDriverWait ABWAIT = new WebDriverWait(wd,10);
 	ABWAIT.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//*[@id=\"tBatchNotes\"]")));
 	return wd.findElement(By.xpath("//*[@id=\"tBatchNotes\"]"));
 	}
 
+
+// SAVE BUTTON
 public WebElement getBatchSaveButton() {
 	WebDriverWait ABWAIT = new WebDriverWait(wd,10);
 	ABWAIT.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//*[@id=\"trainer-assess-table\"]/div/div/ul/ul/div[3]/div/a")));
