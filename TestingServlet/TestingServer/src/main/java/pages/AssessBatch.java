@@ -1,5 +1,7 @@
 package pages;
 
+import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
@@ -234,8 +236,8 @@ public void goToBatchName(String s)  {
 public String getCurrentBatch() {
 	WebDriverWait YEARwait = new WebDriverWait(wd,10);
 	YEARwait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("body > div > ui-view > ui-view > div:nth-child(1) > div > div.col-md-12.col-lg-12.top10 > ul:nth-child(1) > li:nth-child(2)")));
-	WebElement e = wd.findElement(By.cssSelector("body > div > ui-view > ui-view > div:nth-child(1) > div > div.col-md-12.col-lg-12.top10 > ul:nth-child(1) > li:nth-child(2)"));
-	System.out.println(e.getAttribute("innerText") + "UGH");
+	WebElement e = wd.findElement(By.xpath("/html/body/div/ui-view/ui-view/div[1]/div/div[2]/ul[1]/li[2]/a"));
+	System.out.println(e.getAttribute("innerText"));
 	return  e.getAttribute("innerText");
 }
 
@@ -259,13 +261,14 @@ public WebElement getCreateAssessment() {
 	return wd.findElement(By.cssSelector("body > div > ui-view > ui-view > div:nth-child(1) > div > div.col-md-12.col-lg-12.top10 > ul:nth-child(1) > li:nth-child(4)"));
 }
 
-public WebElement getAssessmentCategory() {
+public WebElement getCAAssessmentCategory() {
 	WebDriverWait ABWAIT = new WebDriverWait(wd,10);
-	ABWAIT.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#category")));
-	return wd.findElement(By.cssSelector("#category"));
+	try{ABWAIT.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#createAssessmentModal > div > div > form > div.modal-body > div:nth-child(1) > div > select")));}
+	catch (Exception e) {}
+	return wd.findElement(By.cssSelector("#createAssessmentModal > div > div > form > div.modal-body > div:nth-child(1) > div > select"));
 }
 
-public int getCreateAssessmentAssessmentCategoryChildren() {
+public int getCAAssessmentCategoryChildren() {
 	int children = 1;
 	while (true) {
 	try {
@@ -281,19 +284,19 @@ public int getCreateAssessmentAssessmentCategoryChildren() {
 	return children - 1;
 }
 
-public WebElement getCreateAssessmentMaxPoints() {
+public WebElement getCAMaxPoints() {
 	WebDriverWait ABWAIT = new WebDriverWait(wd,10);
-	ABWAIT.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#category")));
-	return wd.findElement(By.cssSelector("#rawScore"));
+	ABWAIT.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#createAssessmentModal > div > div > form > div.modal-body > div:nth-child(2) > div:nth-child(1) > input")));
+	return wd.findElement(By.cssSelector("#createAssessmentModal > div > div > form > div.modal-body > div:nth-child(2) > div:nth-child(1) > input"));
 }
 
-public WebElement getCreateAssessmentAssessmentType() {
+public WebElement getCAAssessmentType() {
 	WebDriverWait ABWAIT = new WebDriverWait(wd,10);
-	ABWAIT.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#category")));		
-	return wd.findElement(By.cssSelector("#assessmentType"));
+	ABWAIT.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#createAssessmentModal > div > div > form > div.modal-body > div:nth-child(2) > div:nth-child(2) > select")));	
+	return wd.findElement(By.cssSelector("#createAssessmentModal > div > div > form > div.modal-body > div:nth-child(2) > div:nth-child(2) > select"));
 }
 
-public int getCreateAssessmentTypeChildren() {
+public int getCATypeChildren() {
 	int children = 1;
 	while (true) {
 	try {
@@ -309,13 +312,13 @@ public int getCreateAssessmentTypeChildren() {
 	return children - 1;
 }
 
-public WebElement getCreateAssessmentSAVEbutton() {
+public WebElement getCASAVEbutton() {
 	WebDriverWait ABWAIT = new WebDriverWait(wd,10);
 	ABWAIT.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#category")));
 	return wd.findElement(By.cssSelector("#createAssessmentModal > div > div > form > div.modal-footer > input"));
 }
 
-public WebElement getCreateAssessmentCLOSEbutton() {
+public WebElement getCACLOSEbutton() {
 	WebDriverWait ABWAIT = new WebDriverWait(wd,10);
 	ABWAIT.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#createAssessmentModal > div > div > form > div.modal-footer > button")));
 	return wd.findElement(By.cssSelector("#createAssessmentModal > div > div > form > div.modal-footer > button"));
