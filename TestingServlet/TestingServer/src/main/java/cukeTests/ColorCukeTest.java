@@ -12,7 +12,7 @@ import cucumber.api.testng.TestNGCucumberRunner;
 import pages.NavBarPage;
 
 @CucumberOptions(
-        features = "src/main/resources/features/colorfaces.feature",
+        features = "../webapps/TestingServer/WEB-INF/classes/features/colorfaces.feature",
         glue = {"cukeSteps"})
 public class ColorCukeTest {
 	private TestNGCucumberRunner testNGCucumberRunner;

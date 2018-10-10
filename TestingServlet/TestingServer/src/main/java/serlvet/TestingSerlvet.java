@@ -50,6 +50,10 @@ public class TestingSerlvet extends HttpServlet {
 			runTestNG("cuketest.xml", response);
 		} else if (uri.equals("/TestingServer/homePage")) {
 			runTestNG("hometestng.xml", response);
+		} else if (uri.equals("/TestingServer/colorFace")) {
+			runTestNG("colorcuke.xml", response);
+		} else if (uri.equals("/TestingServer/auditTest")) {
+			runTestNG("auditcuketest.xml", response);
 		}
 	}
 
