@@ -22,7 +22,7 @@ import pages.NavBarPage;
 
 public class FaceClickingSteps {
 	private ChromeDriver driver;
-	Properties props;
+	private Properties props;
 	{
 		File f  = new File("../webapps/TestingServer/WEB-INF/classes/chromedriver.exe");
 		System.setProperty("webdriver.chrome.driver",f.getAbsolutePath());

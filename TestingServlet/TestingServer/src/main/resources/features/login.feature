@@ -16,8 +16,8 @@
 #""
 ## (Comments)
 #Sample Feature Definition Template
-Feature: Title of your feature
-  I want to use this template for my feature file
+Feature: Simple Login Test
+  Just login
 
   Scenario: Title of your scenario
     Given I visit the login page

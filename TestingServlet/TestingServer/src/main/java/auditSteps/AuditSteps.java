@@ -1,9 +1,15 @@
 package auditSteps;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.Properties;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
@@ -17,6 +23,7 @@ import pages.LoginPage;
 public class AuditSteps {
 	private ChromeDriver driver;
 	private AuditPage auditpage;
+	private Properties props;
 	private int numberCurrentWeeks;
 	private WebElement FBBtn;
 	private WebElement currentWeek;
@@ -25,29 +32,41 @@ public class AuditSteps {
 		//File f = new File("src/main/resources/chromedriver.exe");
 		System.setProperty("webdriver.chrome.driver",f.getAbsolutePath());
 		driver = new ChromeDriver();
+		props = new Properties();
+		try {
+			FileInputStream in = new FileInputStream("../webapps/TestingServer/WEB-INF/classes/info.properties");
+			props.load(in);
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	@Given("^I visit the login page$")
 	public void i_visit_the_login_page() throws Throwable {
-		driver.get("https://dev-caliber.revature.tech/");
+		driver.get(props.getProperty("url"));
 	}
 
 	@When("^I enter correct credentials And I click Submit$")
 	public void i_enter_correct_credentials_And_I_click_Submit() throws Throwable {
 		LoginPage lp = new LoginPage(driver);
-		lp.getUName().sendKeys("calibot@revature.com");
-		lp.getPwd().sendKeys("*6Ak4-&kXnNTfTh6");
+		lp.getUName().sendKeys(props.getProperty("uname"));
+		lp.getPwd().sendKeys(props.getProperty("pwd"));
 		lp.getLogin().click();
 	}
 
 	@Then("^I should be logged in$")
 	public void i_should_be_logged_in() throws Throwable {
-		 //driver.close();
+//		new WebDriverWait(driver, 10).until(ExpectedConditions.presenceOfElementLocated(By.id("home")));
+//	    Assert.assertEquals(driver.getCurrentUrl(), props.getProperty("homeUrl"));
 	}
 
 	
 	@Given("^I am at the Quality Audit Page$")
 	public void i_am_at_the_Quality_Audit_Page() throws Throwable {
-	    driver.get("https://dev-caliber.revature.tech/caliber/#/vp/audit");
+	    driver.get(props.getProperty("auditUrl"));
 	    auditpage = new AuditPage(driver);
 	}
 
@@ -113,7 +132,6 @@ public void i_am_on_the_Quality_Audit_Page_And_I_have_Week_selected(int arg1) th
 
     driver.get("https://dev-caliber.revature.tech/caliber/#/vp/audit");
     auditpage = new AuditPage(driver);
-    System.out.println("test");
     System.out.println(auditpage.getWeeks());
     auditpage.getWeeks().get(arg1 - 1).click();
 }
@@ -128,9 +146,9 @@ public void i_click_Positive_Symbol_And_I_type_in_overall_feedback_And_I_click_t
 
 @Then("^after I move to home before going back to Quality Audit page And then go back to Week (\\d+), the Positive Symbol is highlighted And the overall feeback says \"([^\"]*)\"$")
 public void after_I_move_to_home_before_going_back_to_Quality_Audit_page_And_then_go_back_to_Week_the_Positive_Symbol_is_highlighted_And_the_overall_feeback_says(int arg1, String arg2) throws Throwable {
-    driver.get("https://dev-caliber.revature.tech/caliber/#/vp/home");
+    driver.get(props.getProperty("homeUrl"));
     Thread.sleep(2000);
-    driver.get("https://dev-caliber.revature.tech/caliber/#/vp/audit");
+    driver.get(props.getProperty("auditUrl"));
     auditpage.getWeeks().get(arg1 - 1).click();
     String posBtnClass = auditpage.getPositiveResponseButton().getAttribute("class");
     String value = auditpage.getResponseTextArea().getAttribute("value");
