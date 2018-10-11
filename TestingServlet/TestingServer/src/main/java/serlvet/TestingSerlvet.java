@@ -70,6 +70,7 @@ public class TestingSerlvet extends HttpServlet {
 		System.out.println("Protractor test is running");
 		try {
 			Process protractor = r.exec(new String[] {"cmd", " /c", "C:\\Users\\Administrator\\AppData\\Roaming\\npm\\protractor", "C:\\Users\\Administrator\\Documents\\protractor\\conf.js"});
+			//Process protractor = r.exec(new String[] {"cmd", " /c", "C:\\Users\\jaffa\\AppData\\Roaming\\npm\\protractor", "C:\\Users\\jaffa\\Documents\\protractor-test\\conf.js"});
 			InputStream input = protractor.getInputStream();
 			InputStream err = protractor.getErrorStream();
 			String s = null;
@@ -85,22 +86,23 @@ public class TestingSerlvet extends HttpServlet {
 				boolean first = true;
 				StringJoiner tests = new StringJoiner(",");
 				while ((s = br.readLine()) != null) {
-					if(s.contains("[32m.[0m") || s.contains("[31mF[0m")) {
+					boolean passed = s.contains("[32m.[0m");
+					boolean failed = s.contains("[31mF[0m");
+					if(passed || failed) {
 						if (firstSuite) {
 							s = br.readLine();
 							firstSuite = false;
 						}
 						if(first) {
 							tests.add("{\"testName\":\"" + s + "\",\"testResult\":\"Suite\"}");
-							s = br.readLine();
-							
+							s = br.readLine();	
 							first = false;
 						}
 						String test = "{\"testName\":\"" + s.replace("[32m.[0m", "").replace("[39m", "")
 						.replace("[31mF[0m", "").replace("[31m", "").replace("[32m", "") + "\",";
-						if(s.contains("√")) {
+						if(passed) {
 							test += "\"testResult\":\"PASSED\"}";
-						} else if (s.contains("×")) {
+						} else if (failed) {
 							test += "\"testResult\":\"FAILED\"}";
 						} else {
 							test += "\"testResult\":\"Unknown\"}";
