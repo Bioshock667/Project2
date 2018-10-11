@@ -1,0 +1,19 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="AssessBatchTest" verbose="2">
+
+<listeners>
+<listener class-name="listeners.GenericTestListener" />
+
+</listeners>
+
+
+
+<test name="Assess Batch Test">
+<classes>
+<class name="tests.AssessBatchTest" ></class>
+</classes>
+</test>
+
+
+
+</suite>
