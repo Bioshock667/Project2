@@ -244,6 +244,7 @@ public String getCurrentBatch() {
 //// CREATE ASSESSMENT METHODS /////////////
 public boolean canCreateAssessment () {
 	WebDriverWait BATCHwait = new WebDriverWait(wd,10);
+	wd.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 	BATCHwait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("body > div > ui-view > ui-view > div:nth-child(1) > div")));
 	try {
 		if (null != wd.findElement(By.cssSelector("body > div > ui-view > ui-view > div:nth-child(1) > div > div.col-md-12.col-lg-12.top10 > ul:nth-child(1) > li:nth-child(4)"))){
@@ -314,7 +315,7 @@ public int getCATypeChildren() {
 
 public WebElement getCASAVEbutton() {
 	WebDriverWait ABWAIT = new WebDriverWait(wd,10);
-	ABWAIT.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#category")));
+	ABWAIT.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#createAssessmentModal > div > div > form > div.modal-footer > input")));
 	return wd.findElement(By.cssSelector("#createAssessmentModal > div > div > form > div.modal-footer > input"));
 }
 
@@ -324,6 +325,13 @@ public WebElement getCACLOSEbutton() {
 	return wd.findElement(By.cssSelector("#createAssessmentModal > div > div > form > div.modal-footer > button"));
 }
 
+
+// Edit Assessment Methods ////
+public WebElement getEditAssessment(int num) {	
+	WebDriverWait CAwait = new WebDriverWait(wd,10);
+	CAwait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#trainer-assess-table > div > div > ul > ul > table > thead > tr > th:nth-child(" + num + ")")));
+	return wd.findElement(By.cssSelector("#trainer-assess-table > div > div > ul > ul > table > thead > tr > th:nth-child(" + num + ")"));
+}
 
 ///// IMPORT GRADES ////////////////
 public boolean canImportGrades () {
@@ -393,6 +401,7 @@ public int getNumberOfWeeks() {
 }
 
 public WebElement getWeek(int weeknum) {
+	wd.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 	return wd.findElement(By.xpath("/html/body/div/ui-view/ui-view/div[1]/div/div[3]/ul/li[" + weeknum + "]"));
 }
 
@@ -461,6 +470,7 @@ public WebElement getFlagClose(int child) {
 // ASSESSMENTS IN TABLE //
 public int getNumberOfAssessments() {
 	WebDriverWait ABWAIT = new WebDriverWait(wd,10);
+	wd.manage().timeouts().implicitlyWait(7, TimeUnit.SECONDS);
 	ABWAIT.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//*[@id=\"trainer-assess-table\"]/div/div/ul/ul/table/tbody/tr[1]")));
 	int children = 1;
 	while (true) {
@@ -475,38 +485,43 @@ public int getNumberOfAssessments() {
 return children - 4;
 }
 
-public WebElement getAssessmentsByTestOrder(int child) {
+public WebElement getAssessmentsByTestOrder(int row, int test) {
+	test = test + 2;
+	wd.manage().timeouts().implicitlyWait(3,  TimeUnit.SECONDS);
 	WebDriverWait ABWAIT = new WebDriverWait(wd,10);
 	ABWAIT.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//*[@id=\"trainer-assess-table\"]/div/div/ul/ul/table/tbody/tr[1]")));
-	return wd.findElement(By.xpath("//*[@id=\"trainer-assess-table\"]/div/div/ul/ul/table/tbody/tr[1]/td[" + child + "]"));
+	return wd.findElement(By.xpath("//*[@id=\"trainer-assess-table\"]/div/div/ul/ul/table/tbody/tr[" + row + "]/td[" + test + "]/input"));
 }
 
 
 // NOTES IN TABLE //
 public WebElement getNotesByRow(int row) {
-
+	wd.manage().timeouts().implicitlyWait(7, TimeUnit.SECONDS);
+	int notescol = getNumberOfAssessments() + 3;
 	WebDriverWait ABWAIT = new WebDriverWait(wd,10);
-	ABWAIT.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//*[@id=\"trainer-assess-table\"]/div/div/ul/ul/table/tbody/tr[1]")));
-	int children = 1;
-	int trainees = getNumberOfTrainees();
-	while (true) {
-		try {
-			if (null != wd.findElement(By.xpath("//*[@id=\"trainer-assess-table\"]/div/div/ul/ul/table/tbody/tr[1]/td[" + children + "]"))){
-			}
-		} catch (Exception e) {
-			break;
-		}
-		children++;
-	}
-	children = children - 1;
+//	ABWAIT.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//*[@id=\"trainer-assess-table\"]/div/div/ul/ul/table/tbody/tr[1]")));
+//	int children = 1;
+//	int trainees = getNumberOfTrainees();
+//	while (true) {
+//		try {
+//			if (null != wd.findElement(By.xpath("//*[@id=\"trainer-assess-table\"]/div/div/ul/ul/table/tbody/tr[1]/td[" + children + "]"))){
+//			}
+//		} catch (Exception e) {
+//			break;
+//		}
+//		children++;
+//	}
+//	children = children - 1;
 	
-	ABWAIT.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#trainer-assess-table > div > div > ul > ul > table > tbody > tr:nth-child(" + trainees + ") > td.col-sm-8.col-md-8.col-lg-8 > textarea")));
-	return wd.findElement(By.cssSelector("#trainer-assess-table > div > div > ul > ul > table > tbody > tr:nth-child(" + row + ") > td.col-sm-8.col-md-8.col-lg-8 > textarea"));
+	ABWAIT.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"trainer-assess-table\"]/div/div/ul/ul/table/tbody/tr[" + row + "]/td[" + notescol + "]/textarea")));
+	return wd.findElement(By.xpath("//*[@id=\"trainer-assess-table\"]/div/div/ul/ul/table/tbody/tr[" + row + "]/td[" + notescol + "]/textarea"));
 }
 
 
 // SUMMARY NOTE //
 public WebElement getBatchNotes() {
+	wd.manage().timeouts().implicitlyWait(7, TimeUnit.SECONDS);
+
 	WebDriverWait ABWAIT = new WebDriverWait(wd,10);
 	ABWAIT.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//*[@id=\"tBatchNotes\"]")));
 	return wd.findElement(By.xpath("//*[@id=\"tBatchNotes\"]"));
