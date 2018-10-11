@@ -21,7 +21,7 @@ import pages.LoginPage;
 
 public class HPTest {
 	
-	
+	Properties props;
 	public static HomePage hp;
 	public static LoginPage lp;
 	public static WebDriver driver;
