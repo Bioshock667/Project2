@@ -94,7 +94,7 @@ public class TestingSerlvet extends HttpServlet {
 							firstSuite = false;
 						}
 						if(first) {
-							tests.add("{\"testName\":\"" + s + "\",\"testResult\":\"Suite\"}");
+							tests.add("{\"testName\":\"" + s.replace("[32m.[0m", "") + "\",\"testResult\":\"Suite\"}");
 							s = br.readLine();	
 							first = false;
 						}
