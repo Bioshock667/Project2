@@ -48,9 +48,6 @@ public class AssessBatchYearSteps {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		File file = new File("../webapps/TestingServer/WEB-INF/classes/chromedriver.exe");
-		System.setProperty("webdriver.chrome.driver", file.getAbsolutePath());
 		driver = new ChromeDriver();
 		driver.get(props.getProperty("url"));
 		
