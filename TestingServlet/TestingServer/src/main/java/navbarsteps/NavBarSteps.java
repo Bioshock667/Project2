@@ -1,6 +1,10 @@
 package navbarsteps;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.Properties;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -22,7 +26,7 @@ public class NavBarSteps {
 	public static NavBarPage navBar;
 	public static WebDriver driver;
 	public static WebDriverWait wait;
-  public static Properties props;
+	public static Properties props;
 
 	@Given("^I am on the home page$")
 	public void i_am_on_the_home_page() throws Throwable {
