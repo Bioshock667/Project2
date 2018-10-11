@@ -1,6 +1,10 @@
 package cukeSteps;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.Properties;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -29,19 +33,32 @@ public class AssessBatchYearSteps {
 	
 	@Given("^User is at Assess Batch Page$")
 	public void user_is_at_Assess_Batch_Page() throws Throwable {
-		// System.out.println("Get A Cucumber");
+		File f  = new File("../webapps/TestingServer/WEB-INF/classes/chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver",f.getAbsolutePath());
+		driver = new ChromeDriver();
+		props = new Properties();
+		try {
+			FileInputStream in = new FileInputStream("../webapps/TestingServer/WEB-INF/classes/info.properties");
+			props.load(in);
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
-		File file = new File("src/main/resources/chromedriver.exe");
+		File file = new File("../webapps/TestingServer/WEB-INF/classes/chromedriver.exe");
 		System.setProperty("webdriver.chrome.driver", file.getAbsolutePath());
 		driver = new ChromeDriver();
-		driver.get("https://dev-caliber.revature.tech/");
+		driver.get(props.getProperty("url"));
 		
 		lp = new LoginPage(driver);
 		ab = new AssessBatch(driver);
 		nbp = new NavBarPage(driver);
 		
-		lp.getUName().sendKeys("calibot@revature.com");
-		lp.getPwd().sendKeys("*6Ak4-&kXnNTfTh6");
+		lp.getUName().sendKeys(props.getProperty("uname"));
+		lp.getPwd().sendKeys(props.getProperty("pwd"));
 		lp.getLogin().click();
 		
 		wait = new WebDriverWait(driver, 10);
