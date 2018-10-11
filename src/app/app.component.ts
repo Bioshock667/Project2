@@ -25,7 +25,7 @@ export class AppComponent implements OnInit {
   auditResult:Observable<ResultRow[]> = this.serAcc.runTests("auditTest");
   manageBatchResult:Observable<ResultRow[]> = this.serAcc.runTests("managebatchtest");
   auditYearsResult:Observable<ResultRow[]> = this.serAcc.runTests("BAYearsTest");
-  trainTestResult:Observable<ResultRow[]> = this.serAcc.runTests("protractor")
+  trainTestResult:Observable<ResultRow[]> = this.serAcc.runTests("protractor");
   title = 'Project2';
   showTable=false;
   loading = false;

@@ -7,6 +7,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.StringJoiner;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -66,26 +67,60 @@ public class TestingSerlvet extends HttpServlet {
 
 	private void runProtractor(HttpServletResponse response) {
 		Runtime r = Runtime.getRuntime();
+		System.out.println("Protractor test is running");
 		try {
 			Process protractor = r.exec(new String[] {"cmd", " /c", "C:\\Users\\Administrator\\AppData\\Roaming\\npm\\protractor", "C:\\Users\\Administrator\\Documents\\protractor\\conf.js"});
 			InputStream input = protractor.getInputStream();
 			InputStream err = protractor.getErrorStream();
 			String s = null;
-			try {
+			response.setContentType("text/html; charset=UTF-8");
+			response.setCharacterEncoding("UTF-8");
 				BufferedReader br = new BufferedReader(
 						new InputStreamReader(input, "utf-8"));
 				BufferedReader e = new BufferedReader(
 						new InputStreamReader(err, "utf-8"));
-				
+				//do not pay attention to the following mumbo jumbo.  Removing terminal color sequences and knowing which lines are test results
+				// is not easy
+				boolean firstSuite = true;
+				boolean first = true;
+				StringJoiner tests = new StringJoiner(",");
 				while ((s = br.readLine()) != null) {
-					response.getWriter().println(s);
+					if(s.contains("[32m.[0m") || s.contains("[31mF[0m")) {
+						if (firstSuite) {
+							s = br.readLine();
+							firstSuite = false;
+						}
+						if(first) {
+							tests.add("{\"testName\":\"" + s + "\",\"testResult\":\"Suite\"}");
+							s = br.readLine();
+							
+							first = false;
+						}
+						String test = "{\"testName\":\"" + s.replace("[32m.[0m", "").replace("[39m", "")
+						.replace("[31mF[0m", "").replace("[31m", "").replace("[32m", "") + "\",";
+						if(s.contains("√")) {
+							test += "\"testResult\":\"PASSED\"}";
+						} else if (s.contains("×")) {
+							test += "\"testResult\":\"FAILED\"}";
+						} else {
+							test += "\"testResult\":\"Unknown\"}";
+						}
+						tests.add(test);
+					} else if (!first) {
+						first = true;
+					}
+					System.out.println(s);
+					
 				}
+				response.getWriter().append("[" + tests.toString() + "]");
+				StringBuilder errorMessage = new StringBuilder();
 				while((s = e.readLine()) != null) {
-					response.getWriter().println("Error: " + s);
+					errorMessage.append(s);
 				}
-			} catch (IOException ioe) {
-				ioe.printStackTrace();
-			}
+				if (errorMessage.length() > 0) {
+					response.getWriter().append("{\"testName\":\"" + errorMessage + "\", \"testResult\":\"Error\"}");
+				}
+				System.out.println("Protractor is finished");
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
