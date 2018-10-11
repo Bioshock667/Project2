@@ -26,6 +26,7 @@ export class AppComponent implements OnInit {
   manageBatchResult:Observable<ResultRow[]> = this.serAcc.runTests("managebatchtest");
   auditYearsResult:Observable<ResultRow[]> = this.serAcc.runTests("BAYearsTest");
   trainTestResult:Observable<ResultRow[]> = this.serAcc.runTests("protractor");
+  assessBatchResult:Observable<ResultRow[]> = this.serAcc.runTests("AssessBatchTest");
   title = 'Project2';
   showTable=false;
   loading = false;
@@ -120,6 +121,16 @@ servResult="no response yet";
   }
 
   testManageBatch() {
+    this.showTable=false;
+    this.loading = true;
+    this.manageBatchResult.subscribe(resp=>{
+      this.tRows=resp;
+      this.loading=false;
+      this.showTable=true;
+    },resp=>{this.servErr(resp)});
+  }
+
+  testAssessBatch() {
     this.showTable=false;
     this.loading = true;
     this.manageBatchResult.subscribe(resp=>{
