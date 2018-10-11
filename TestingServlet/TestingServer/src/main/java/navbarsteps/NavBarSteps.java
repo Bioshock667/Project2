@@ -22,17 +22,27 @@ public class NavBarSteps {
 	public static NavBarPage navBar;
 	public static WebDriver driver;
 	public static WebDriverWait wait;
+  public static Properties props;
 
 	@Given("^I am on the home page$")
 	public void i_am_on_the_home_page() throws Throwable {
 		
 		File f = new File("src/main/resources/chromedriver.exe");
 		System.setProperty("webdriver.chrome.driver", f.getAbsolutePath());
+    props = new Properties();
+		try {
+			FileInputStream in = new FileInputStream("../webapps/TestingServer/WEB-INF/classes/info.properties");
+			props.load(in);
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		driver = new ChromeDriver();
-		driver.get("https://dev-caliber.revature.tech/");
+		driver.get(props.getProperty("url"));
 		LoginPage lp = new LoginPage(driver);
-		lp.getUName().sendKeys("calibot@revature.com");
-		lp.getPwd().sendKeys("*6Ak4-&kXnNTfTh6");
+		lp.getUName().sendKeys(props.getProperty("uname"));
+		lp.getPwd().sendKeys(props.getProperty("pwd"));
 		lp.getLogin().click();
 		navBar = new NavBarPage(driver);
 		wait = new WebDriverWait(driver, 10);
