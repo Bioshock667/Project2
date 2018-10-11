@@ -48,7 +48,6 @@ public class AssessBatchYearSteps {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		driver = new ChromeDriver();
 		driver.get(props.getProperty("url"));
 		
 		lp = new LoginPage(driver);
