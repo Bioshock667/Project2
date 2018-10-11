@@ -61,6 +61,8 @@ public class TestingSerlvet extends HttpServlet {
 			runTestNG("AsBaYears.xml", response);
 		} else if (uri.equals("/TestingServer/managebatchtest")) {
 			runTestNG("managebatchtesting.xml", response);
+		} else if (uri.equals("/TestingServer/AssessBatchTest")) {
+			runTestNG("AssessBatchTest.xml", response);
 		}
 	}
 

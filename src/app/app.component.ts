@@ -133,7 +133,7 @@ servResult="no response yet";
   testAssessBatch() {
     this.showTable=false;
     this.loading = true;
-    this.manageBatchResult.subscribe(resp=>{
+    this.assessBatchResult.subscribe(resp=>{
       this.tRows=resp;
       this.loading=false;
       this.showTable=true;
