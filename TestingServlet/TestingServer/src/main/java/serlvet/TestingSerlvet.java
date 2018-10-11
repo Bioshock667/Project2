@@ -57,7 +57,6 @@ public class TestingSerlvet extends HttpServlet {
 			runTestNG("auditcuketest.xml", response);
 		} else if (uri.equals("/TestingServer/protractor")) {
 			runProtractor(response);
-			//response.getWriter().println("Todo: implement Protractor");
 		} else if (uri.equals("/TestingServer/BAYearsTest")) {
 			runTestNG("AsBaYears.xml", response);
 		} else if (uri.equals("/TestingServer/managebatchtest")) {
@@ -70,7 +69,6 @@ public class TestingSerlvet extends HttpServlet {
 		System.out.println("Protractor test is running");
 		try {
 			Process protractor = r.exec(new String[] {"cmd", " /c", "C:\\Users\\Administrator\\AppData\\Roaming\\npm\\protractor", "C:\\Users\\Administrator\\Documents\\protractor\\conf.js"});
-			//Process protractor = r.exec(new String[] {"cmd", " /c", "C:\\Users\\jaffa\\AppData\\Roaming\\npm\\protractor", "C:\\Users\\jaffa\\Documents\\protractor-test\\conf.js"});
 			InputStream input = protractor.getInputStream();
 			InputStream err = protractor.getErrorStream();
 			String s = null;
@@ -86,8 +84,8 @@ public class TestingSerlvet extends HttpServlet {
 				boolean first = true;
 				StringJoiner tests = new StringJoiner(",");
 				while ((s = br.readLine()) != null) {
-					boolean passed = s.contains("[32m.[0m");
-					boolean failed = s.contains("[31mF[0m");
+					boolean passed = s.contains("[32m.[0m"); //if there is a green dot, the next test has passed
+					boolean failed = s.contains("[31mF[0m"); //if there is a red F, the next test has failed
 					if(passed || failed) {
 						if (firstSuite) {
 							s = br.readLine();
