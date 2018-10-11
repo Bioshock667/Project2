@@ -110,7 +110,7 @@ public class ManageBatchTest {
 		wait.until(ExpectedConditions.invisibilityOf(manageBatch.getCreateBatchModal()));
 
 		manageBatch.getCreateBatchButton().click();
-		manageBatch.getCreateBatchTrainingName().sendKeys("7833 Aug27 Java");
+		manageBatch.getCreateBatchTrainingName().sendKeys("1234 Sept15 Java");
 		manageBatch.getCreateBatchSaveButton().click();
 		Assert.assertTrue(manageBatch.getCreateBatchModal().isDisplayed());
 
@@ -130,7 +130,7 @@ public class ManageBatchTest {
 		Assert.assertTrue(manageBatch.getCreateBatchModal().isDisplayed());
 
 		Select trainer = new Select(manageBatch.getCreateBatchTrainer());
-		trainer.selectByIndex(3);
+		trainer.selectByIndex(4);
 		manageBatch.getCreateBatchSaveButton().click();
 		Assert.assertTrue(manageBatch.getCreateBatchModal().isDisplayed());
 
