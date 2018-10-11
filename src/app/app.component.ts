@@ -25,7 +25,7 @@ export class AppComponent implements OnInit {
   auditResult:Observable<ResultRow[]> = this.serAcc.runTests("auditTest");
   manageBatchResult:Observable<ResultRow[]> = this.serAcc.runTests("managebatchtest");
   auditYearsResult:Observable<ResultRow[]> = this.serAcc.runTests("BAYearsTest");
-  trainTestResult:Observable<ResultRow[]> = this.serAcc.runTests("protractor")
+  trainTestResult:Observable<ResultRow[]> = this.serAcc.runTests("protractor");
   title = 'Project2';
   showTable=false;
   loading = false;
@@ -56,7 +56,7 @@ servResult="no response yet";
       this.tRows=resp;
       this.loading=false;
       this.showTable=true;
-    },resp=>{this.servErr()});
+    },resp=>{this.servErr(resp)});
   }
 
   testHome() {
@@ -66,7 +66,7 @@ servResult="no response yet";
       this.tRows=resp;
       this.loading=false;
       this.showTable=true;
-    },resp=>{this.servErr()});
+    },resp=>{this.servErr(resp)});
   }
 
   testLCuke() {
@@ -76,7 +76,7 @@ servResult="no response yet";
       this.tRows=resp;
       this.loading=false;
       this.showTable=true;
-    },resp=>{this.servErr()});
+    },resp=>{this.servErr(resp)});
   }
 
   testColor() {
@@ -86,7 +86,7 @@ servResult="no response yet";
       this.tRows=resp;
       this.loading=false;
       this.showTable=true;
-    },resp=>{this.servErr()});
+    },resp=>{this.servErr(resp)});
   }
 
   testAudit() {
@@ -96,7 +96,7 @@ servResult="no response yet";
       this.tRows=resp;
       this.loading=false;
       this.showTable=true;
-    },resp=>{this.servErr()});
+    },resp=>{this.servErr(resp)});
   }
 
   testAuditYears() {
@@ -106,7 +106,7 @@ servResult="no response yet";
       this.tRows=resp;
       this.loading=false;
       this.showTable=true;
-    },resp=>{this.servErr()});
+    },resp=>{this.servErr(resp)});
   }
 
   testTrain() {
@@ -116,7 +116,7 @@ servResult="no response yet";
       this.tRows=resp;
       this.loading=false;
       this.showTable=true;
-    },resp=>{this.servErr()});
+    },resp=>{this.servErr(resp)});
   }
 
   testManageBatch() {
@@ -126,12 +126,12 @@ servResult="no response yet";
       this.tRows=resp;
       this.loading=false;
       this.showTable=true;
-    },resp=>{this.servErr()});
+    },resp=>{this.servErr(resp)});
   }
 
-  servErr() {
+  servErr(resp) {
     this.loading=false;
-    this.tRows = [new ResultRow("Error","An error occourrred retrieving data from the server")];
+    this.tRows = [new ResultRow("Error", resp.message)];//"An error occourrred retrieving data from the server")];
     this.showTable=true;
   }
 }

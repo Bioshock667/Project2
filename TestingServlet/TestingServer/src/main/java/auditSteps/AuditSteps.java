@@ -46,7 +46,7 @@ public class AuditSteps {
 
 	
 	@Given("^I am at the Quality Audit Page$")
-	public void i_am_at_the_Quality_Audit_Page_And_have_selected() throws Throwable {
+	public void i_am_at_the_Quality_Audit_Page() throws Throwable {
 	    driver.get("https://dev-caliber.revature.tech/caliber/#/vp/audit");
 	    auditpage = new AuditPage(driver);
 	}

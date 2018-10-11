@@ -29,9 +29,9 @@ Feature: The Quality Audit Page
     When I click the new week button And I click yes on the New Week dialog
     Then there should be one more week than beforehand
 	Scenario: Typing feedback
-		Given I am on the Quality Audit Page
-		When I type "Ian is a good student" in Ians feedback box And I hit refresh
-		Then the feedback box should say "Ian is a good student"
+#		Given I am on the Quality Audit Page
+#		When I type "Ian is a good student" in Ians feedback box And I hit refresh
+#		Then the feedback box should say "Ian is a good student"
 	Scenario: General Feedback
 		Given I am on the Quality Audit Page And I have Week 1 selected
 		When I click Positive Symbol And I type "Great Teamwork" in overall feedback And I click the Save button

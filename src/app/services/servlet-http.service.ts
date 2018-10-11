@@ -15,7 +15,7 @@ export class ServletHttpService {
   }
 
   runTests(name:string):Observable<ResultRow[]> {
-    return this.http.get("http://52.207.255.20:8080/TestingServer/"+name);
+    return this.http.get<ResultRow[]>("http://52.207.255.20:8080/TestingServer/"+name);
 
   }
 }
