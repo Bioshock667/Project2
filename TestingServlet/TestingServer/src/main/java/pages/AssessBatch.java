@@ -449,8 +449,7 @@ public WebElement getFlag(int child) {
 }
 
 public WebElement getFlagComment(int child) {
-	WebDriverWait ABWAIT = new WebDriverWait(wd,10);
-	ABWAIT.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//*[@id=\"trainer-assess-table\"]/div/div/ul/ul/table/tbody/tr[" + child + "]/td[2]/form/input[1]")));
+	wd.manage().timeouts().implicitlyWait(4, TimeUnit.SECONDS);
 	return wd.findElement(By.xpath("//*[@id=\"trainer-assess-table\"]/div/div/ul/ul/table/tbody/tr[" + child + "]/td[2]/form/input[1]"));
 }
 
@@ -470,7 +469,7 @@ public WebElement getFlagClose(int child) {
 // ASSESSMENTS IN TABLE //
 public int getNumberOfAssessments() {
 	WebDriverWait ABWAIT = new WebDriverWait(wd,10);
-	wd.manage().timeouts().implicitlyWait(7, TimeUnit.SECONDS);
+	wd.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
 	ABWAIT.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//*[@id=\"trainer-assess-table\"]/div/div/ul/ul/table/tbody/tr[1]")));
 	int children = 1;
 	while (true) {

@@ -71,8 +71,8 @@ public class AssessBatchTest {
 	@Test(priority = 4)
 	public void BatchTest2016() {
 		ab.goToYear("2016");
-		ab.goToBatchName("Patrick Walsh - 4/26/16");
-		Assert.assertEquals(ab.getCurrentBatch(), "Patrick Walsh - 4/26/16 ");
+		ab.goToBatchName("Patrick Walsh - 5/4/16");
+		Assert.assertEquals(ab.getCurrentBatch(), "Patrick Walsh - 5/4/16 ");
 	}
 	
 	@Test(priority = 5)
@@ -111,7 +111,9 @@ public class AssessBatchTest {
 	
 	@Test(priority = 10)
 	public void WeeksAvailable() {
-		Assert.assertTrue(ab.weeksAvailable());
+		ab.goToYear("2016");
+		ab.goToBatchName("Patrick Walsh - 11/19/16");
+		Assert.assertEquals(ab.weeksAvailable(), true);
 	}
 	@Test(priority = 11)
 	public void AddWeekCloseNoAdd() {
@@ -130,8 +132,6 @@ public class AssessBatchTest {
 	
 	@Test(priority = 13)
 	public void SetFlagAtSecondEmployee() {
-		ab.goToYear("2016");
-		ab.goToBatchName("Patrick Walsh - 4/26/16");
 		ab.getWeek(7).click();
 		ab.getFlag(2).click();
 		ab.getFlagComment(2).sendKeys(Keys.chord(Keys.CONTROL, "a"), Keys.DELETE,"WOWZERS");
@@ -150,6 +150,7 @@ public class AssessBatchTest {
 	public void AssessmentNote() {
 		ab.getNotesByRow(2).sendKeys(Keys.chord(Keys.CONTROL, "a"), Keys.DELETE, "This is a great trainee");
 	}
+	
 	@Test(priority = 16)
 	public void BranchSummaryNote() {
 		ab.getBatchNotes().sendKeys(Keys.chord(Keys.CONTROL, "a"), Keys.DELETE, "This is a great branch");
