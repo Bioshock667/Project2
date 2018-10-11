@@ -33,6 +33,7 @@ public class AssessBatchYearSteps {
 	
 	@Given("^User is at Assess Batch Page$")
 	public void user_is_at_Assess_Batch_Page() throws Throwable {
+    Properties props;
 		File f  = new File("../webapps/TestingServer/WEB-INF/classes/chromedriver.exe");
 		System.setProperty("webdriver.chrome.driver",f.getAbsolutePath());
 		driver = new ChromeDriver();
