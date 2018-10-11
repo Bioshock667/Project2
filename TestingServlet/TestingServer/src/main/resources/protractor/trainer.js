@@ -1,4 +1,4 @@
-describe("Caliber Settings tests", function(){
+describe("Trainer Settings tests", function(){
     it("should go to caliber website", function(){
         browser.ignoreSynchronization = true;
         browser.get("https://dev-caliber.revature.tech/");
