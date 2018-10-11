@@ -34,6 +34,15 @@ public class ManageBatchTest {
 
 		File f = new File("../webapps/TestingServer/WEB-INF/classes/chromedriver.exe");
 		System.setProperty("webdriver.chrome.driver", f.getAbsolutePath());
+		props = new Properties();
+		try {
+			FileInputStream in = new FileInputStream("../webapps/TestingServer/WEB-INF/classes/info.properties");
+			props.load(in);
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		driver = new ChromeDriver();
 		driver.get(props.getProperty("url"));
 		LoginPage lp = new LoginPage(driver);
@@ -46,15 +55,7 @@ public class ManageBatchTest {
 		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("/html/body/div/ui-view/nav/div/ul[2]/li[2]/a")));
 		navBar.getBatchLink().click();
 
-		props = new Properties();
-		try {
-			FileInputStream in = new FileInputStream("../webapps/TestingServer/WEB-INF/classes/info.properties");
-			props.load(in);
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		
 
 		// wait until any element is loaded to begin testing
 		wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("li[data-target='#createBatchModal']")));
