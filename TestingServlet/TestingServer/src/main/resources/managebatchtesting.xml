@@ -1,5 +1,5 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="ManageBatchPage" verbose="2">
+<suite name="ManageBatchTest" verbose="2">
 
 <listeners>
 <listener class-name="listeners.GenericTestListener" />
@@ -8,9 +8,9 @@
 
 
 
-<test name="Manage Batch Page">
+<test name="Manage Batch Test">
 <classes>
-<class name="tests.ManageBatchPage" ></class>
+<class name="tests.ManageBatchTest" ></class>
 </classes>
 </test>
 
