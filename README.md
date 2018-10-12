@@ -8,8 +8,8 @@ Page Models                     | author
 ________________________________|__________________
 - [x] Navigation Bar            | Seth
 - [x] Home Page                 | Ian
-- [ ] Manage Batch Page         | Christian
-- [ ] Access Batch Page         | 
+- [x] Manage Batch Page         | Christian
+- [x] Access Batch Page         | Ian
 - [x] Quality Audit Page        | Seth
 - [ ] Panel Page                |
 - [ ] Reports Page              |
@@ -68,6 +68,20 @@ ________________________________|__________________
 * for each option in Year dropdown assert that the first element has a start and end date that matches that option.
     * if not such element exists skip
 
-### ASSESS BATCH:
-* Click New Assessment
-    * 
+## Bugs Found
+* Everytime a week is added to a batch, the batch's start and end date increases by one day, however these changes are not visible on the front end until the page is refreshed. 
+* If you update the batch's date, upon saving, the start date and end date will increase by one day, this will not be visible until the page is refreshed.
+* At the Quality Audit page, clicking the Save button, despite confirmation with a green checkmark.  The feedback is gone after refreshing the page.
+* At the Manage Batch page:
+    * Trainees appear to be deleted after clicking delete, but reappear after refreshing the page
+    * After attempting to switch trainees, the changes are not saved.
+    * Import Batch button responds with HTTP Status code 500.
+    * If the final employee's (or first employee's) training status becomes dropped, the entire batch becomes inaccessible (appears deleted).
+* At Access Batch, 
+
+## Unexpected Side-Effects
+   if I add a week to a batch with no trainees, it will appear but dissappear on refresh.
+   Then add an accessment to a week when the batch has no trainees, the assessment will not show up in the week you have selected
+   When you add a trainee then click add week multiple times.  Once you get to the week you added that assessment, that assessment will appear.
+   Any weeks created without a trainee will disappear on refresh.
+   The newest week associated with a trainee as well as the weeks before will remain on the page after the trainee is deleted.
