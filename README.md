@@ -5,7 +5,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 # Development Roadmap
 ## Page Object Models
 Page Models                     | author   
-________________________________|__________________
+|--------------------------------|----------|
 - [x] Navigation Bar            | Seth
 - [x] Home Page                 | Ian
 - [x] Manage Batch Page         | Christian
