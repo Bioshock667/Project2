@@ -1,5 +1,5 @@
-# Project2
-
+# Description
+The purpose was to design a web-based application that runs Protractor and TestNG based end-to-end tests.  These Selenium-based tests will target Revature's Caliber website for testing.  A user should be able to issue a command to run the tests and see the resulting report.
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.2.2.
 
 # Development Roadmap
